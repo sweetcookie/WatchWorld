@@ -16,6 +16,19 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/`watch-world` /*!40100 DEFAULT CHARACTER
 
 USE `watch-world`;
 
+/*Table structure for table `activity` */
+
+DROP TABLE IF EXISTS `activity`;
+
+CREATE TABLE `activity` (
+  `ActivityPicturePath` varchar(45) collate utf8_czech_ci default NULL,
+  `StoreID` int(11) default NULL,
+  KEY `FK_activity` (`StoreID`),
+  CONSTRAINT `FK_activity` FOREIGN KEY (`StoreID`) REFERENCES `store_info` (`StoreID`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci CHECKSUM=1 DELAY_KEY_WRITE=1 ROW_FORMAT=DYNAMIC;
+
+/*Data for the table `activity` */
+
 /*Table structure for table `admin_info` */
 
 DROP TABLE IF EXISTS `admin_info`;
@@ -28,13 +41,28 @@ CREATE TABLE `admin_info` (
 
 /*Data for the table `admin_info` */
 
+/*Table structure for table `goods_display` */
+
+DROP TABLE IF EXISTS `goods_display`;
+
+CREATE TABLE `goods_display` (
+  `GoodsID` int(11) default NULL,
+  `Brand` varchar(15) collate utf8_czech_ci default NULL,
+  `Time` time default NULL,
+  KEY `FK_goods_display` (`GoodsID`),
+  CONSTRAINT `FK_goods_display` FOREIGN KEY (`GoodsID`) REFERENCES `goods_info` (`GoodsID`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci CHECKSUM=1 DELAY_KEY_WRITE=1 ROW_FORMAT=DYNAMIC;
+
+/*Data for the table `goods_display` */
+
 /*Table structure for table `goods_info` */
 
 DROP TABLE IF EXISTS `goods_info`;
 
 CREATE TABLE `goods_info` (
-  `GoodsID` varchar(15) collate utf8_czech_ci NOT NULL,
+  `GoodsID` int(15) NOT NULL auto_increment,
   `GoodsName` varchar(15) collate utf8_czech_ci default NULL,
+  `GoodsPicturePath` varchar(45) collate utf8_czech_ci default NULL,
   `Price` float default NULL,
   `Brand` varchar(15) collate utf8_czech_ci default NULL,
   `MovementStyle` varchar(15) collate utf8_czech_ci default NULL,
@@ -46,6 +74,7 @@ CREATE TABLE `goods_info` (
   `Model` varchar(15) collate utf8_czech_ci default NULL,
   `Number` int(11) default NULL,
   `StoreID` int(11) default NULL,
+  `SalesVolumes` int(11) default NULL,
   PRIMARY KEY  (`GoodsID`),
   KEY `FK_goods_info` (`StoreID`),
   CONSTRAINT `FK_goods_info` FOREIGN KEY (`StoreID`) REFERENCES `store_info` (`StoreID`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -85,6 +114,7 @@ CREATE TABLE `order_goods` (
   `Model` varchar(15) collate utf8_czech_ci default NULL,
   `BuyAmount` int(11) default NULL,
   `Staus` varchar(15) collate utf8_czech_ci default NULL,
+  `GoodsPicturePath` varchar(45) collate utf8_czech_ci default NULL,
   KEY `FK_order_goods` (`OrderID`),
   CONSTRAINT `FK_order_goods` FOREIGN KEY (`OrderID`) REFERENCES `order_info` (`OrderID`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci CHECKSUM=1 DELAY_KEY_WRITE=1 ROW_FORMAT=DYNAMIC;
@@ -150,7 +180,7 @@ CREATE TABLE `store_info` (
 
 /*Data for the table `store_info` */
 
-insert  into `store_info`(`StoreID`,`Pwd`) values (8881,'123'),(8882,'123'),(8883,'123'),(8884,'123'),(8885,'123');
+insert  into `store_info`(`StoreID`,`Pwd`) values (1,''),(8881,'123'),(8882,'123'),(8883,'123'),(8884,'123'),(8885,'123');
 
 /*Table structure for table `user_data` */
 

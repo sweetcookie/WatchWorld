@@ -9,7 +9,7 @@ public class DBConnection
 	private Connection conn = null;
 	private static final String DRIVERNAME = "com.mysql.jdbc.Driver";
 	private static final String DBURL = 
-			"jdbc:mysql://localhost:3306/jobdb?autoReconnection=true&useSSL=false";
+			"jdbc:mysql://localhost:3306/watchworld?autoReconnection=true&useSSL=false";
 	private static final String DBUSER = "root";
 	private static final String DBPWD = "";
 	

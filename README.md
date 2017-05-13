@@ -1,14 +1,10 @@
 # WatchWorld
 
-## 环境配置
+## 鐜閰嶇疆
 
-* IDE：MyEclipse 10 以上
-
-* 数据库：mysql 5.x.x
-
-* 浏览器：firefox
-
-* 服务器：tomcat 7.0
-
-* 数据库账号：root  密码为空
-* 数据库名称：watchworld
+* IDE锛歁yEclipse 10 浠ヤ笂
+* 鏁版嵁搴擄細mysql 5.x.x
+* 娴忚鍣細firefox
+* 鏈嶅姟鍣細tomcat 7.0
+* 鏁版嵁搴撹处鍙凤細root  瀵嗙爜涓虹┖
+* 鏁版嵁搴撳悕绉帮細watch-world

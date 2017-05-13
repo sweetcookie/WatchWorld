@@ -6,6 +6,10 @@
 	<link rel="stylesheet" type="text/css" href="styles.css">
   </head>
   <body>
-  	
+  	<div id="header">
+  		
+  	</div>
+  	<div id="container"></div>
+  	<div id="footer"></div>
   </body>
 </html>

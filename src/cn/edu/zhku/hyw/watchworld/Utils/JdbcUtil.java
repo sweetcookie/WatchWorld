@@ -1,4 +1,4 @@
-package cn.edu.zhku.hyw.watchworld.Utils;
+ï»¿package cn.edu.zhku.hyw.watchworld.Utils;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,7 +8,7 @@ import java.sql.Statement;
 
 public class JdbcUtil {
 	/**
-	 * ³éÈ¡»ñÈ¡Á¬½Ó¶ÔÏóµÄ·½·¨
+	 * æŠ½å–è·å–è¿æ¥å¯¹è±¡çš„æ–¹æ³•
 	 */
 
 	private static final String DRIVERNAME = "com.mysql.jdbc.Driver";
@@ -29,7 +29,7 @@ public class JdbcUtil {
 		return null;
 	}
 	/**
-	 * ÊÍ·Å×ÊÔ´µÄ·½·¨
+	 * é‡Šæ”¾èµ„æºçš„æ–¹æ³•
 	 */
 	public static void close(Connection conn,Statement stmt){
 		if(stmt!=null){

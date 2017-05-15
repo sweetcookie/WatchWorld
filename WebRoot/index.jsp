@@ -4,6 +4,8 @@
   <head>
     <title>首页-WatchWorld</title>
 	<link rel="stylesheet" type="text/css" href="customer/CSS/index.css">
+	<script type="text/javascript" src="customer/JS/jquery-3.2.0.min.js"></script>
+	<script type="text/javascript" src="customer/JS/index.js"></script>
   </head>
   <body>
   	<div id="header">
@@ -43,15 +45,19 @@
   	</div>
   	<div id="container">
   		<div id="logoSearcherContainer">
-  			<div id="logo">
+  			<div id="logoContainer">
   				<img src="customer/IMG/logo.png" />
   			</div>
-  			<div id="searcher">
-  				<form action="customer/searchResult">
-  					<input type="text" name="keyword" id="inputBox"/>
-  					<input type="submit" />
-  				</form>
+  			<div id="searcherContainer">
+  				<div id="searcher">
+	  				<form action="customer/searchResult">
+	  					<input type="text" name="keyword" id="inputBox"/>
+	  					<input type="submit" value="搜索" id="submitBtn"/>
+	  				</form>
+  				</div>
   			</div>
+  		</div>
+  		<div id="activityContainer">
   		</div>
   	</div>
   	<div id="footer"></div>

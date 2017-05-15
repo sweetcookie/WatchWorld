@@ -23,6 +23,7 @@ body
 	padding-bottom: 0px;
 	line-height: 30px;
 	color: #646464;
+	font-size: 14px;
 }
 
 .headerFlag a:link, .headerFlag a:visited
@@ -48,7 +49,7 @@ body
 	height: 100px;
 }
 
-#logo, #logo img
+#logoContainer, #logoContainer img
 {
 	padding: 0px;
 	width: 191px;
@@ -56,18 +57,53 @@ body
 	float: left;
 }
 
-#searcher
+#searcherContainer
 {
 	width: auto;
 	float: left;
+	height: 92px;
+}
+
+#searcher
+{
+	position: relative;
+	top: 50%;
+	margin-top: -20px;
+	left: 230px;
 }
 
 #searcher form
 {
-	margin: auto;
+	margin-bottom: 0px;
 }
 
 #searcher #inputBox
 {
 	width: 400px;
+	border: 2px solid #FF0000;
+}
+
+#submitBtn
+{
+	background-color: #FF0000;
+	color: #FFFFFF;
+	border: 0px;
+	width: 150px;
+	margin-left: 0px;
+	cursor: pointer;
+	font-weight: bold;
+}
+
+#inputBox, #submitBtn
+{
+	font-size: 20px;
+	height: 40px;
+	margin: 0px;
+}
+
+#activityContainer, #activityContainer img
+{
+	width: 100%;
+	height: 430px;
+	width: 0px;
 }

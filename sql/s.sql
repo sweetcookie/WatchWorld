@@ -82,6 +82,8 @@ CREATE TABLE `goods_info` (
 
 /*Data for the table `goods_info` */
 
+insert  into `goods_info`(`GoodsID`,`GoodsName`,`GoodsPicturePath`,`Price`,`Brand`,`MovementStyle`,`Color`,`Material`,`Shape`,`Waterproof`,`Style`,`Model`,`Number`,`StoreID`,`SalesVolumes`) values (1,'手表','url',10000,'卡西欧','机芯类型','红色','材质','形状','防水深度','风格','型号',100,8888,0),(2,'手表','url',999,'劳力士','机芯类型','颜色','材质','形状','防水深度','风格','型号',100,8888,0);
+
 /*Table structure for table `goods_review` */
 
 DROP TABLE IF EXISTS `goods_review`;
@@ -152,22 +154,6 @@ CREATE TABLE `return` (
 
 /*Data for the table `return` */
 
-/*Table structure for table `store_data` */
-
-DROP TABLE IF EXISTS `store_data`;
-
-CREATE TABLE `store_data` (
-  `StoreID` int(11) NOT NULL,
-  `StoreName` varchar(15) collate utf8_czech_ci default NULL,
-  `Owner` varchar(15) collate utf8_czech_ci default NULL,
-  `RegTime` varchar(45) collate utf8_czech_ci default NULL,
-  `Telephone` varchar(15) collate utf8_czech_ci default NULL,
-  PRIMARY KEY  (`StoreID`),
-  CONSTRAINT `FK_store_data` FOREIGN KEY (`StoreID`) REFERENCES `store_info` (`StoreID`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci CHECKSUM=1 DELAY_KEY_WRITE=1 ROW_FORMAT=DYNAMIC;
-
-/*Data for the table `store_data` */
-
 /*Table structure for table `store_info` */
 
 DROP TABLE IF EXISTS `store_info`;
@@ -175,12 +161,16 @@ DROP TABLE IF EXISTS `store_info`;
 CREATE TABLE `store_info` (
   `StoreID` int(11) NOT NULL auto_increment,
   `Pwd` varchar(15) collate utf8_czech_ci NOT NULL default '',
+  `StoreName` varchar(15) collate utf8_czech_ci default NULL,
+  `Owner` varchar(15) collate utf8_czech_ci default NULL,
+  `RegTime` varchar(45) collate utf8_czech_ci default NULL,
+  `Telephone` varchar(15) collate utf8_czech_ci default NULL,
   PRIMARY KEY  (`StoreID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci MIN_ROWS=8888 CHECKSUM=1 DELAY_KEY_WRITE=1 ROW_FORMAT=DYNAMIC;
 
 /*Data for the table `store_info` */
 
-insert  into `store_info`(`StoreID`,`Pwd`) values (1,''),(8881,'123'),(8882,'123'),(8883,'123'),(8884,'123'),(8885,'123');
+insert  into `store_info`(`StoreID`,`Pwd`,`StoreName`,`Owner`,`RegTime`,`Telephone`) values (8888,'王',NULL,NULL,NULL,NULL);
 
 /*Table structure for table `user_data` */
 

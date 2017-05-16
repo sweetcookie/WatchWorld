@@ -37,6 +37,7 @@ function loadActivityImg()
 	});
 }
 
+//活动图片自动循环切换
 function picSwitch()
 {
 	$("#activity"+idx).fadeOut(500);
@@ -50,16 +51,19 @@ function picSwitch()
 	$("[index="+idx+"]").css("background-color", "#FF0000");
 }
 
+//启动图片轮播
 function picCarousel()
 {
 	interval=window.setInterval("picSwitch()", 3000);
 }
 
+//停止图片轮播
 function stopCarousel()
 {
 	window.clearInterval(interval);
 }
 
+//当选择图片下的标签索引时，停止计时器，并切换到与索引相应的图片
 function selectActivity(i)
 {
 	stopCarousel();

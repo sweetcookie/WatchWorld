@@ -61,6 +61,15 @@
   		</div>
 		<div id="picIndexContainer">
 		</div>
+		<div id="displayContainer">
+			<h2>热销产品</h2><hr>
+			<div class="brandGoods">
+				<div class="brand">
+					<h3>欧米伽</h3>
+				</div>
+				<div class="goods"></div>
+			</div>
+		</div>
   	</div>
   	<div id="footer"></div>
   </body>

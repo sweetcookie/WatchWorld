@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,6 +15,7 @@ import net.sf.json.JSONArray;
 import cn.edu.zhku.hyw.watchworld.customer.JavaBean.Activity;
 import cn.edu.zhku.hyw.watchworld.customer.Service.IndexService;
 
+@WebServlet(name="FindAllActivityServlet",urlPatterns="/index/activity")
 public class FindAllActivityServlet extends HttpServlet
 {
 
@@ -47,7 +49,7 @@ public class FindAllActivityServlet extends HttpServlet
 			throws ServletException, IOException
 	{
 		List<Activity> dataList = null;
-		IndexService indexService = new IndexService();
+		IndexService indexService = IndexService.getInstance();
 		dataList = indexService.findAllActivity();
 		JSONArray jsonArray = new JSONArray();
 		jsonArray.addAll(dataList);

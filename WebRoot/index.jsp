@@ -59,6 +59,8 @@
   		</div>
   		<div id="activityContainer">
   		</div>
+		<div id="picIndexContainer">
+		</div>
   	</div>
   	<div id="footer"></div>
   </body>

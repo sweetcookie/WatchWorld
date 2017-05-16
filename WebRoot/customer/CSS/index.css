@@ -105,5 +105,28 @@ body
 {
 	width: 100%;
 	height: 430px;
-	width: 0px;
+}
+
+#activityContainer img
+{
+	position: absolute;
+}
+
+#picIndexContainer
+{
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100px;
+	height: 20px;
+}
+
+#picIndexContainer .picIndex
+{
+	float: left;
+	margin: 0px 5px 0px 5px;
+	background-color: #646464;
+	width: 20px;
+	height: 20px;
+	border-radius: 10px;
 }

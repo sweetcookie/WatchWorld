@@ -1,6 +1,7 @@
 package cn.edu.zhku.hyw.watchworld.customer.Ctrl;
 
 import java.io.IOException;
+
 import java.io.PrintWriter;
 import java.util.List;
 
@@ -12,11 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.sf.json.JSONArray;
 
-import cn.edu.zhku.hyw.watchworld.customer.JavaBean.Activity;
 import cn.edu.zhku.hyw.watchworld.customer.Service.IndexService;
 
-@WebServlet(name="FindAllActivityServlet",urlPatterns="/index/activity")
-public class FindAllActivityServlet extends HttpServlet
+@WebServlet(name="FindAllBrandServlet",urlPatterns="/index/findAllBrand")
+public class FindAllBrandServlet extends HttpServlet
 {
 
 	/**
@@ -36,7 +36,7 @@ public class FindAllActivityServlet extends HttpServlet
 	}
 
 	/**
-	 * 向首页前台传递活动信息. <br>
+	 * 向首页前台传递商标名称. <br>
 	 *
 	 * This method is called when a form has its tag value method equals to post.
 	 * 
@@ -48,12 +48,11 @@ public class FindAllActivityServlet extends HttpServlet
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException
 	{
-		List<Activity> dataList = null;
-		IndexService indexService = IndexService.getInstance();
-		dataList = indexService.findAllActivity();
-		JSONArray jsonArray = new JSONArray();
-		jsonArray.addAll(dataList);
+		IndexService service = IndexService.getInstance();
+		List<String> dataList = service.findAllBrand();
+		JSONArray json = new JSONArray();
+		json.addAll(dataList);
 		PrintWriter out = response.getWriter();
-		out.print(jsonArray);
+		out.print(json);
 	}
 }

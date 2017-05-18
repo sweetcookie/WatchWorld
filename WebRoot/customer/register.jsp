@@ -3,13 +3,18 @@
 <html>
   <head>
     <title>顾客注册</title>
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
-
+	<link rel="stylesheet" type="text/css" href="CSS/register.css">
+	<script type="text/javascript" src="JS/jquery-3.2.0.min.js"></script>
+	<script type="text/javascript" src="JS/register.js"></script>
   </head>
   
   <body>
-    This is my JSP page. <br>
+   	<div id="mainContainer">
+	 	<img id="logo" src="IMG/logo.png">
+   		<h1>顾客注册</h1><hr>
+   		<div id="contentContainer">
+   			
+   		</div>
+   	</div>
   </body>
 </html>

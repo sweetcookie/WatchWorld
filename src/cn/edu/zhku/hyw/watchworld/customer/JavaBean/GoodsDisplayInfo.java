@@ -8,9 +8,19 @@ package cn.edu.zhku.hyw.watchworld.customer.JavaBean;
 
 public class GoodsDisplayInfo
 {
+	private int GoodsID;
 	private String GoodsName;
 	private String GoodsPicturePath;
 	private float Price;
+	
+	public int getGoodsID()
+	{
+		return GoodsID;
+	}
+	public void setGoodsID(int goodsID)
+	{
+		GoodsID = goodsID;
+	}
 	public String getGoodsName()
 	{
 		return GoodsName;

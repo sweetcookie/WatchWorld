@@ -1,4 +1,4 @@
-﻿package cn.edu.zhku.hyw.watchworld.Utils;
+package cn.edu.zhku.hyw.watchworld.Utils;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -37,7 +37,7 @@ public class JdbcUtil {
 				stmt.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
-				throw new RuntimeException(e);
+				
 			}
 		}
 		if(conn!=null){
@@ -45,7 +45,7 @@ public class JdbcUtil {
 				conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
-				throw new RuntimeException(e);
+				
 			}
 		}
 	}
@@ -55,14 +55,14 @@ public class JdbcUtil {
 				rs.close();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
-				throw new RuntimeException(e1);
+				
 			}
 		if(stmt!=null){
 			try {
 				stmt.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
-				throw new RuntimeException(e);
+				
 			}
 		}
 		if(conn!=null){
@@ -70,9 +70,8 @@ public class JdbcUtil {
 				conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
-				throw new RuntimeException(e);
+				
 			}
 		}
 	}
 }
-

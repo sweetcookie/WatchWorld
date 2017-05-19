@@ -195,7 +195,7 @@ function checkOwner(Owner){
              success:function(data){  //请求成功后的回调函数 data为json格式 
                 var flag = data.flag;
                 if(flag == "true"){
-                   $("#OwnerCheck").html("已存在");
+                   $("#OwnerCheck").html("已被使用");
                 }else{
                 	 $("#OwnerCheck").html("");
                 	 retn = 1;

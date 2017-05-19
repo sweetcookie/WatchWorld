@@ -9,7 +9,7 @@ import cn.edu.zhku.hyw.watchworld.store.JavaBean.GoodsInfo;
  * @author Administrator
  *
  */
-public interface GoodsDao {
+public interface GoodsInfoDao {
 	
 	public void addGoods(GoodsInfo GoodsInfo);//增加商品
 	public void deleteGoods(int GoodsID);//商品下架

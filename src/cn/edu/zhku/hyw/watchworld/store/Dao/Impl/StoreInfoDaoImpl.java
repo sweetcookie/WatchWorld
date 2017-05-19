@@ -6,10 +6,10 @@ import java.sql.ResultSet;
 import java.util.List;
 
 import cn.edu.zhku.hyw.watchworld.Utils.JdbcUtil;
-import cn.edu.zhku.hyw.watchworld.store.Dao.StoreDao;
+import cn.edu.zhku.hyw.watchworld.store.Dao.StoreInfoDao;
 import cn.edu.zhku.hyw.watchworld.store.JavaBean.StoreInfo;
 
-public class StoreDaoImpl implements StoreDao {
+public class StoreInfoDaoImpl implements StoreInfoDao {
 
 	@Override
 	public void  addStore(StoreInfo storeInfo) {
@@ -176,6 +176,71 @@ public class StoreDaoImpl implements StoreDao {
 			
 			if (rs.next()) {
 				return true;
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		} finally {
+			JdbcUtil.close(conn, stmt, rs);
+		}
+		return false;
+	}
+
+	@Override
+	public boolean checkOwner(String owner) {
+		// TODO Auto-generated method stub
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		try { // 获取连接
+			conn = JdbcUtil.getConn();
+			String sql = "SELECT * FROM store_info where Owner=? ";
+
+			// 创建PreparedStatement
+			stmt = conn.prepareStatement(sql);
+
+			stmt.setString(1, owner);
+
+			// 执行
+			rs = stmt.executeQuery();
+			
+			if (rs.next()) {
+				return true;
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		} finally {
+			JdbcUtil.close(conn, stmt, rs);
+		}
+		return false;
+	}
+
+	@Override
+	public boolean checkLoginNameAndPwd(String loginName, String pwd) {
+		// TODO Auto-generated method stub
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		try { // 获取连接
+			conn = JdbcUtil.getConn();
+			String sql = "SELECT Pwd FROM store_info where LoginName=? ";
+
+			// 创建PreparedStatement
+			stmt = conn.prepareStatement(sql);
+
+			stmt.setString(1, loginName);
+
+			// 执行
+			rs = stmt.executeQuery();
+			
+			if (rs.next()) {
+				String pwd2=rs.getString(1);
+				if(pwd.equals(pwd2)){
+				return true;
+				}
 			}
 
 		} catch (Exception e) {

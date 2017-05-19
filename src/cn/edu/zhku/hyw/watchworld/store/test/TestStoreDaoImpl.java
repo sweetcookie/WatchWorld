@@ -7,8 +7,11 @@ import java.util.Date;
 import org.junit.Before;
 import org.junit.Test;
 
-import cn.edu.zhku.hyw.watchworld.store.Dao.StoreDao;
-import cn.edu.zhku.hyw.watchworld.store.Dao.Impl.StoreDaoImpl;
+
+import cn.edu.zhku.hyw.watchworld.store.Dao.StoreInfoDao;
+import cn.edu.zhku.hyw.watchworld.store.Dao.Impl.StoreInfoDaoImpl;
+
+
 import cn.edu.zhku.hyw.watchworld.store.JavaBean.StoreInfo;
 
 public class TestStoreDaoImpl {
@@ -16,11 +19,13 @@ public class TestStoreDaoImpl {
 	/**
 	 * 初始化对象实例
 	 */
-	StoreDao storeDao=null;
+
+	StoreInfoDao storeDao=null;
 	boolean flag;
 	@Before
 	public void init(){
-		 storeDao = new StoreDaoImpl();
+		 storeDao = new StoreInfoDaoImpl();
+
 	}
 	
 	@Test
@@ -70,4 +75,11 @@ public class TestStoreDaoImpl {
 		flag=storeDao.checkTelephone("188888");
 		System.out.println(flag);
 	}
+
+	@Test
+	public void loginStore(){
+		flag=storeDao.checkLoginNameAndPwd("哈哈", "22");
+		System.out.println(flag);
+	}
+
 }

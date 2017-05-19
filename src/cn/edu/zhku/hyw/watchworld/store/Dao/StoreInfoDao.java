@@ -9,8 +9,8 @@ import cn.edu.zhku.hyw.watchworld.store.JavaBean.StoreInfo;
  * @author Administrator
  *
  */
-public interface StoreDao {
-	public void addStore(StoreInfo storeInfo);//注册用户,返回ID
+public interface StoreInfoDao {
+	public void addStore(StoreInfo storeInfo);//注册用户
 	public void deleteStore(int StoreID);//删除店铺
 	public void updateStore(StoreInfo storeInfo);//修改店铺
 	public List<StoreInfo>  findStore();//查找所有店铺
@@ -18,4 +18,6 @@ public interface StoreDao {
 	public boolean checkLoginName(String loginName);//判断店铺登录名
 	public boolean checkStoreName(String storeName);//判断店铺名
 	public boolean checkTelephone(String telephone);//判断号码
+	public boolean checkOwner(String owner); //判断店主
+	public boolean checkLoginNameAndPwd(String loginName,String pwd);
 }

@@ -1,6 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
-  <display-name></display-name>
+
+  <servlet>
+    <servlet-name>CheckLoginNameServlet</servlet-name>
+    <servlet-class>cn.edu.zhku.hyw.watchworld.store.Ctrl.CheckLoginNameServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CheckStoreNameServlet</servlet-name>
+    <servlet-class>cn.edu.zhku.hyw.watchworld.store.Ctrl.CheckStoreNameServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CheckTelephoneServlet</servlet-name>
+    <servlet-class>cn.edu.zhku.hyw.watchworld.store.Ctrl.CheckTelephoneServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CheckOwnerServlet</servlet-name>
+    <servlet-class>cn.edu.zhku.hyw.watchworld.store.Ctrl.CheckOwnerServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>AddStoreServlet</servlet-name>
+    <servlet-class>cn.edu.zhku.hyw.watchworld.store.Ctrl.AddStoreServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>LoginStoreServlet</servlet-name>
+    <servlet-class>cn.edu.zhku.hyw.watchworld.store.Ctrl.LoginStoreServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CheckLoginNameServlet</servlet-name>
+    <url-pattern>/servlet/CheckLoginNameServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CheckStoreNameServlet</servlet-name>
+    <url-pattern>/servlet/CheckStoreNameServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CheckTelephoneServlet</servlet-name>
+    <url-pattern>/servlet/CheckTelephoneServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CheckOwnerServlet</servlet-name>
+    <url-pattern>/servlet/CheckOwnerServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddStoreServlet</servlet-name>
+    <url-pattern>/servlet/AddStoreServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LoginStoreServlet</servlet-name>
+    <url-pattern>/servlet/LoginStoreServlet</url-pattern>
+  </servlet-mapping>
+
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>

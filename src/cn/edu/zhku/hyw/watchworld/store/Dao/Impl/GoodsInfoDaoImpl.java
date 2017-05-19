@@ -6,10 +6,10 @@ import java.sql.ResultSet;
 import java.util.List;
 
 import cn.edu.zhku.hyw.watchworld.Utils.JdbcUtil;
-import cn.edu.zhku.hyw.watchworld.store.Dao.GoodsDao;
+import cn.edu.zhku.hyw.watchworld.store.Dao.GoodsInfoDao;
 import cn.edu.zhku.hyw.watchworld.store.JavaBean.GoodsInfo;
 
-public class GoodsDaoImpl implements GoodsDao {
+public class GoodsInfoDaoImpl implements GoodsInfoDao {
 
 	@Override
 	public void addGoods(GoodsInfo goodsInfo) {

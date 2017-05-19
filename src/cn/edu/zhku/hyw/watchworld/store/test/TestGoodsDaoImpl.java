@@ -3,18 +3,22 @@ package cn.edu.zhku.hyw.watchworld.store.test;
 import org.junit.Before;
 import org.junit.Test;
 
-import cn.edu.zhku.hyw.watchworld.store.Dao.GoodsDao;
-import cn.edu.zhku.hyw.watchworld.store.Dao.Impl.GoodsDaoImpl;
+
+import cn.edu.zhku.hyw.watchworld.store.Dao.GoodsInfoDao;
+import cn.edu.zhku.hyw.watchworld.store.Dao.Impl.GoodsInfoDaoImpl;
+
 import cn.edu.zhku.hyw.watchworld.store.JavaBean.GoodsInfo;
 
 public class TestGoodsDaoImpl {
 	/**
 	 * 初始化对象实例
 	 */
-	GoodsDao goodsDao=null;
+
+	GoodsInfoDao goodsDao=null;
 	@Before
 	public void init(){
-		goodsDao = new GoodsDaoImpl();
+		goodsDao = new GoodsInfoDaoImpl();
+
 	}
 	@Test
 	public void addGoods(){

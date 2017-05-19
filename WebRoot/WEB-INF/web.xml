@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
-  <servlet>
-    <servlet-name>FindAllActivityServlet</servlet-name>
-    <servlet-class>cn.edu.zhku.hyw.watchworld.customer.Ctrl.FindAllActivityServlet</servlet-class>
-  </servlet>
+
   <servlet>
     <servlet-name>CheckLoginNameServlet</servlet-name>
     <servlet-class>cn.edu.zhku.hyw.watchworld.store.Ctrl.CheckLoginNameServlet</servlet-class>
@@ -28,16 +25,6 @@
     <servlet-name>LoginStoreServlet</servlet-name>
     <servlet-class>cn.edu.zhku.hyw.watchworld.store.Ctrl.LoginStoreServlet</servlet-class>
   </servlet>
-
-
-
-
-
-
-  <servlet-mapping>
-    <servlet-name>FindAllActivityServlet</servlet-name>
-    <url-pattern>/index/activity</url-pattern>
-  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>CheckLoginNameServlet</servlet-name>
     <url-pattern>/servlet/CheckLoginNameServlet</url-pattern>

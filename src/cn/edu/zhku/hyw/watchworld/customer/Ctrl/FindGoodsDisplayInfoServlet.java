@@ -12,11 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.sf.json.JSONArray;
 
-import cn.edu.zhku.hyw.watchworld.customer.JavaBean.Activity;
+import cn.edu.zhku.hyw.watchworld.customer.JavaBean.GoodsDisplayInfo;
 import cn.edu.zhku.hyw.watchworld.customer.Service.IndexService;
 
-@WebServlet(name="FindAllActivityServlet",urlPatterns="/index/activity")
-public class FindAllActivityServlet extends HttpServlet
+@WebServlet(name="FindGoodsDisplayInfoServlet",urlPatterns="/index/goodsDisplayInfo")
+public class FindGoodsDisplayInfoServlet extends HttpServlet
 {
 
 	/**
@@ -48,12 +48,12 @@ public class FindAllActivityServlet extends HttpServlet
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException
 	{
-		List<Activity> dataList = null;
-		IndexService indexService = IndexService.getInstance();
-		dataList = indexService.findAllActivity();
-		JSONArray jsonArray = new JSONArray();
-		jsonArray.addAll(dataList);
+		String brand = request.getParameter("brand");
+		IndexService service = IndexService.getInstance();
+		List<GoodsDisplayInfo> dataList = service.findGoodsDisplayInfoByBrand(brand);
+		JSONArray json = new JSONArray();
+		json.addAll(dataList);
 		PrintWriter out = response.getWriter();
-		out.print(jsonArray);
+		out.print(json);
 	}
 }

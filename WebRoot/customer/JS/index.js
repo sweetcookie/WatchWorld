@@ -1,3 +1,4 @@
+var hostpath=location.protocol+"//"+location.host+"/WatchWorld/"; //获取url根目录
 $(document).ready(function(){
 	loadActivityImg(); //加载活动图片
 	picCarousel(); //启动图片轮播
@@ -12,7 +13,7 @@ function loadActivityImg()
 {
 	$.ajax({
 		type: "post",
-		url: "index/activity",
+		url: hostpath+"index/activity",
 		dataType: "json",
 		success: function(json)
 		{
@@ -83,7 +84,7 @@ function loadBrand()
 {
 	$.ajax({
 		type: "post",
-		url: "index/findAllBrand",
+		url: hostpath+"index/findAllBrand",
 		dataType: "json",
 		success: function(json)
 		{			
@@ -106,7 +107,7 @@ function loadGoods(brand)
 {
 	$.ajax({
 		type: "post",
-		url: "index/goodsDisplayInfo?brand=" + brand,
+		url: hostpath+"index/goodsDisplayInfo?brand=" + brand,
 		dataType: "json",
 		data: brand,
 		success: function(json)

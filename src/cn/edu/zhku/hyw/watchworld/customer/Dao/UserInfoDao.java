@@ -30,6 +30,7 @@ public class UserInfoDao
 			rs = pstmt.executeQuery();
 			while(rs.next())
 			{
+				info = new UserInfo();
 				info.setUserID(rs.getString("UserID"));
 				info.setPwd(rs.getString("Pwd"));
 			}
@@ -40,5 +41,32 @@ public class UserInfoDao
 		}
 		JdbcUtil.close(conn, pstmt, rs);
 		return info;
+	}
+	
+	/**
+	 * 向表user_info插入一条数据
+	 * @param info
+	 * @return
+	 */
+	public boolean doCreate(UserInfo info)
+	{
+		boolean flag = false; //插入成功与否的标志
+		String sql = "insert into user_info values (?,?)";
+		try
+		{
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, info.getUserID());
+			pstmt.setString(2, info.getPwd());
+			if(pstmt.executeUpdate() == 1)
+			{
+				flag = true;
+			}
+		} catch (SQLException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		JdbcUtil.close(conn, pstmt);
+		return flag;
 	}
 }

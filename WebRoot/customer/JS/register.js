@@ -74,9 +74,13 @@ function submitForm()
 		dataType: "json",
 		success: function(data)
 		{
-			if(data.status=="true")
+			if(data.status=="true" && data.saved=="true") //表单数据合法且已经保存到数据库中
 			{
 				window.location.href=hostpath+"customer/register/success";
+			}
+			else if(data.status=="true" && data.saved=="false")
+			{
+				alert("服务器发生错误，注册信息保存失败！");
 			}
 			else
 			{

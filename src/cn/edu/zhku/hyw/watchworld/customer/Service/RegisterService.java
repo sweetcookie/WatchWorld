@@ -5,8 +5,10 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import cn.edu.zhku.hyw.watchworld.customer.Dao.UserDataDao;
 import cn.edu.zhku.hyw.watchworld.customer.Dao.UserInfoDao;
 import cn.edu.zhku.hyw.watchworld.customer.JavaBean.RegisterForm;
+import cn.edu.zhku.hyw.watchworld.customer.JavaBean.UserData;
 import cn.edu.zhku.hyw.watchworld.customer.JavaBean.UserInfo;
 
 public class RegisterService
@@ -52,9 +54,18 @@ public class RegisterService
 		{
 			resultMap.put("status", "false");
 		}
-		else
+		else //数据有效，则将表单数据保存到数据库中
 		{
 			resultMap.put("status", "true");
+			boolean f = this.saveRegister(form);
+			if(f == true) //数据保存成功
+			{
+				resultMap.put("saved", "true");
+			}
+			else
+			{
+				resultMap.put("saved", "false");
+			}
 		}
 		
 		return resultMap;
@@ -178,5 +189,37 @@ public class RegisterService
 			}
 		}
 		return result;
+	}
+	
+	/**
+	 * 将提交的表单保存到数据库中
+	 * @param form
+	 * @return 是否保存成功
+	 */
+	public boolean saveRegister(RegisterForm form)	
+	{
+		boolean flag = true; //保存成功与否的标志
+		UserInfo userInfo = new UserInfo();
+		UserData userData = new UserData();
+		
+		userInfo.setUserID(form.getUserID());
+		userInfo.setPwd(form.getPassword1());
+		userData.setUserID(form.getUserID());
+		userData.setUserName(form.getUserName());
+		userData.setAge(form.getAge());
+		userData.setSex(form.getSex());
+		userData.setPortrait("");
+		userData.setAddress(form.getAddress());
+		userData.setTelephone(form.getTelephone());
+		
+		boolean f1 = (new UserInfoDao()).doCreate(userInfo);
+		boolean f2 = (new UserDataDao()).doCreate(userData);
+		
+		if(f1 == false || f2 == false)
+		{
+			flag = false;
+		}
+		
+		return flag;
 	}
 }

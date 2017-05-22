@@ -37,6 +37,12 @@ body
 	color: #DD2727;
 }
 
+#logout
+{
+	margin: 0px 10px 0px 5px;
+	cursor: pointer;
+}
+
 #container
 {
 	padding: 0px;

@@ -6,31 +6,11 @@ body
 	background-color: #FAFAFA;
 }
 
-#logo
+#title
 {
-	position: absolute;
-}
-
-#mainContainer
-{
-	width: 100%;
-	height: auto;
-	min-height: 600px;
-	margin: 20px auto 20px auto;
-	padding: 0px;
-	border-radius: 10px;
-}
-
-#mainContainer h1
-{
-	text-align: center;
-	margin: 0px;
-}
-
-#mainContainer h1, #mainContainer hr
-{
-	position: relative;
-	top: 50px;
+	font-size: 26px;
+	line-height: 40px;
+	margin: 10px auto 10px 10px;
 }
 
 #itemContainer
@@ -42,42 +22,33 @@ body
 	min-height: 300px;
 }
 
+.label
+{
+	text-align: right;
+	width: 130px;
+	float: left;
+}
+
 .dataItem
 {
-	width: 350px;
+	width: 630px;
 	height: auto;
 	min-height: 40px;
 	margin: 10px auto 0px auto;
 	padding: 0px;
 }
 
-.dataItem .label
-{
-	text-align: right;
-	width: 100px;
-	float: left;
-}
-
 .dataItem input
 {
 	float: left;
 	margin: 0px;
-	width: 250px;
+	width: 500px;
 }
 
-.dataItem .label, .dataItem input
+.label, .dataItem input
 {
 	margin: 0px 0px 3px 0px;
 	font-size: 18px;
-}
-
-.dataItem .errorLab
-{
-	position: relative;
-	left: 100px;
-	color: #DD2727;
-	font-size: 14px;
-	margin: 0px;
 }
 
 #btnContainer
@@ -86,7 +57,7 @@ body
 	margin: 10px auto;
 }
 
-#regBtn
+#saveBtn
 {
 	width: 280px;
 	height: 60px;

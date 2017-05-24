@@ -5,44 +5,6 @@ body
 	padding: 0px;
 }
 
-#header
-{
-	width: auto;
-	height: 30px;
-	background-color: #F2F2F2;
-	border-bottom: 1px solid #E5E5E5;
-}
-
-.headerFlag
-{
-	float: right;
-	margin-left: 10px;
-	margin-right: 10px;
-	height:30px;
-	padding-top: 0px;
-	padding-bottom: 0px;
-	line-height: 30px;
-	color: #646464;
-	font-size: 14px;
-}
-
-.headerFlag a:link, .headerFlag a:visited
-{
-	text-decoration: none;
-	color: #646464;
-}
-
-.headerFlag a:hover, .headerFlag a:active
-{
-	color: #DD2727;
-}
-
-#logout
-{
-	margin: 0px 10px 0px 5px;
-	cursor: pointer;
-}
-
 #container
 {
 	padding: 0px;

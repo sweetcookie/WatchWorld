@@ -126,15 +126,3 @@ function loadGoods(brand)
 		}
 	});
 }
-
-function logout()
-{
-	$.ajax({
-		type: "post",
-		url: hostpath+"customer/logout",
-		success: function(data)
-		{
-			location.reload();
-		}
-	});
-}

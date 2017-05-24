@@ -13,7 +13,7 @@
   
   <body>
    	<div id="mainContainer">
-	 	<a href="/WatchWorld/index.jsp"><img id="logo" src="IMG/logo.png"></a>
+	 	<a href="<%= path %>/index.jsp"><img id="logo" src="IMG/logo.png"></a>
    		<h1>顾客注册</h1><hr>
    		<div id="itemContainer">
    			<form id="regForm">
@@ -62,7 +62,9 @@
 		   			<input type="text" name="telephone"><br>
 		   			<p class="errorLab"></p>
 		   		</div>
-	   			<input type="button" value="注册" id="regBtn" onclick="submitForm()">
+	   			<div id="btnContainer">
+	   				<input type="button" value="立即注册" id="regBtn" onclick="submitForm()">
+	   			</div>
    			</form>
    		</div>
    	</div>

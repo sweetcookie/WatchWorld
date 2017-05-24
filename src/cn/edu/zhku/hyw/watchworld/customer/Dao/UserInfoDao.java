@@ -69,4 +69,32 @@ public class UserInfoDao
 		JdbcUtil.close(conn, pstmt);
 		return flag;
 	}
+	
+	/**
+	 * 更新账户密码
+	 * @param userID
+	 * @param password
+	 * @return
+	 */
+	public boolean updatePasswordByUserID(String userID, String password)
+	{
+		boolean flag = false; //插入成功与否的标志
+		String sql = "update user_info set Pwd=? where UserID=?";
+		try
+		{
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, password);
+			pstmt.setString(2, userID);
+			if(pstmt.executeUpdate() == 1)
+			{
+				flag = true;
+			}
+		} catch (SQLException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		JdbcUtil.close(conn, pstmt);
+		return flag;
+	}
 }

@@ -29,7 +29,7 @@ public class GoodsDisplayInfoDao
 	public List<GoodsDisplayInfo> findByBrand(String brand)
 	{
 		List<GoodsDisplayInfo> dataList = new ArrayList<GoodsDisplayInfo>();
-		String sql = "select GoodsName,GoodsPicturePath,Price " +
+		String sql = "select GoodsID,GoodsName,GoodsPicturePath,Price " +
 				"from goods_info " +
 				"where GoodsID in " +
 				"(select GoodsID from goods_display where Brand = ?)";
@@ -41,6 +41,7 @@ public class GoodsDisplayInfoDao
 			while(rs.next())
 			{
 				GoodsDisplayInfo data = new GoodsDisplayInfo();
+				data.setGoodsID(rs.getInt("GoodsID"));
 				data.setGoodsName(rs.getString("GoodsName"));
 				data.setGoodsPicturePath(rs.getString("GoodsPicturePath"));
 				data.setPrice(rs.getFloat("Price"));

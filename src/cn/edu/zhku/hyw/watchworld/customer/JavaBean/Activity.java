@@ -1,5 +1,10 @@
 package cn.edu.zhku.hyw.watchworld.customer.JavaBean;
 
+/**
+ * 此类为数据库表activity的映射
+ * @author 曾裕文
+ *
+ */
 public class Activity
 {
 	private String ActivityPicturePath;

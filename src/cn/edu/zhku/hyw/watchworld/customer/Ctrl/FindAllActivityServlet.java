@@ -36,7 +36,7 @@ public class FindAllActivityServlet extends HttpServlet
 	}
 
 	/**
-	 * The doPost method of the servlet. <br>
+	 * 向首页前台传递活动信息. <br>
 	 *
 	 * This method is called when a form has its tag value method equals to post.
 	 * 

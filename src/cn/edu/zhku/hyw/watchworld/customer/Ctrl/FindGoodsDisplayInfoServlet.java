@@ -36,7 +36,7 @@ public class FindGoodsDisplayInfoServlet extends HttpServlet
 	}
 
 	/**
-	 * The doPost method of the servlet. <br>
+	 * 向首页前台传递热销产品信息 <br>
 	 *
 	 * This method is called when a form has its tag value method equals to post.
 	 * 

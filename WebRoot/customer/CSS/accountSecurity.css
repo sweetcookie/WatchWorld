@@ -1,0 +1,82 @@
+@CHARSET "UTF-8";
+body
+{
+	padding: 0px;
+	margin: 0px;
+	background-color: #FAFAFA;
+}
+
+#title
+{
+	font-size: 26px;
+	line-height: 40px;
+	margin: 10px auto 10px 10px;
+}
+
+#itemContainer
+{
+	position: relative;
+	top: 60px;
+	width: 100%;
+	height: auto;
+	min-height: 300px;
+}
+
+.dataItem
+{
+	min-height: 40px;
+}
+
+.label
+{
+	text-align: right;
+	width: 100px;
+	float: left;
+}
+
+.dataItem
+{
+	width: 350px;
+	height: auto;
+	margin: 10px auto 0px auto;
+	padding: 0px;
+}
+
+.dataItem input
+{
+	float: left;
+	margin: 0px;
+	width: 250px;
+}
+
+.label, .dataItem input, #userID
+{
+	margin: 0px 0px 3px 0px;
+	font-size: 18px;
+}
+
+.dataItem .errorLab
+{
+	position: relative;
+	left: 100px;
+	color: #DD2727;
+	font-size: 14px;
+	margin: 0px;
+}
+
+#btnContainer
+{
+	width: 300px;
+	margin: 10px auto;
+}
+
+#saveBtn
+{
+	width: 280px;
+	height: 60px;
+	font-size: 30px;
+	background-color: #69B946;
+	border: 0px;
+	color: #FFFFFF;
+	margin: 5px auto 5px auto;
+}

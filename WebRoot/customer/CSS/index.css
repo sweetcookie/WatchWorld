@@ -5,38 +5,6 @@ body
 	padding: 0px;
 }
 
-#header
-{
-	width: auto;
-	height: 30px;
-	background-color: #F2F2F2;
-	border-bottom: 1px solid #E5E5E5;
-}
-
-.headerFlag
-{
-	float: right;
-	margin-left: 10px;
-	margin-right: 10px;
-	height:30px;
-	padding-top: 0px;
-	padding-bottom: 0px;
-	line-height: 30px;
-	color: #646464;
-	font-size: 14px;
-}
-
-.headerFlag a:link, .headerFlag a:visited
-{
-	text-decoration: none;
-	color: #646464;
-}
-
-.headerFlag a:hover, .headerFlag a:active
-{
-	color: #DD2727;
-}
-
 #container
 {
 	padding: 0px;
@@ -146,7 +114,7 @@ body
 
 .brandGoods
 {
-	width: 1025px;
+	width: 1050px;
 	height: 260px;
 	margin-top: 5px;
 	margin-bottom: 5px;
@@ -176,18 +144,34 @@ body
 
 .goods img
 {
-	width: 190px
+	width: 190px;
 	height: 210px;
 	margin: 5px auto 5px auto;
 }
 
-.good .goodName
+.goods .goodName
 {
-	font-size: 16px;
+	font-size: 14px;
+	text-align: center;
+	margin: 0px;
 }
 
-.good .goodPrice
+.goods .goodPrice
 {
-	font-size: 18px;
+	font-size: 16px;
 	color: #FF0000;
+	text-align: center;
+	margin: 0px;
+}
+
+#footer
+{
+	width: auto;
+	height: 30px;
+	background-color: #F2F2F2;
+	margin: 0px;
+	text-align: center;
+	color: #646464;
+	font-size: 14px;
+	line-height: 30px;
 }

@@ -1,6 +1,8 @@
+var hostpath=location.protocol+"//"+location.host+"/WatchWorld/"; //获取url根目录
 $(document).ready(function(){
-	loadActivityImg();
-	picCarousel();
+	loadActivityImg(); //加载活动图片
+	picCarousel(); //启动图片轮播
+	loadBrand(); //加载热销产品商标
 });
 
 var amount=3; //轮播图片数量
@@ -11,7 +13,7 @@ function loadActivityImg()
 {
 	$.ajax({
 		type: "post",
-		url: "index/activity",
+		url: hostpath+"index/activity",
 		dataType: "json",
 		success: function(json)
 		{
@@ -75,4 +77,52 @@ function selectActivity(i)
 		$("#activity"+i).fadeIn(500);
 		idx=i;
 	}
+}
+
+//获取首页需要展示的所有商标
+function loadBrand()
+{
+	$.ajax({
+		type: "post",
+		url: hostpath+"index/findAllBrand",
+		dataType: "json",
+		success: function(json)
+		{			
+			$.each(json, function(i, n)
+			{
+				$("#displayContainer").append(
+					"<div class='brandGoods' name='"+n+"'>" +
+						"<div class='brand'>" + 
+							"<h3>"+n+"</h3>" +
+						"</div>" +
+					"</div>");
+				loadGoods(n);
+			});
+		}
+	});
+}
+
+//加载热销商品
+function loadGoods(brand)
+{
+	$.ajax({
+		type: "post",
+		url: hostpath+"index/goodsDisplayInfo?brand=" + brand,
+		dataType: "json",
+		data: brand,
+		success: function(json)
+		{
+			$.each(json, function(i, n)
+			{
+				$("[name="+brand+"]").append(
+					"<div class='goods'>" +
+						"<a	href='customer/goods?goodsID="+n.goodsID+"'>" +
+							"<img src='"+n.goodsPicturePath+"'>" +
+						"</a>" +
+						"<p class='goodName'>"+n.goodsName+"</p>" +
+						"<p class='goodPrice'>￥"+n.price+"</p>" +
+					"</div>");
+			});
+		}
+	});
 }

@@ -3,6 +3,7 @@ package cn.edu.zhku.hyw.watchworld.customer.Service;
 import java.util.List;
 
 import cn.edu.zhku.hyw.watchworld.customer.Dao.ActivityDao;
+import cn.edu.zhku.hyw.watchworld.customer.Dao.GoodsDisplayDao;
 import cn.edu.zhku.hyw.watchworld.customer.Dao.GoodsDisplayInfoDao;
 import cn.edu.zhku.hyw.watchworld.customer.JavaBean.Activity;
 import cn.edu.zhku.hyw.watchworld.customer.JavaBean.GoodsDisplayInfo;
@@ -41,6 +42,16 @@ public class IndexService
 	public List<GoodsDisplayInfo> findGoodsDisplayInfoByBrand(String brand)
 	{
 		List<GoodsDisplayInfo> dataList = (new GoodsDisplayInfoDao()).findByBrand(brand);
+		return dataList;
+	}
+	
+	/**
+	 * 调用dao层获取goods_display表中的所有品牌
+	 * @return 品牌字符串数组
+	 */
+	public List<String> findAllBrand()
+	{
+		List<String> dataList = (new GoodsDisplayDao()).findAllByBrand();
 		return dataList;
 	}
 }

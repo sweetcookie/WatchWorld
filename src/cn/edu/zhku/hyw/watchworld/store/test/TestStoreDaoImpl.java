@@ -57,8 +57,8 @@ public class TestStoreDaoImpl {
 	
 	@Test
 	public void checkLoginName(){
-		
-		flag=storeDao.checkLoginName("哈哈2");
+		int flag;
+		flag=storeDao.checkLoginName("哈哈3");
 		System.out.println(flag);
 	}
 	@Test
@@ -78,8 +78,11 @@ public class TestStoreDaoImpl {
 
 	@Test
 	public void loginStore(){
-		flag=storeDao.checkLoginNameAndPwd("哈哈", "22");
+		flag=storeDao.checkLoginNameAndPwd("哈哈3", "22");
 		System.out.println(flag);
 	}
-
+	@Test
+	public void findStoreByID(){
+		System.out.println(storeDao.findStoreByID(8890));
+	}
 }

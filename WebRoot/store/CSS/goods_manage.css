@@ -1,0 +1,21 @@
+@CHARSET "UTF-8";
+
+#div_findgoods {
+    float: left;
+    margin-left: 0px;
+    height: 30px;
+    width:100%;
+}
+
+a:link,a:visited{
+	text-decoration: none;
+	color: #646464;
+}
+ a:hover,a:active
+{
+	color: #DD2727;
+}
+.tittle{
+	height: 50px;
+	width: 100%;
+}

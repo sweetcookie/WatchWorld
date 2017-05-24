@@ -10,12 +10,14 @@ import cn.edu.zhku.hyw.watchworld.store.Dao.StoreInfoDao;
 import cn.edu.zhku.hyw.watchworld.store.JavaBean.StoreInfo;
 
 public class StoreInfoDaoImpl implements StoreInfoDao {
+	
+	private Connection conn = null;
+	private PreparedStatement stmt = null;
+	private ResultSet rs = null;
 
 	@Override
 	public void  addStore(StoreInfo storeInfo) {
 		// TODO Auto-generated method stub
-		Connection conn = null;
-		PreparedStatement stmt = null;
 		
 		try {
 			
@@ -53,10 +55,8 @@ public class StoreInfoDaoImpl implements StoreInfoDao {
 	}
 
 	@Override
-	public void updateStore(StoreInfo storeInfo) {
+	public boolean updateStore(StoreInfo storeInfo) {
 		// TODO Auto-generated method stub
-		Connection conn = null;
-		PreparedStatement stmt = null;
 		try{
 			//获取连接
 			conn = JdbcUtil.getConn();
@@ -73,12 +73,13 @@ public class StoreInfoDaoImpl implements StoreInfoDao {
 			stmt.setInt(4,  storeInfo.getStoreID());
 			//执行
 			stmt.executeUpdate();
+			return true;
 		}catch(Exception e){
 			e.printStackTrace();
-			throw new RuntimeException(e);
 		}finally{
 			JdbcUtil.close(conn, stmt);
 		}
+		return false;
 	}
 
 	@Override
@@ -90,19 +91,47 @@ public class StoreInfoDaoImpl implements StoreInfoDao {
 	@Override
 	public StoreInfo findStoreByID(int StoreID) {
 		// TODO Auto-generated method stub
+		try { // 获取连接
+			conn = JdbcUtil.getConn();
+			String sql = "SELECT * FROM store_info where StoreID=? ";
+
+			// 创建PreparedStatement
+			stmt = conn.prepareStatement(sql);
+
+			stmt.setInt(1, StoreID);
+
+			// 执行
+			rs = stmt.executeQuery();
+			
+			if (rs.next()) {
+				StoreInfo storeInfo = new StoreInfo();
+				storeInfo.setStoreID(StoreID);
+				storeInfo.setStoreName(rs.getString("StoreName"));
+				storeInfo.setLoginName(rs.getString("LoginName"));
+				storeInfo.setPassword(rs.getString("Pwd"));
+				storeInfo.setTelephone(rs.getString("Telephone"));
+				storeInfo.setOwner(rs.getString("Owner"));
+				storeInfo.setRegTime(rs.getString("RegTime"));
+				return storeInfo;
+				
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		} finally {
+			JdbcUtil.close(conn, stmt, rs);
+		}
 		return null;
 	}
 
 
 	@Override
-	public boolean checkLoginName(String loginName) {
+	public int checkLoginName(String loginName) {
 		// TODO Auto-generated method stub
-		Connection conn = null;
-		PreparedStatement stmt = null;
-		ResultSet rs = null;
 		try { // 获取连接
 			conn = JdbcUtil.getConn();
-			String sql = "SELECT * FROM store_info where LoginName=? ";
+			String sql = "SELECT StoreID FROM store_info where LoginName=? ";
 
 			// 创建PreparedStatement
 			stmt = conn.prepareStatement(sql);
@@ -113,7 +142,8 @@ public class StoreInfoDaoImpl implements StoreInfoDao {
 			rs = stmt.executeQuery();
 			
 			if (rs.next()) {
-				return true;
+				
+				return rs.getInt(1);
 			}
 
 		} catch (Exception e) {
@@ -122,15 +152,12 @@ public class StoreInfoDaoImpl implements StoreInfoDao {
 		} finally {
 			JdbcUtil.close(conn, stmt, rs);
 		}
-		return false;
+		return 0;
 	}
 
 	@Override
 	public boolean checkStoreName(String storeName) {
 		// TODO Auto-generated method stub
-		Connection conn = null;
-		PreparedStatement stmt = null;
-		ResultSet rs = null;
 		try { // 获取连接
 			conn = JdbcUtil.getConn();
 			String sql = "SELECT * FROM store_info where StoreName=? ";
@@ -159,9 +186,6 @@ public class StoreInfoDaoImpl implements StoreInfoDao {
 	@Override
 	public boolean checkTelephone(String telephone) {
 		// TODO Auto-generated method stub
-		Connection conn = null;
-		PreparedStatement stmt = null;
-		ResultSet rs = null;
 		try { // 获取连接
 			conn = JdbcUtil.getConn();
 			String sql = "SELECT * FROM store_info where Telephone=? ";
@@ -190,9 +214,6 @@ public class StoreInfoDaoImpl implements StoreInfoDao {
 	@Override
 	public boolean checkOwner(String owner) {
 		// TODO Auto-generated method stub
-		Connection conn = null;
-		PreparedStatement stmt = null;
-		ResultSet rs = null;
 		try { // 获取连接
 			conn = JdbcUtil.getConn();
 			String sql = "SELECT * FROM store_info where Owner=? ";
@@ -221,9 +242,6 @@ public class StoreInfoDaoImpl implements StoreInfoDao {
 	@Override
 	public boolean checkLoginNameAndPwd(String loginName, String pwd) {
 		// TODO Auto-generated method stub
-		Connection conn = null;
-		PreparedStatement stmt = null;
-		ResultSet rs = null;
 		try { // 获取连接
 			conn = JdbcUtil.getConn();
 			String sql = "SELECT Pwd FROM store_info where LoginName=? ";

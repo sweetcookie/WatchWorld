@@ -13,9 +13,16 @@ public class StoreInfoService {
 	StoreInfoDao dao=new StoreInfoDaoImpl();
 	
 	public boolean checkLoginName(String loginName){
+		int storeID=dao.checkLoginName(loginName);
+		if (storeID==0) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+	public int findStoreID(String loginName) {
 		return dao.checkLoginName(loginName);
 	}
-	
 	public boolean checkStoreName(String storeName){
 		return dao.checkStoreName(storeName);
 	}
@@ -31,5 +38,11 @@ public class StoreInfoService {
 	}
 	public boolean checkLoginNameAndPwd(String loginName,String pwd) {
 		return dao.checkLoginNameAndPwd(loginName,pwd);
+	}
+	public StoreInfo findStoreByID(int storeID) {
+		return dao.findStoreByID(storeID);
+	}
+	public boolean updateStore(StoreInfo storeInfo){
+		return dao.updateStore(storeInfo);
 	}
 }

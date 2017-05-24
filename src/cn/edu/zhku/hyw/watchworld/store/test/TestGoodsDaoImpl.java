@@ -1,5 +1,7 @@
 package cn.edu.zhku.hyw.watchworld.store.test;
 
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -8,6 +10,8 @@ import cn.edu.zhku.hyw.watchworld.store.Dao.GoodsInfoDao;
 import cn.edu.zhku.hyw.watchworld.store.Dao.Impl.GoodsInfoDaoImpl;
 
 import cn.edu.zhku.hyw.watchworld.store.JavaBean.GoodsInfo;
+import cn.edu.zhku.hyw.watchworld.store.JavaBean.PageBean;
+import cn.edu.zhku.hyw.watchworld.store.Service.GoodsInfoService;
 
 public class TestGoodsDaoImpl {
 	/**
@@ -23,46 +27,58 @@ public class TestGoodsDaoImpl {
 	@Test
 	public void addGoods(){
 		GoodsInfo goodsInfo = new GoodsInfo();
-		goodsInfo.setGoodsName("手表");
-		goodsInfo.setGoodsPicturePath("url");
-		goodsInfo.setPrice(999);
-		goodsInfo.setBrand           ("劳力士");
-		goodsInfo.setMovementStyle   ("机芯类型");
-		goodsInfo.setColor           ("颜色");
-		goodsInfo.setMaterial        ("材质");
-		goodsInfo.setShape           ("形状");
-		goodsInfo.setWaterproof      ("防水深度");
-		goodsInfo.setStyle           ("风格");
-		goodsInfo.setModel           ("型号");
-		goodsInfo.setNumber          (100);
-		goodsInfo.setStoreID         (8888);
-		goodsInfo.setSalesVolumes    (0);
+		for (int i = 0; i <10; i++) {
+			
 		
-		goodsDao.addGoods(goodsInfo);
+		goodsInfo.setGoodsName("手表"+i);
+		goodsInfo.setGoodsPicturePath("url"+i);
+		goodsInfo.setPrice(999+i);
+		goodsInfo.setBrand           ("劳力士"+i);
+		goodsInfo.setColor           ("颜色"+i);
+		goodsInfo.setModel           ("型号"+i);
+		goodsInfo.setNumber          (100+i);
+		goodsInfo.setStoreID         (8890);
+		goodsInfo.setSalesVolumes    (0+i);
+		
+		System.out.println("增加:"+goodsDao.addGoods(goodsInfo));
+		}
+		
 	}
 	@Test
 	public void deleteGoods(){
-		goodsDao.deleteGoods(4);
+		
+		System.out.println("删除:"+goodsDao.deleteGoods(4)); 
 	}
 	@Test
 	public void updateGoods(){
-		int i=1;
+		int i=2;
 		GoodsInfo goodsInfo = new GoodsInfo();
 		goodsInfo.setGoodsName("手表"+i);
 		goodsInfo.setGoodsPicturePath("url"+i);
 		goodsInfo.setPrice(999+i);
 		goodsInfo.setBrand           ("劳力士"+i);
-		goodsInfo.setMovementStyle   ("机芯类型"+i);
 		goodsInfo.setColor           ("颜色"+i);
-		goodsInfo.setMaterial        ("材质"+i);
-		goodsInfo.setShape           ("形状"+i);
-		goodsInfo.setWaterproof      ("防水深度"+i);
-		goodsInfo.setStyle           ("风格"+i);
 		goodsInfo.setModel           ("型号"+i);
 		goodsInfo.setNumber          (100+i);
-		goodsInfo.setGoodsID         (3);
+		goodsInfo.setGoodsID         (i);
 		goodsInfo.setSalesVolumes    (0+i);
-		goodsDao.updateGoods(goodsInfo);
+		System.out.println("更新:"+goodsDao.updateGoods(goodsInfo));
 		
+	}
+	@Test
+	public void findAllGoods(){
+		PageBean<GoodsInfo> pageBean= new PageBean<GoodsInfo>();
+		GoodsInfoService dao = new GoodsInfoService();
+		boolean flag = dao.findAllGoods(9999, pageBean);
+		List<GoodsInfo> list = pageBean.getPageData();
+		System.out.println(flag);
+		for (GoodsInfo goodsInfo : list) {
+			System.out.println(goodsInfo);
+		}
+	}
+	@Test
+	public void findGoodsByID(){
+		GoodsInfo goodsInfo=goodsDao.findGoodsByID(24,8901);
+		System.out.println(goodsInfo);
 	}
 }

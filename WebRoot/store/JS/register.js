@@ -27,13 +27,13 @@ function registerStore(){
 			&&checkOwner($("#Owner"))){
 		$.ajax({  
         type: "POST",  
-        url:server_context+"/servlet/AddStoreServlet",//发送请求地址 
+        url:server_context+"/store/AddStoreServlet",//发送请求地址 
         data:$('#form_register').serialize(),// 序列化表单值  
-        error: function(request) {  
+        error: function() {  
             alert("服务器出错");  
         },  
         success: function() {  
-            window.location.href=server_context+"/store/storemanage.jsp";  
+            window.location.href=server_context+"/store/store_index.jsp";  
         }  
     }); 
 	}
@@ -44,7 +44,6 @@ function registerStore(){
 function checkPwd1(Pwd){
 	var pwd=$(Pwd).val();
 	var pwd2=$("#Pwd2").val();
-//	alert(pwd.length);
 	if(pwd==""){
 		$("#Pwd1Check").html("不能为空");
 	}else if(pwd.length>15){
@@ -90,7 +89,7 @@ function checkLoginName(LoginName){
 	}else{
 		 $.ajax({  
              type:"post",//请求方式  
-             url:server_context+"/servlet/CheckLoginNameServlet",//发送请求地址 
+             url:server_context+"/store/CheckLoginNameServlet",//发送请求地址 
              data:{"LoginName":loginName} ,
              timeout:30000,//超时时间：30秒  
              dataType:"json",//设置返回数据的格式  
@@ -121,7 +120,7 @@ function checkStoreName(StoreName){
 	}else{
 		 $.ajax({  
              type:"post",//请求方式  
-             url:server_context+"/servlet/CheckStoreNameServlet",//发送请求地址 
+             url:server_context+"/store/CheckStoreNameServlet",//发送请求地址 
              data:{"StoreName":storeName} ,
              timeout:30000,//超时时间：30秒  
              dataType:"json",//设置返回数据的格式  
@@ -154,7 +153,7 @@ function checkTelephone(Telephone){
 		
 		 $.ajax({  
              type:"post",//请求方式  
-             url:server_context+"/servlet/CheckTelephoneServlet",//发送请求地址 
+             url:server_context+"/store/CheckTelephoneServlet",//发送请求地址 
              data:{"Telephone":telephone} ,
              timeout:30000,//超时时间：30秒  
              dataType:"json",//设置返回数据的格式  
@@ -162,7 +161,7 @@ function checkTelephone(Telephone){
              success:function(data){  //请求成功后的回调函数 data为json格式 
                 var flag = data.flag;
                 if(flag == "true"){
-                   $("#TelephoneCheck").html("已存在");
+                   $("#TelephoneCheck").html("已被使用");
                 }else{
                 	 $("#TelephoneCheck").html("");
                 	 retn = 1;
@@ -187,7 +186,7 @@ function checkOwner(Owner){
 	}else{
 		 $.ajax({  
              type:"post",//请求方式  
-             url:server_context+"/servlet/CheckOwnerServlet",//发送请求地址 
+             url:server_context+"/store/CheckOwnerServlet",//发送请求地址 
              data:{"Owner":owner} ,
              timeout:30000,//超时时间：30秒  
              dataType:"json",//设置返回数据的格式  
@@ -195,7 +194,7 @@ function checkOwner(Owner){
              success:function(data){  //请求成功后的回调函数 data为json格式 
                 var flag = data.flag;
                 if(flag == "true"){
-                   $("#OwnerCheck").html("已被使用");
+                   $("#OwnerCheck").html("已注册");
                 }else{
                 	 $("#OwnerCheck").html("");
                 	 retn = 1;

@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'storemanage.jsp' starting page</title>
+    <title>WatchWorld-店铺后台</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -22,7 +22,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
   </head>
   
-  <body>
-    <%=session.getAttribute("LoginName") %>
-  </body>
+ 
+    <frameset rows="30,*"  >
+    <!--头部-->
+    <frame src="<%=basePath %>/store/store_index_top.jsp" name="top" noresize="noresize" frameborder="0"  scrolling="no" marginwidth="0" marginheight="0" />
+    <!--主体部分-->
+    <frameset cols="14%,*">
+        <!--主体左部分-->
+        <frame src="<%=basePath %>/store/store_index_left.jsp" name="left" noresize="noresize" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" />
+        <!--主体右部分-->
+        <frame src="<%=basePath %>/store/GoodsShowServlet" name="main" frameborder="0" scrolling="auto" marginwidth="0" marginheight="0" />
+    </frameset>
+</frameset>
+
 </html>

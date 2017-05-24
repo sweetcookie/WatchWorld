@@ -1,0 +1,191 @@
+@CHARSET "UTF-8";
+body
+{
+	margin: 0px;
+	padding: 0px;
+}
+
+#header
+{
+	width: auto;
+	height: 30px;
+	background-color: #F2F2F2;
+	border-bottom: 1px solid #E5E5E5;
+}
+
+.headerFlag {
+    float: right;
+    margin-left: 0px;
+    margin-right: 40px;
+    height: 30px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    line-height: 30px;
+    color: #646464;
+    font-size: 14px;
+}
+.headerFlag a:link, .headerFlag a:visited
+{
+	text-decoration: none;
+	color: #646464;
+}
+
+.headerFlag a:hover, .headerFlag a:active
+{
+	color: #DD2727;
+}
+
+#container
+{
+	padding: 0px;
+	margin: 0px;
+}
+
+#logoSearcherContainer
+{
+	margin: 0px;
+	height: 100px;
+}
+
+#logoContainer, #logoContainer img
+{
+	padding: 0px;
+	width: 191px;
+	height: 92px;
+	float: left;
+}
+
+#searcherContainer
+{
+	width: auto;
+	float: left;
+	height: 92px;
+}
+
+#searcher
+{
+	position: relative;
+	top: 50%;
+	margin-top: -20px;
+	left: 230px;
+}
+
+#searcher form
+{
+	margin-bottom: 0px;
+}
+
+#searcher #inputBox
+{
+	width: 400px;
+	border: 2px solid #FF0000;
+}
+
+#submitBtn
+{
+	background-color: #FF0000;
+	color: #FFFFFF;
+	border: 0px;
+	width: 150px;
+	margin-left: 0px;
+	cursor: pointer;
+	font-weight: bold;
+}
+
+#inputBox, #submitBtn
+{
+	font-size: 20px;
+	height: 40px;
+	margin: 0px;
+}
+
+#activityContainer, #activityContainer img
+{
+	width: 100%;
+	height: 430px;
+}
+
+#activityContainer img
+{
+	position: absolute;
+}
+
+#picIndexContainer
+{
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100px;
+	height: 20px;
+}
+
+#picIndexContainer .picIndex
+{
+	float: left;
+	margin: 0px 5px 0px 5px;
+	background-color: #646464;
+	width: 20px;
+	height: 20px;
+	border-radius: 10px;
+}
+
+#displayContainer
+{
+	width: 1060px;
+	height: auto;
+	min-height: 280px;
+	margin: 10px auto 10px auto;
+}
+
+#displayContainer h2, #displayContainer hr
+{
+	color: #E8313E;
+}
+
+.brandGoods
+{
+	width: 1025px;
+	height: 260px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: 0px;
+}
+
+.brand, .goods
+{
+	float: left;
+	margin-left: 5px;
+	margin-right: 5px;
+	width: 200px;
+	height: 260px;
+}
+
+.brand
+{
+	background-color: #EEEEEE;
+}
+
+.brand h3
+{
+	text-align: center;
+	line-height: 260px;
+	margin: 0px;
+}
+
+.goods img
+{
+	width: 190px
+	height: 210px;
+	margin: 5px auto 5px auto;
+}
+
+.good .goodName
+{
+	font-size: 16px;
+}
+
+.good .goodPrice
+{
+	font-size: 18px;
+	color: #FF0000;
+}

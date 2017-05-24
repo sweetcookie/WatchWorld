@@ -6,19 +6,19 @@ package cn.edu.zhku.hyw.watchworld.store.JavaBean;
  */
 public class StoreInfo {
 	
-	private int StoreID;//店铺编号
+	private int storeID;//店铺编号
 	private String loginName;//用户名
-	private String Password;//密码
-	private String StoreName;//店名
-	private String Owner;//店主
-	private String RegTime; // 注册时间	
-	private String Telephone; // 联系电话	
+	private String password;//密码
+	private String storeName;//店名
+	private String owner;//店主
+	private String regTime; // 注册时间	
+	private String telephone; // 联系电话	
 	
 	public int getStoreID() {
-		return StoreID;
+		return storeID;
 	}
 	public void setStoreID(int storeID) {
-		StoreID = storeID;
+		this.storeID = storeID;
 	}
 	public String getLoginName() {
 		return loginName;
@@ -27,50 +27,58 @@ public class StoreInfo {
 		this.loginName = loginName;
 	}
 	public String getPassword() {
-		return Password;
+		return password;
 	}
 	public void setPassword(String password) {
-		Password = password;
+		this.password = password;
 	}
 	public String getStoreName() {
-		return StoreName;
+		return storeName;
 	}
 	public void setStoreName(String storeName) {
-		StoreName = storeName;
+		this.storeName = storeName;
 	}
 	public String getOwner() {
-		return Owner;
+		return owner;
 	}
 	public void setOwner(String owner) {
-		Owner = owner;
+		this.owner = owner;
 	}
 	public String getRegTime() {
-		return RegTime;
+		return regTime;
 	}
 	public void setRegTime(String regTime) {
-		RegTime = regTime;
+		this.regTime = regTime;
 	}
 	public String getTelephone() {
-		return Telephone;
+		return telephone;
 	}
 	public void setTelephone(String telephone) {
-		this.Telephone = telephone;
+		this.telephone = telephone;
 	}
 	
 	
 	public StoreInfo(int storeID, String password, String storeName,
 			String owner, String regTime, String telephone) {
 		super();
-		StoreID = storeID;
-		Password = password;
-		StoreName = storeName;
-		Owner = owner;
-		RegTime = regTime;
-		this.Telephone = telephone;
+		this.storeID = storeID;
+		this.password = password;
+		this.storeName = storeName;
+		this.owner = owner;
+		this.regTime = regTime;
+		this.telephone = telephone;
 	}
 	public StoreInfo() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	@Override
+	public String toString() {
+		return "StoreInfo [StoreID=" + storeID + ", loginName=" + loginName
+				+ ", Password=" + password + ", StoreName=" + storeName
+				+ ", Owner=" + owner + ", RegTime=" + regTime + ", Telephone="
+				+ telephone + "]";
+	}
+	
 	
 }

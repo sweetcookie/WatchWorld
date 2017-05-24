@@ -6,116 +6,115 @@ package cn.edu.zhku.hyw.watchworld.store.JavaBean;
  */
 public class GoodsInfo {
 	
-	private int       GoodsID         ;       //商品编号
-	private String	  GoodsName       ;       // 商品名	
-	private String	  GoodsPicturePath;       // 商品图片路径	
-	private int	      Price           ;       // 价格	    
-	private String	  Brand           ;       // 品牌	    
-	private String	  MovementStyle   ;       // 机芯类型	
-	private String	  Color           ;       // 颜色	    
-	private String	  Material        ;       // 材质	    
-	private String	  Shape           ;       // 形状	    
-	private String	  Waterproof      ;       // 防水深度    
-	private String	  Style           ;       // 风格	    
-	private String	  Model           ;       // 型号  	
-	private int	      Number          ;       // 库存  
-	private int       StoreID         ;       // 店铺编号
-	private int 	  SalesVolumes    ;       // 销量	    
-	public int getGoodsID() {
-		return GoodsID;
-	}
-	public void setGoodsID(int goodsID) {
-		GoodsID = goodsID;
-	}
-	public String getGoodsName() {
-		return GoodsName;
-	}
-	public void setGoodsName(String goodsName) {
-		GoodsName = goodsName;
-	}
-	public int getPrice() {
-		return Price;
-	}
-	public void setPrice(int price) {
-		Price = price;
-	}
-	public String getBrand() {
-		return Brand;
-	}
-	public void setBrand(String brand) {
-		Brand = brand;
-	}
-	public String getMovementStyle() {
-		return MovementStyle;
-	}
-	public void setMovementStyle(String movementStyle) {
-		MovementStyle = movementStyle;
-	}
-	public String getColor() {
-		return Color;
-	}
-	public void setColor(String color) {
-		Color = color;
-	}
-	public String getMaterial() {
-		return Material;
-	}
-	public void setMaterial(String material) {
-		Material = material;
-	}
-	public String getShape() {
-		return Shape;
-	}
-	public void setShape(String shape) {
-		Shape = shape;
-	}
-	public String getWaterproof() {
-		return Waterproof;
-	}
-	public void setWaterproof(String waterproof) {
-		Waterproof = waterproof;
-	}
-	public String getStyle() {
-		return Style;
-	}
-	public void setStyle(String style) {
-		Style = style;
-	}
-	public String getModel() {
-		return Model;
-	}
-	public void setModel(String model) {
-		Model = model;
-	}
-	public int getNumber() {
-		return Number;
-	}
-	public void setNumber(int number) {
-		Number = number;
-	}
-	public String getGoodsPicturePath() {
-		return GoodsPicturePath;
-	}
-	public void setGoodsPicturePath(String goodsPicturePath) {
-		GoodsPicturePath = goodsPicturePath;
-	}
-	public int getSalesVolumes() {
-		return SalesVolumes;
-	}
-	public void setSalesVolumes(int salesVolumes) {
-		SalesVolumes = salesVolumes;
-	}
+	private int       goodsID         ;       //1.商品编号
+	private String	  goodsName       ;       // 2.商品名	
+	private String	  goodsPicturePath;       // 3.商品图片路径	
+	private int	      price           ;       // 4.价格	    
+	private String	  brand           ;       // 5.品牌	    
+	private String	  color           ;       // 7.颜色	    
+	private String	  model           ;       // 12.型号  	
+	private int	      number          ;       // 13.库存  
+	private int       storeID         ;       // 14.店铺编号
+	private int 	  salesVolumes    ;       // 15.销量	    
 	
+	public int getGoodsID() {
+		return goodsID;
+	}
+
+	public void setGoodsID(int goodsID) {
+		this.goodsID = goodsID;
+	}
+
+	public String getGoodsName() {
+		return goodsName;
+	}
+
+	public void setGoodsName(String goodsName) {
+		this.goodsName = goodsName;
+	}
+
+	public String getGoodsPicturePath() {
+		return goodsPicturePath;
+	}
+
+	public void setGoodsPicturePath(String goodsPicturePath) {
+		this.goodsPicturePath = goodsPicturePath;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+	public String getBrand() {
+		return brand;
+	}
+
+	public void setBrand(String brand) {
+		this.brand = brand;
+	}
+
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+
+	public String getModel() {
+		return model;
+	}
+
+	public void setModel(String model) {
+		this.model = model;
+	}
+
+	public int getNumber() {
+		return number;
+	}
+
+	public void setNumber(int number) {
+		this.number = number;
+	}
+
 	public int getStoreID() {
-		return StoreID;
+		return storeID;
 	}
+
 	public void setStoreID(int storeID) {
-		StoreID = storeID;
+		this.storeID = storeID;
 	}
+
+	public int getSalesVolumes() {
+		return salesVolumes;
+	}
+
+	public void setSalesVolumes(int salesVolumes) {
+		this.salesVolumes = salesVolumes;
+	}
+
 	public GoodsInfo() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
+	@Override
+	public String toString() {
+		return "GoodsInfo [goodsID=" + goodsID + ", goodsName=" + goodsName
+				+ ", goodsPicturePath=" + goodsPicturePath + ", price=" + price
+				+ ", brand=" + brand + ", color=" + color + ", model=" + model
+				+ ", number=" + number + ", storeID=" + storeID
+				+ ", salesVolumes=" + salesVolumes + "]";
+	}
+
+
+	
 	
 	
 }

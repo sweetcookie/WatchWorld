@@ -13,7 +13,7 @@ function loginStore(){
 	}else {
 		$.ajax({  
         type:"POST",//请求方式  
-        url:server_context+"/servlet/LoginStoreServlet",//发送请求地址 
+        url:server_context+"/store/LoginStoreServlet",//发送请求地址 
         data:/*$('#form_login').serialize(),*/
         {"LoginName":LoginName,"Pwd":Pwd} ,
         timeout:30000,//超时时间：30秒  
@@ -27,7 +27,7 @@ function loginStore(){
            }else if(flag=="PasswordWrong"){
         	   $("#Meg").html("密码错误");
            }else if(flag=="PasswordCorrect"){
-        	   window.location.href=server_context+"/store/storemanage.jsp";
+        	   window.location.href=server_context+"/store/store_index.jsp";
            }
        },  
        //请求出错的处理  
@@ -37,4 +37,24 @@ function loginStore(){
     });
 }
 
+}
+function logout(){
+	$.ajax({  
+        type:"POST",//请求方式  
+        url:server_context+"/store/LogOutServlet",//发送请求地址 
+        async:true, 
+        success:function(){  
+        	   top.location.href=server_context+"/store/login.jsp";
+           },
+       //请求出错的处理  
+       error:function(){  
+                 alert("服务器错误");  
+       }  
+    });
+}
+function registerStore(){
+	top.location.href=server_context+"/store/register.jsp";
+}
+function myStore(StoreID){
+	top.location.href=server_context+"/store/myStore.jsp?StoreID="+StoreID;
 }

@@ -86,7 +86,7 @@
 			</div>
 			<div>
 				<input type="button" value="立即注册" id="btn-register"
-					onclick="registerStore() ">
+					onclick="registerStore()">
 			</div>
 		</form>
 	</div>

@@ -40,21 +40,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="type">订单管理</div>
 		<div class="content">
 			<ul class="RM">
-				<li><a href="AdminServlet?action=ordergl&pxfs=asc"
-					target="main">全部订单列表</a>
-				</li>
 				<li><a href="AdminServlet?action=orderyfs&pxfs=asc"
 					target="main">已接受订单</a>
 				</li>
 				<li><a href="AdminServlet?action=orderwfs&pxfs=asc"
 					target="main">未接受订单</a>
-				</li>
-			</ul>
-		</div>
-		<div class="type">退货管理</div>
-		<div class="content">
-			<ul class="RM">
-				<li><a href="ad_msg.jsp" target="main">退货申请</a>
 				</li>
 			</ul>
 		</div>

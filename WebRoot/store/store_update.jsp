@@ -16,30 +16,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
+	<link rel="stylesheet" type="text/css" href="store/CSS/goods_manage.css" />
 	<script type="text/javascript" src="store/JS/jquery-3.2.0.min.js"></script>
 	<script type="text/javascript" src="store/JS/store_update.js"></script>
   </head>
   
   <body>
-  	<h3>基本信息</h3>
-  	<label>店铺编号:${StoreInfo.storeID}</label>
-  	<label >用户名:${StoreInfo.loginName}</label>
-  	<label>店主:${StoreInfo.owner}</label>
-  	<label>注册时间:${StoreInfo.regTime}</label>
+  <p class="tittle">基本信息</p>
+  <hr>
+  <div class="itemContainer">
+  <div class="data">
+  	<div class="form-item"><label>用户名:</label>${StoreInfo.loginName}</div>
+  	<div class="form-item"><label>店主:</label>${StoreInfo.owner}</div>
+  	<div class="form-item"><label>注册时间:</label>${StoreInfo.regTime}</div>
 	<form action="<%=basePath%>store/StoreUpdateServlet" method="post" id="form_updateStore">
 	<input type="hidden" id="storeID" name="StoreID" value="${StoreInfo.storeID}">
 	<input type="hidden" id="loginName" value="${StoreInfo.loginName}">
 	<input type="hidden" id="f_storeName" value="${StoreInfo.storeName}">
 	<input type="hidden" id="f_telephone" value="${StoreInfo.telephone}">
-	原密码:<input type="text" id="f_pwd"><br>
-	新密码:<input type="password" id="n_pwd" name="Pwd"><br>
-	店铺名称:<input type="text" id="storeName" name="StoreName" value="${StoreInfo.storeName}"><br>
-	手机号码:<input type="text" id="telephone" name="Telephone" value="${StoreInfo.telephone}"><br>
-	<input type="button" value="保存" onclick="updateStore()"> <span ><font color="red" id="msg">${requestScope.msg}</font></span>
+	<div class="form-item"><label>原密码:</label><input type="text" id="f_pwd"><br></div>
+	<div class="form-item"><label>新密码:</label><input type="password" id="n_pwd" name="Pwd"><br></div>
+	<div class="form-item"><label>店铺名称:</label><input type="text" id="storeName" name="StoreName" value="${StoreInfo.storeName}"><br></div>
+	<div class="form-item"><label>手机号码:</label><input type="text" id="telephone" name="Telephone" value="${StoreInfo.telephone}"><br></div>
+	 <div class="form-item tip"><span ><font color="red" id="msg">${requestScope.msg}</font></span></div>
+	<div class="form-item tip"><input type="button" id="addButn" value="保存" onclick="updateStore()"></div>
 	</form>
+	</div>
+	</div>
   </body>
 </html>
 

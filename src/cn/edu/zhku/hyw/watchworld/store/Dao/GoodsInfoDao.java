@@ -6,7 +6,7 @@ import cn.edu.zhku.hyw.watchworld.store.JavaBean.GoodsInfo;
 import cn.edu.zhku.hyw.watchworld.store.JavaBean.PageBean;
 
 /**
- * 店铺信息的dao接口
+ * 商品信息的dao接口
  * @author Administrator
  *
  */
@@ -20,5 +20,7 @@ public interface GoodsInfoDao {
 	public List<GoodsInfo>  findGoodsByName(String GoodsName);//通过名称查找商品
 	public List<GoodsInfo> findGoodsByBrand(String GoodsName);
 	public GoodsInfo findGoodsByID(int GoodsID, int StroeID);//通过ID查找单个商品
+	public boolean updateGoodsNum(int GoodsID,int BuyAmount);//更新商品数量
+	boolean updateGoodsSalesVolumes(int GoodsID, int salesvolumes);//更新商品销量
 	
 }

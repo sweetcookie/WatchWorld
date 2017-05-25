@@ -6,8 +6,6 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.print.attribute.standard.PDLOverrideSupported;
-
 import cn.edu.zhku.hyw.watchworld.Utils.JdbcUtil;
 import cn.edu.zhku.hyw.watchworld.store.Dao.GoodsInfoDao;
 import cn.edu.zhku.hyw.watchworld.store.JavaBean.GoodsInfo;
@@ -57,7 +55,7 @@ public class GoodsInfoDaoImpl implements GoodsInfoDao {
 		
 		try {
 			conn=JdbcUtil.getConn();
-			PreparedStatement stmt=conn.prepareStatement(sql);
+			stmt=conn.prepareStatement(sql);
 			stmt.setInt(1, StoreID);
 			stmt.setInt(2, index);
 			stmt.setInt(3, count);
@@ -94,7 +92,7 @@ public class GoodsInfoDaoImpl implements GoodsInfoDao {
 		try {
 			conn=JdbcUtil.getConn();
 			String sql = "select count(*) from goods_info where StoreID=?";
-			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt = conn.prepareStatement(sql);
 			stmt.setInt(1,StoreID);
 			rs = stmt.executeQuery();
 			rs.next();
@@ -170,7 +168,7 @@ public class GoodsInfoDaoImpl implements GoodsInfoDao {
 		}
 		return false;
 	}
-
+	
 	@Override
 	public boolean updateGoods(GoodsInfo goodsInfo) {
 		// TODO Auto-generated method stub
@@ -203,14 +201,14 @@ public class GoodsInfoDaoImpl implements GoodsInfoDao {
 		}
 		return false;
 	}
-
+	
 	@Override
 	public GoodsInfo findGoodsByID(int GoodsID,int StoreID) {
 		String sql = "select * from goods_info where GoodsID=? and StoreID=?";
 		
 		try {
 			conn=JdbcUtil.getConn();
-			PreparedStatement stmt=conn.prepareStatement(sql);
+			stmt=conn.prepareStatement(sql);
 			stmt.setInt(1, GoodsID);
 			stmt.setInt(2, StoreID);
 			rs = stmt.executeQuery();
@@ -247,5 +245,56 @@ public class GoodsInfoDaoImpl implements GoodsInfoDao {
 	public List<GoodsInfo> findGoodsByBrand(String GoodsName) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	@Override
+	public boolean updateGoodsSalesVolumes(int GoodsID, int number) {
+		try {
+			// 获取连接
+			conn = JdbcUtil.getConn();
+
+			String sql = "UPDATE goods_info SET SalesVolumes=SalesVolumes+? WHERE GoodsID=?";
+
+			// 创建PreparedStatement
+			stmt = conn.prepareStatement(sql);
+
+			// 设置参数
+			stmt.setInt(1,number);
+			stmt.setInt(2, GoodsID);
+
+			// 执行
+			stmt.executeUpdate();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(conn, stmt);
+		}
+		return false;
+		}
+	@Override
+	public boolean updateGoodsNum(int GoodsID, int number) {
+		// TODO Auto-generated method stub
+		try {
+			// 获取连接
+			conn = JdbcUtil.getConn();
+
+			String sql = "UPDATE goods_info SET Number=? WHERE GoodsID=?";
+
+			// 创建PreparedStatement
+			stmt = conn.prepareStatement(sql);
+
+			// 设置参数
+			stmt.setInt(1,number);
+			stmt.setInt(2, GoodsID);
+
+			// 执行
+			stmt.executeUpdate();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(conn, stmt);
+		}
+		return false;
 	}
 }

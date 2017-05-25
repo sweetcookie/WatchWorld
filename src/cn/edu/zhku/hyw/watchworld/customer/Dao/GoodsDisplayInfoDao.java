@@ -55,4 +55,43 @@ public class GoodsDisplayInfoDao
 		JdbcUtil.close(conn, pstmt, rs);
 		return dataList;
 	}
+	
+	/**
+	 * 通过goodsName对数据库进行模糊查找商品
+	 * @param goodsName
+	 * @param pageIdx
+	 * @param len
+	 * @return
+	 */
+	public List<GoodsDisplayInfo> findByGoodsName(String goodsName, int pageIdx, int len)
+	{
+		List<GoodsDisplayInfo> dataList = new ArrayList<GoodsDisplayInfo>();
+		String sql = "select GoodsID,GoodsName,GoodsPicturePath,Price " +
+				"from goods_info " +
+				"where GoodsName like ? " +
+				"limit ?,?";
+		try
+		{
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "%" + goodsName + "%");
+			pstmt.setInt(2, ((pageIdx - 1) * 10)); //limit的第一个参数起始为0
+			pstmt.setInt(3, len);
+			rs = pstmt.executeQuery();
+			while(rs.next())
+			{
+				GoodsDisplayInfo data = new GoodsDisplayInfo();
+				data.setGoodsID(rs.getInt("GoodsID"));
+				data.setGoodsName(rs.getString("GoodsName"));
+				data.setGoodsPicturePath(rs.getString("GoodsPicturePath"));
+				data.setPrice(rs.getFloat("Price"));
+				dataList.add(data);
+			}
+		} catch (SQLException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		JdbcUtil.close(conn, pstmt, rs);
+		return dataList;
+	}
 }

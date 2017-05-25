@@ -19,7 +19,7 @@
   			</div>
   			<div id="searcherContainer">
   				<div id="searcher">
-	  				<form action="customer/searchResult">
+	  				<form action="customer/searchResult.jsp" method="get" id="searchForm" onsubmit="return checkEmpty()">
 	  					<input type="text" name="keyword" id="inputBox"/>
 	  					<input type="submit" value="搜索" id="submitBtn"/>
 	  				</form>

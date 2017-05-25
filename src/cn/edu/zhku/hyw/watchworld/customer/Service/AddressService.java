@@ -20,6 +20,10 @@ public class AddressService
 	public String findAddressByUserID(String userID)
 	{
 		String address = (new UserDataDao()).findAddressByUserID(userID);
+		if(address == null)
+		{
+			address = "";
+		}
 		return address;
 	}
 	

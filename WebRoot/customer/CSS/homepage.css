@@ -90,3 +90,15 @@ body
 	width: auto;
 	height: 600px;
 }
+
+#footer
+{
+	width: auto;
+	height: 30px;
+	background-color: #F2F2F2;
+	margin: 0px;
+	text-align: center;
+	color: #646464;
+	font-size: 14px;
+	line-height: 30px;
+}

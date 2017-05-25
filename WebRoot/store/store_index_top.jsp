@@ -48,5 +48,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	  		}
 	  	%>
   	</div>
+  	  	<div id="titleContainer">
+  			<img id="logo" src="<%= path %>/store/IMG/logo.png">
+  		<p id="mainTitle">店铺管理</p>
+  	</div>
   </body>
 </html>

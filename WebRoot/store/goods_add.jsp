@@ -16,30 +16,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
+	<link rel="stylesheet" type="text/css" href="store/CSS/goods_manage.css" />
 	<script type="text/javascript" src="store/JS/jquery-3.2.0.min.js"></script> 
 	 <script type="text/javascript" src="store/JS/goods_manage.js"></script>
 		
 </head>
   
   <body>
-  <div class="tittle">
-  <h3>商品添加</h3>
-  </div>
-  <div class="">
-  <form id="form_goodsAdd" action="<%=basePath %>store/GoodsAddServlet" method="post" enctype="multipart/form-data">
-   	 商品名 <input type="text" name="GoodsName" id="GoodsName" maxlength="45"/><br>
-	商品图片<input type="file" name="GoodsPicturePath" id="GoodsPicturePath" accept="image/*"/><br>
-	价格           <input type="text" name="Price" id="Price" maxlength="9"/>$<br>
-           品牌    <input type="text" name="Brand" id="Brand" maxlength="15"/><br>
-           颜色    <input type="color" name="Color" id="Color" maxlength="15"/><br>
-           型号    <input type="text" name="Model" id="Model" maxlength="15"/><br>
-           库存    <input type="text" name="Number" id="Number" maxlength="9"/>件<br>
-        <input type="text"  style="display:none;" name="StoreID" value="<%=session.getAttribute("StoreID")%>"/>
-           <input type="button" value="添加" onclick="checkform(form_goodsAdd)"/><span><font color="red" id="msg">${msg}</font></span><br>
-   </form>
+
+  <p class="tittle">商品添加</p>
+  <hr>
+  <div class="itemContainer">
+  	<div class="data">
+			<form id="form_goodsAdd" action="<%=basePath%>store/GoodsAddServlet" method="post" enctype="multipart/form-data">
+				<div class="form-item"><label>商品名:</label><input type="text" name="GoodsName" id="GoodsName" maxlength="45" /><br> </div>
+				<div class="form-item"><label>商品图片:</label> <input type="file" name="GoodsPicturePath" id="GoodsPicturePath" accept="image/*" /><br> </div>
+				<div class="form-item"><label>价格 :</label> <input type="text"	name="Price" id="Price" maxlength="9" />$<br> </div>
+				<div class="form-item"><label>品牌 :</label> <input type="text" name="Brand" id="Brand" maxlength="15" /><br></div>
+				<div class="form-item"><label> 颜色 :</label> <input type="color" name="Color" id="Color"	maxlength="15" /><br> </div>
+				<div class="form-item"><label> 型号 :</label> <input type="text"	name="Model" id="Model" maxlength="15" /><br> </div>
+				<div class="form-item"><label>	库存:</label> <input type="text" name="Number" id="Number" maxlength="9" />件<br></div>
+					<input type="text" style="display:none;" name="StoreID"	value="<%=session.getAttribute("StoreID")%>" /> 
+				<div class="form-item tip"><span><font	color="red" id="msg">${msg}</font></span><br></div>
+				<div class="form-item tip" ><input id="addButn"	type="button" value="添加" onclick="checkform(form_goodsAdd)" /></div>
+				
+			</form>
+		</div>
    </div>
   </body>
 </html>

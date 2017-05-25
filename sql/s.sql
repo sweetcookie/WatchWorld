@@ -77,7 +77,7 @@ CREATE TABLE `goods_info` (
 
 /*Data for the table `goods_info` */
 
-insert  into `goods_info`(`GoodsID`,`GoodsName`,`GoodsPicturePath`,`Price`,`Brand`,`Color`,`Model`,`Number`,`StoreID`,`SalesVolumes`) values (2,'手表2','url2',1001,'劳力士2','颜色2','型号2',102,8891,0),(3,'手表1','url1',1000,'劳力士1','颜色1','型号1',101,8892,1),(6,'手表4','url4',1003,'劳力士4','颜色4','型号4',104,8891,4),(8,'手表6','url6',1005,'劳力士6','颜色6','型号6',106,8891,6),(9,'手表7','logo.png.png',1006,'劳力士7','#000000','型号7',107,8890,7),(10,'手表8','url8',1007,'劳力士8','颜色8','型号8',108,8891,8),(11,'手表9','url9',1008,'劳力士9','颜色9','型号9',109,8891,9),(12,'手表0','url0',999,'劳力士0','颜色0','型号0',100,8890,0),(13,'手表1','url1',1000,'劳力士1','颜色1','型号1',101,8890,1),(14,'手表2','url2',1001,'劳力士2','颜色2','型号2',102,8890,2),(15,'手表3','url3',1002,'劳力士3','颜色3','型号3',103,8890,3),(16,'手表4','url4',1003,'劳力士4','颜色4','型号4',104,8890,4),(17,'手表5','url5',1004,'劳力士5','颜色5','型号5',105,8890,5),(18,'手表6','url6',1005,'劳力士6','颜色6','型号6',106,8890,6),(19,'手表7','url7',1006,'劳力士7','颜色7','型号7',107,8890,7),(20,'手表8','url8',1007,'劳力士8','颜色8','型号8',108,8890,8),(21,'手表9','url9',1008,'劳力士9','颜色9','型号9',109,8890,9);
+insert  into `goods_info`(`GoodsID`,`GoodsName`,`GoodsPicturePath`,`Price`,`Brand`,`Color`,`Model`,`Number`,`StoreID`,`SalesVolumes`) values (2,'手表2','url2',1001,'劳力士2','颜色2','型号2',102,8891,0),(3,'手表3','url1',1000,'劳力士1','颜色1','型号1',19,8892,19),(6,'手表4','url4',1003,'劳力士4','颜色4','型号4',104,8891,4),(8,'手表6','url6',1005,'劳力士6','颜色6','型号6',106,8891,6),(9,'手表7','logo.png.png',1006,'劳力士7','#000000','型号7',107,8890,7),(10,'手表8','url8',1007,'劳力士8','颜色8','型号8',108,8891,8),(11,'手表11','url9',1008,'劳力士9','颜色9','型号9',9,8892,19),(12,'手表0','url0',999,'劳力士0','颜色0','型号0',100,8890,0),(13,'手表1','url1',1000,'劳力士1','颜色1','型号1',101,8890,1),(14,'手表2','url2',1001,'劳力士2','颜色2','型号2',102,8890,2),(15,'手表3','url3',1002,'劳力士3','颜色3','型号3',103,8890,3),(16,'手表4','url4',1003,'劳力士4','颜色4','型号4',104,8890,4),(17,'手表5','url5',1004,'劳力士5','颜色5','型号5',105,8890,5),(18,'手表6','url6',1005,'劳力士6','颜色6','型号6',106,8890,6),(19,'手表7','url7',1006,'劳力士7','颜色7','型号7',107,8890,7),(20,'手表8','url8',1007,'劳力士8','颜色8','型号8',108,8890,8),(21,'手表9','url9',1008,'劳力士9','颜色9','型号9',109,8890,9),(22,'1234','1495684497596.png',1234,'1234','#ff8000','1234',1234,8890,0);
 
 /*Table structure for table `goods_review` */
 
@@ -105,13 +105,14 @@ CREATE TABLE `order_goods` (
   `Color` varchar(15) collate utf8_czech_ci default NULL,
   `Model` varchar(15) collate utf8_czech_ci default NULL,
   `BuyAmount` int(11) default NULL,
-  `Staus` varchar(15) collate utf8_czech_ci default NULL,
   `GoodsPicturePath` varchar(45) collate utf8_czech_ci default NULL,
   KEY `FK_order_goods` (`OrderID`),
   CONSTRAINT `FK_order_goods` FOREIGN KEY (`OrderID`) REFERENCES `order_info` (`OrderID`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci CHECKSUM=1 DELAY_KEY_WRITE=1 ROW_FORMAT=DYNAMIC;
 
 /*Data for the table `order_goods` */
+
+insert  into `order_goods`(`OrderID`,`GoodsID`,`GoodsName`,`StoreID`,`Price`,`Brand`,`Color`,`Model`,`BuyAmount`,`GoodsPicturePath`) values ('222','3',NULL,'8892',NULL,NULL,NULL,NULL,1,NULL),('222','11',NULL,'8892',NULL,NULL,NULL,NULL,1,NULL),('456','11',NULL,'8892',NULL,NULL,NULL,NULL,1,NULL);
 
 /*Table structure for table `order_info` */
 
@@ -123,15 +124,15 @@ CREATE TABLE `order_info` (
   `PaymentTime` timestamp NULL default NULL,
   `SendGoodsTime` timestamp NULL default NULL,
   `Dealtime` timestamp NULL default NULL,
-  `Seller` varchar(15) collate utf8_czech_ci default NULL,
-  `Customer` varchar(15) collate utf8_czech_ci default NULL,
+  `StoreName` varchar(15) collate utf8_czech_ci default NULL,
+  `UserName` varchar(15) collate utf8_czech_ci default NULL,
   `TotalPrice` int(11) default NULL,
   PRIMARY KEY  (`OrderID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci CHECKSUM=1 DELAY_KEY_WRITE=1 ROW_FORMAT=DYNAMIC;
 
 /*Data for the table `order_info` */
 
-insert  into `order_info`(`OrderID`,`OrderStatus`,`PaymentTime`,`SendGoodsTime`,`Dealtime`,`Seller`,`Customer`,`TotalPrice`) values ('OrderID',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert  into `order_info`(`OrderID`,`OrderStatus`,`PaymentTime`,`SendGoodsTime`,`Dealtime`,`StoreName`,`UserName`,`TotalPrice`) values ('222','已发货',NULL,NULL,'0000-00-00 00:00:00','手表店1',NULL,NULL),('456','未发货',NULL,NULL,NULL,'手表店1',NULL,NULL);
 
 /*Table structure for table `return` */
 
@@ -159,12 +160,13 @@ CREATE TABLE `store_info` (
   `RegTime` varchar(45) collate utf8_czech_ci default NULL,
   `Telephone` varchar(11) collate utf8_czech_ci default NULL,
   PRIMARY KEY  (`StoreID`),
-  UNIQUE KEY `LoginName` (`LoginName`)
+  UNIQUE KEY `LoginName` (`LoginName`),
+  UNIQUE KEY `StoreName` (`StoreName`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci MIN_ROWS=8888 CHECKSUM=1 DELAY_KEY_WRITE=1 ROW_FORMAT=DYNAMIC;
 
 /*Data for the table `store_info` */
 
-insert  into `store_info`(`StoreID`,`LoginName`,`Pwd`,`StoreName`,`Owner`,`RegTime`,`Telephone`) values (8890,'1234','1234','手表店4','张4','2017年05月15日','1883'),(8891,'哈哈3','123456','手表店2','张2','2017年05月15日','1882'),(8892,'哈哈4','123456','手表店1','张1','2017年05月15日','1881'),(8893,'1','123','123','3','2017年05月17日','13214142866'),(8894,'4','4','5','5','2017年05月17日','55555555555'),(8895,'sd','11','WW','23222','2017年05月17日','98292738333'),(8896,'用户','mima','店铺','店主','2017年05月17日','12345678919'),(8897,'wq','w','我','水电费','2017年05月17日','12345678910'),(8898,'哈哈','2','33','11','2017年05月17日','12222222222'),(8899,'随时随地','sd','收到','收到','2017年05月17日','11111111121'),(8900,'娃儿我v','sdf','是是是','十三','2017年05月17日','33112233211'),(8901,'123','123','新店铺','123','2017年05月17日','18814142866'),(8902,'dsf','123','手表店','sdfsdfsdf','2017年05月18日','18814142886'),(8903,'史蒂夫','sdf','史蒂夫旗舰店','史蒂夫','2017年05月19日','18814142887'),(8904,'3456','123','12333','12333','2017年05月20日','15119662432'),(8905,'34567','123','123332','123332','2017年05月20日','15119662433'),(8906,'234','234','234','234','2017年05月21日','15116789876');
+insert  into `store_info`(`StoreID`,`LoginName`,`Pwd`,`StoreName`,`Owner`,`RegTime`,`Telephone`) values (8890,'1234','2234','手表店4','张4','2017年05月15日','18832223124'),(8891,'哈哈3','123456','手表店2','张2','2017年05月15日','1882'),(8892,'哈哈4','123456','手表店1','张1','2017年05月15日','1881'),(8893,'1','123','123','3','2017年05月17日','13214142866'),(8894,'4','4','5','5','2017年05月17日','55555555555'),(8895,'sd','11','WW','23222','2017年05月17日','98292738333'),(8896,'用户','mima','店铺','店主','2017年05月17日','12345678919'),(8897,'wq','w','我','水电费','2017年05月17日','12345678910'),(8898,'哈哈','2','33','11','2017年05月17日','12222222222'),(8899,'随时随地','sd','收到','收到','2017年05月17日','11111111121'),(8900,'娃儿我v','sdf','是是是','十三','2017年05月17日','33112233211'),(8901,'123','123','新店铺','123','2017年05月17日','18814142866'),(8902,'dsf','123','手表店','sdfsdfsdf','2017年05月18日','18814142886'),(8903,'史蒂夫','sdf','史蒂夫旗舰店','史蒂夫','2017年05月19日','18814142887'),(8904,'3456','123','12333','12333','2017年05月20日','15119662432'),(8905,'34567','123','123332','123332','2017年05月20日','15119662433'),(8906,'234','234','234','234','2017年05月21日','15116789876');
 
 /*Table structure for table `user_data` */
 
@@ -207,6 +209,8 @@ CREATE TABLE `user_info` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci CHECKSUM=1 DELAY_KEY_WRITE=1 ROW_FORMAT=DYNAMIC;
 
 /*Data for the table `user_info` */
+
+insert  into `user_info`(`UserID`,`Pwd`) values ('123','123');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

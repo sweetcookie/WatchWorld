@@ -23,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
  
-    <frameset rows="30,*"  >
+    <frameset rows="130px,*"  >
     <!--头部-->
     <frame src="<%=basePath %>/store/store_index_top.jsp" name="top" noresize="noresize" frameborder="0"  scrolling="no" marginwidth="0" marginheight="0" />
     <!--主体部分-->

@@ -23,8 +23,15 @@ public class GoodsInfoService {
 	public boolean updateGoods(GoodsInfo goodsInfo) {
 		return dao.updateGoods(goodsInfo);
 	}
-	
+	public boolean updateGoodsNum(int goodsID,int number) {
+		return dao.updateGoodsNum(goodsID, number);
+	}
+	public boolean updateGoodsSalesvolumes(int goodsID,int number){
+	 return	dao.updateGoodsSalesVolumes(goodsID,number);
+		
+	}
 	public GoodsInfo findGoodsByID(int GoodsID,int StoreID) {
 		return dao.findGoodsByID(GoodsID,StoreID);
 	}
+	
 }

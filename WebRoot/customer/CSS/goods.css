@@ -1,1 +1,141 @@
 @CHARSET "UTF-8";
+body
+{
+	margin: 0px;
+	padding: 0px;
+}
+
+#titleContainer
+{
+	width: 100%;
+	height: 100px;
+	background-color: #E3E3E3;
+}
+
+#logo
+{
+	float: left;
+	margin-left: 50px;
+}
+
+#mainTitle
+{
+	float: left;
+	font-size: 28px;	
+}
+
+#background
+{
+	width: 100%;
+}
+
+#mainContainer
+{
+	width: 1000px;
+	height: 550px;
+	padding: 0px;
+	margin: 10px auto;
+}
+
+#picContainer
+{
+	float: left;
+	width: 420px;
+	height: 490px;
+	padding: 0px;
+	margin-right: 5px;
+}
+
+#picContainer img
+{
+	width: 400px;
+	height: 490px;
+}
+
+#contentContainer
+{
+	float: left;
+	width: 575px;
+	height: 550px;
+}
+
+.dataItem
+{
+	width: 450px;
+	height: auto;
+	min-height: 40px;
+	margin: 10px auto 0px 10px;
+	padding: 0px;
+}
+
+.dataItem .label
+{
+	text-align: right;
+	width: 100px;
+	float: left;
+	line-height: 40px;
+	color: #939393;
+}
+
+.dataItem p
+{
+	line-height: 40px;
+}
+
+#goodsName p
+{
+	font-size: 22px;
+	font-weight: bold;
+	text-align: center;
+}
+
+#price p
+{
+	font-size: 30px;
+	font-weight: bold;
+	color: #DE1D20;
+}
+
+#storeName a
+{
+	line-height: 40px;
+}
+
+#btnContainer
+{
+	margin: 10px auto 10px auto;
+	padding: 0px;
+	width: 310px;
+	height: 50px;
+}
+
+#btnContainer input
+{
+	font-size: 20px;
+	color: #FFFFFF;
+	width: 150px;
+	height: 50px;
+	border: 0px;
+}
+
+#buyBtn
+{
+	background-color: #FF0483;
+}
+
+#addBtn
+{
+	background-color: #FF0233;
+}
+
+#footer
+{
+	width: auto;
+	height: 30px;
+	background-color: #F2F2F2;
+	margin: 0px;
+	text-align: center;
+	color: #646464;
+	font-size: 14px;
+	line-height: 30px;
+}

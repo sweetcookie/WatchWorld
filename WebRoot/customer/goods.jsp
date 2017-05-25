@@ -14,6 +14,56 @@ String path = request.getContextPath();
   </head>
   <body>
 	 <jsp:include page="/customer/header.jsp"></jsp:include>
-	 <div></div>
+   	<div id="titleContainer">
+  		<a href="<%= path %>/index.jsp">
+  			<img id="logo" src="<%= path %>/customer/IMG/logo.png">
+  		</a>
+  		<p id="mainTitle">商品详情</p>
+  	</div>
+  	<div id="mainContainer">
+	  	<div id="picContainer">
+	  			<img src="">
+	  	</div>
+  		<div id="contentContainer">
+			<div class="dataItem" id="goodsName">
+	   			<p></p>
+	   		</div>
+	   		<div class="dataItem" id="price">
+	   			<div class="label">价格：</div>
+	   			<p></p>
+	   		</div>
+	   		<div class="dataItem" id="brand">
+	   			<div class="label">品牌：</div>
+	   			<p></p>
+	   		</div>
+	   		<div class="dataItem" id="color">
+	   			<div class="label">颜色：</div>
+	   			<p></p>
+	   		</div>
+	   		<div class="dataItem" id="Model">
+	   			<div class="label">型号：</div>
+	   			<p></p>
+	   		</div>
+	   		<div class="dataItem" id="Number">
+	   			<div class="label">库存：</div>
+	   			<p></p>
+	   		</div>
+	   		<div class="dataItem" id="SalesVolumes">
+	   			<div class="label">销量：</div>
+	   			<p></p>
+	   		</div>
+	   		<div class="dataItem" id="storeName">
+	   			<div class="label">店铺：</div>
+	   			<a href=""></a>
+	   		</div>
+	   		<div id="btnContainer">
+	   			<input type="button" value="立即购买" id="buyBtn">
+	   			<input type="button" value="加入购物车" id="addBtn">
+	   		</div>
+  		</div>
+  	</div>
+  	<div id="footer">
+		Copyright © 2017
+  	</div>
   </body>
 </html>

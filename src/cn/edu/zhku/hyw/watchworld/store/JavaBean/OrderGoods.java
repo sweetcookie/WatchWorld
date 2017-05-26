@@ -10,7 +10,6 @@ public class OrderGoods {
 	 private  String color;
 	 private  String model;
 	 private  int    buyAmount;
-	 private  String staus;
 	 private  String goodsPicturePath;
 	
 	public String getOrderID() {
@@ -85,13 +84,6 @@ public class OrderGoods {
 		this.buyAmount = buyAmount;
 	}
 
-	public String getStaus() {
-		return staus;
-	}
-
-	public void setStaus(String staus) {
-		this.staus = staus;
-	}
 
 	public String getGoodsPicturePath() {
 		return goodsPicturePath;
@@ -111,8 +103,7 @@ public class OrderGoods {
 		return "OrderGoods [orderID=" + orderID + ", goodsID=" + goodsID
 				+ ", goodsName=" + goodsName + ", storeID=" + storeID
 				+ ", price=" + price + ", brand=" + brand + ", color=" + color
-				+ ", model=" + model + ", buyAmount=" + buyAmount + ", staus="
-				+ staus + ", goodsPicturePath=" + goodsPicturePath + "]";
+				+ ", model=" + model + ", buyAmount=" + buyAmount +  ", goodsPicturePath=" + goodsPicturePath + "]";
 	}
 	
 }

@@ -4,14 +4,21 @@ import java.sql.Timestamp;
 import java.util.List;
 
 public class OrderInfo<E> {
-	private    String     orderID;
-	 private   String   orderStatus;
-	 private   Timestamp   paymentTime;
-	 private   Timestamp   sendGoodsTime;
-	 private   String   storeName;
-	 private   String   userName;
-	 private   int  totalPrice;
-	 private   List<OrderGoods>  orderGoods;
+	private    String            orderID      ;
+	 private   String            orderStatus  ;
+	 private   Timestamp         paymentTime  ;
+	 private   Timestamp         sendGoodsTime;
+	 private   String            storeName    ;
+	 private   String            userName     ;
+	 private   int               totalPrice   ;
+	 private   String  				address;
+	 public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	private   List<OrderGoods>  orderGoods   ;
 	 
 	 
 	 public List<OrderGoods> getOrderGoods() {
@@ -71,8 +78,8 @@ public class OrderInfo<E> {
 		return "OrderInfo [orderID=" + orderID + ", orderStatus=" + orderStatus
 				+ ", paymentTime=" + paymentTime + ", sendGoodsTime="
 				+ sendGoodsTime + ", storeName=" + storeName + ", userName="
-				+ userName + ", totalPrice=" + totalPrice + ", orderGoods="
-				+ orderGoods + "]";
+				+ userName + ", totalPrice=" + totalPrice + ", address="
+				+ address + ", orderGoods=" + orderGoods + "]";
 	}
 	
 	

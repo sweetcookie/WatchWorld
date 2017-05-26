@@ -3,7 +3,7 @@ $(document).ready(function(){
 	loadData(1);
 });
 
-//检查参数是否争取
+//检查参数是否正确
 function checkandGetData(pageIdx)
 {
 	var max=$("#pageIndexContainer").attr("totalPage");

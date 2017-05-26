@@ -7,12 +7,7 @@ public class GoodsInfo
 	private String GoodsPicturePath;
 	private float Price;
 	private String Brand;
-	private String MovementStyle;
 	private String Color;
-	private String Material;
-	private String Shape;
-	private String Waterproof;
-	private String Style;
 	private String Model;
 	private int Number;
 	private int StoreID;
@@ -58,14 +53,6 @@ public class GoodsInfo
 	{
 		Brand = brand;
 	}
-	public String getMovementStyle()
-	{
-		return MovementStyle;
-	}
-	public void setMovementStyle(String movementStyle)
-	{
-		MovementStyle = movementStyle;
-	}
 	public String getColor()
 	{
 		return Color;
@@ -74,38 +61,7 @@ public class GoodsInfo
 	{
 		Color = color;
 	}
-	public String getMaterial()
-	{
-		return Material;
-	}
-	public void setMaterial(String material)
-	{
-		Material = material;
-	}
-	public String getShape()
-	{
-		return Shape;
-	}
-	public void setShape(String shape)
-	{
-		Shape = shape;
-	}
-	public String getWaterproof()
-	{
-		return Waterproof;
-	}
-	public void setWaterproof(String waterproof)
-	{
-		Waterproof = waterproof;
-	}
-	public String getStyle()
-	{
-		return Style;
-	}
-	public void setStyle(String style)
-	{
-		Style = style;
-	}
+
 	public String getModel()
 	{
 		return Model;

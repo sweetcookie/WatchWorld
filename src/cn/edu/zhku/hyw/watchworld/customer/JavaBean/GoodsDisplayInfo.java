@@ -1,7 +1,7 @@
 package cn.edu.zhku.hyw.watchworld.customer.JavaBean;
 
 /**
- * 该类用于存储首页需要展示的商品信息，包括商品的图片路径、商品名和商品价格
+ * 该类用于存储首页以及搜索结果需要展示的商品信息，包括商品的图片路径、商品名和商品价格
  * @author 曾裕文
  *
  */

@@ -116,7 +116,7 @@ function loadGoods(brand)
 			{
 				$("[name="+brand+"]").append(
 					"<div class='goods'>" +
-						"<a	href='customer/goods?goodsID="+n.goodsID+"'>" +
+						"<a	href='customer/goods.jsp?goodsID="+n.goodsID+"' target='_blank'>" +
 							"<img src='"+n.goodsPicturePath+"'>" +
 						"</a>" +
 						"<p class='goodName'>"+n.goodsName+"</p>" +
@@ -125,4 +125,16 @@ function loadGoods(brand)
 			});
 		}
 	});
+}
+
+function checkEmpty()
+{
+	if($("#inputBox").val()=="")
+	{
+		return false;
+	}
+	else
+	{
+		return true;
+	}
 }

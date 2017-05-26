@@ -48,6 +48,10 @@ String path = request.getContextPath();
 	  	<%
 	  		}
 	  	%>
+	  	<div class="headerFlag">|</div>
+	  	<div class="headerFlag">
+  			<a href="<%= path %>/index.jsp">首页</a>
+  		</div>
   	</div>
   </body>
 </html>

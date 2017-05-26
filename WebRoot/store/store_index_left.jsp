@@ -40,11 +40,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="type">订单管理</div>
 		<div class="content">
 			<ul class="RM">
-				<li><a href="AdminServlet?action=orderyfs&pxfs=asc"
-					target="main">已接受订单</a>
-				</li>
-				<li><a href="AdminServlet?action=orderwfs&pxfs=asc"
+				<li><a href="<%=basePath %>store/OrderShowServlet?status=noaccepted"
 					target="main">未接受订单</a>
+				</li>
+				<li><a href="<%=basePath %>store/OrderShowServlet?status=accepted"
+					target="main">已接受订单</a>
 				</li>
 			</ul>
 		</div>

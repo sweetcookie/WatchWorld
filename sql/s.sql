@@ -77,7 +77,7 @@ CREATE TABLE `goods_info` (
 
 /*Data for the table `goods_info` */
 
-insert  into `goods_info`(`GoodsID`,`GoodsName`,`GoodsPicturePath`,`Price`,`Brand`,`Color`,`Model`,`Number`,`StoreID`,`SalesVolumes`) values (2,'手表2','url2',1001,'劳力士2','颜色2','型号2',102,8891,0),(3,'手表3','url1',1000,'劳力士1','颜色1','型号1',19,8892,19),(6,'手表4','url4',1003,'劳力士4','颜色4','型号4',104,8891,4),(8,'手表6','url6',1005,'劳力士6','颜色6','型号6',106,8891,6),(9,'手表7','logo.png.png',1006,'劳力士7','#000000','型号7',107,8890,7),(10,'手表8','url8',1007,'劳力士8','颜色8','型号8',108,8891,8),(11,'手表11','url9',1008,'劳力士9','颜色9','型号9',9,8892,19),(12,'手表0','url0',999,'劳力士0','颜色0','型号0',100,8890,0),(13,'手表1','url1',1000,'劳力士1','颜色1','型号1',101,8890,1),(14,'手表2','url2',1001,'劳力士2','颜色2','型号2',102,8890,2),(15,'手表3','url3',1002,'劳力士3','颜色3','型号3',103,8890,3),(16,'手表4','url4',1003,'劳力士4','颜色4','型号4',104,8890,4),(17,'手表5','url5',1004,'劳力士5','颜色5','型号5',105,8890,5),(18,'手表6','url6',1005,'劳力士6','颜色6','型号6',106,8890,6),(19,'手表7','url7',1006,'劳力士7','颜色7','型号7',107,8890,7),(20,'手表8','url8',1007,'劳力士8','颜色8','型号8',108,8890,8),(21,'手表9','url9',1008,'劳力士9','颜色9','型号9',109,8890,9),(22,'1234','1495684497596.png',1234,'1234','#ff8000','1234',1234,8890,0);
+insert  into `goods_info`(`GoodsID`,`GoodsName`,`GoodsPicturePath`,`Price`,`Brand`,`Color`,`Model`,`Number`,`StoreID`,`SalesVolumes`) values (2,'手表2','customer/IMG/pic3.jpg',1001,'劳力士2','颜色2','型号2',102,8891,0),(3,'手表3','url1',1000,'劳力士1','颜色1','型号1',17,8892,21),(6,'手表4','url4',1003,'劳力士4','颜色4','型号4',104,8891,4),(8,'手表6','url6',1005,'劳力士6','颜色6','型号6',106,8891,6),(9,'手表7','logo.png.png',1006,'劳力士7','#000000','型号7',107,8890,7),(10,'手表8','url8',1007,'劳力士8','颜色8','型号8',108,8891,8),(11,'手表11','url9',1008,'劳力士9','颜色9','型号9',5,8892,23),(12,'手表0','url0',999,'劳力士0','颜色0','型号0',100,8890,0),(13,'手表1','url1',1000,'劳力士1','颜色1','型号1',101,8890,1),(14,'手表2','url2',1001,'劳力士2','颜色2','型号2',102,8890,2),(15,'手表3','url3',1002,'劳力士3','颜色3','型号3',103,8890,3),(16,'手表4','url4',1003,'劳力士4','颜色4','型号4',104,8890,4),(17,'手表5','url5',1004,'劳力士5','颜色5','型号5',105,8890,5),(18,'手表6','url6',1005,'劳力士6','颜色6','型号6',106,8890,6),(19,'手表7','url7',1006,'劳力士7','颜色7','型号7',107,8890,7),(20,'手表8','url8',1007,'劳力士8','颜色8','型号8',108,8890,8),(21,'手表9','url9',1008,'劳力士9','颜色9','型号9',109,8890,9),(22,'1234','1495684497596.png',1234,'1234','#ff8000','1234',1234,8890,0);
 
 /*Table structure for table `goods_review` */
 
@@ -127,12 +127,13 @@ CREATE TABLE `order_info` (
   `StoreName` varchar(15) collate utf8_czech_ci default NULL,
   `UserName` varchar(15) collate utf8_czech_ci default NULL,
   `TotalPrice` int(11) default NULL,
+  `Address` varchar(45) collate utf8_czech_ci default NULL,
   PRIMARY KEY  (`OrderID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci CHECKSUM=1 DELAY_KEY_WRITE=1 ROW_FORMAT=DYNAMIC;
 
 /*Data for the table `order_info` */
 
-insert  into `order_info`(`OrderID`,`OrderStatus`,`PaymentTime`,`SendGoodsTime`,`Dealtime`,`StoreName`,`UserName`,`TotalPrice`) values ('222','已发货',NULL,NULL,'0000-00-00 00:00:00','手表店1',NULL,NULL),('456','未发货',NULL,NULL,NULL,'手表店1',NULL,NULL);
+insert  into `order_info`(`OrderID`,`OrderStatus`,`PaymentTime`,`SendGoodsTime`,`Dealtime`,`StoreName`,`UserName`,`TotalPrice`,`Address`) values ('222','已发货',NULL,NULL,'0000-00-00 00:00:00','手表店1',NULL,NULL,NULL),('456','未发货',NULL,NULL,NULL,'手表店1',NULL,NULL,NULL);
 
 /*Table structure for table `return` */
 
@@ -191,10 +192,14 @@ CREATE TABLE `user_data` (
 DROP TABLE IF EXISTS `user_goods`;
 
 CREATE TABLE `user_goods` (
-  `OrderID` varchar(15) collate utf8_czech_ci default NULL,
+  `GoodsID` int(15) default NULL,
   `UserID` varchar(15) collate utf8_czech_ci default NULL,
-  `Number` int(11) default NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
+  `Number` int(11) default NULL,
+  KEY `FK_user_goods` (`GoodsID`),
+  KEY `FK_user_info` (`UserID`),
+  CONSTRAINT `FK_user_info` FOREIGN KEY (`UserID`) REFERENCES `user_info` (`UserID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `FK_user_goods` FOREIGN KEY (`GoodsID`) REFERENCES `goods_info` (`GoodsID`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
 /*Data for the table `user_goods` */
 

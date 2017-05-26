@@ -39,6 +39,7 @@ public class OrderInfosDao {
 			orderInfo.setStoreName(rs.getString("StoreName"));
 			orderInfo.setUserName(rs.getString("UserName"));
 			orderInfo.setTotalPrice(rs.getInt("TotalPrice"));
+			orderInfo.setAddress(rs.getString("Address"));
 			orderIDs.add(orderInfo);
 		}
 		return orderIDs;

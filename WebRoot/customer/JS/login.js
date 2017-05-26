@@ -69,7 +69,7 @@ function submitForm()
 		{
 			if(data == "")
 			{
-				location.href = hostpath+"customer/homepage.jsp";
+				location.href = hostpath+"index.jsp";
 			}
 			else
 			{

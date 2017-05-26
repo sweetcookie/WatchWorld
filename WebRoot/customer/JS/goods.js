@@ -27,7 +27,25 @@ function getData()
 	});
 }
 
-function insertToShoppingCart()
+//添加到购物车
+function insertIntoShoppingCart()
 {
-	
+	var para=location.search;
+	var amount=$("#amount").val();
+	$.ajax({
+		type: "post",
+		url: hostpath+"customer/shoppingCart/insertIntoShoppingCart"+para+"&amount="+amount,
+		success: function(data)
+		{
+			if(data == "refuse")
+			{
+				alert("您还未登录，无法加入购物车！");
+				location.href=hostpath+"customer/login.jsp";
+			}
+			else
+			{
+				alert(data);
+			}
+		}
+		});
 }

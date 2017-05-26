@@ -62,7 +62,7 @@ String path = request.getContextPath();
 	   		</div>
 	   		<div id="btnContainer">
 	   			<input type="button" value="立即购买" id="buyBtn">
-	   			<input type="button" value="加入购物车" id="addBtn">
+	   			<input type="button" value="加入购物车" id="addBtn" onclick="insertIntoShoppingCart()">
 	   		</div>
   		</div>
   	</div>

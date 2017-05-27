@@ -31,7 +31,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<form id="form_goodsAdd" action="<%=basePath%>store/GoodsAddServlet" method="post" enctype="multipart/form-data">
 				<div class="form-item"><label>商品名:</label><input type="text" name="GoodsName" id="GoodsName" maxlength="45" /><br> </div>
 				<div class="form-item"><label>商品图片:</label> <input type="file" name="GoodsPicturePath" id="GoodsPicturePath" accept="image/*" /><br> </div>
-				<div class="form-item"><label>价格 :</label> <input type="text"	name="Price" id="Price" maxlength="9" />$<br> </div>
+				<div class="form-item"><label>价格 :</label>¥<input type="text"	name="Price" id="Price" maxlength="9" /><br> </div>
 				<div class="form-item"><label>品牌 :</label> <input type="text" name="Brand" id="Brand" maxlength="15" /><br></div>
 				<div class="form-item"><label> 颜色 :</label> <input type="color" name="Color" id="Color"	maxlength="15" /><br> </div>
 				<div class="form-item"><label> 型号 :</label> <input type="text"	name="Model" id="Model" maxlength="15" /><br> </div>

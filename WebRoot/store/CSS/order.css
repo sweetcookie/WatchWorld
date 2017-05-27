@@ -1,0 +1,76 @@
+@CHARSET "UTF-8";
+.msg{
+	height:30px;
+	margin: 0px;
+}
+.tittle{
+
+    font-size: 26px;
+    line-height: 40px;
+    margin: 10px auto 10px 10px;
+}
+hr{
+	width: 75%;
+	float: left;
+	margin-left: 55px;
+}
+table{
+	width: 90%;
+	/* text-align: center; */
+	 border-collapse:collapse;
+	 font-size: 14px;
+	border: 1px solid #dcdcdc;
+}
+
+td{
+	
+	padding: 10px;
+	height: 90px;
+}
+.order_head{
+	border: 1px solid #dcdcdc;
+	background: #ececec;
+	font-size: 13px;
+	height: 30px;
+}
+.order_head div{
+	float:left;
+	width: 330px;
+}
+.pic img{
+	width: 70px;
+	height: 70px;
+	
+}
+.goodsName{
+	float: left;
+	width:350px;
+	height: 70px;
+	margin: 20px;
+}
+.foot{
+	height: 30px;
+}
+.accept{
+	float:left;
+}
+.TotalPrice{
+	float:right;
+	margin-right: 20px;
+}
+.a{
+	float: right;
+}
+a {
+	text-decoration:none; color:#000;
+	margin-right: 20px;
+	background-color:#FF4401;
+	color: white;
+}
+/*  a:hover,a:active
+{
+	color: #DD2727;
+} */
+.noOrder{
+	text-align: center;
+}

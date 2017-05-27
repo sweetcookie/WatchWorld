@@ -62,7 +62,7 @@ public class GoodsAddServlet extends HttpServlet {
 		System.out.println("newfilename:"+newfilename);
 		System.out.println("uploadpath:"+uploadpath);
 		try {
-			goodsPart.write(uploadpath+File.separator+newfilename);
+			goodsPart.write(uploadpath+File.separator+filename);
 			GoodsInfo goodsInfo=new GoodsInfo();
 			goodsInfo.setGoodsName(goodsName);
 			goodsInfo.setPrice(Integer.parseInt(price));

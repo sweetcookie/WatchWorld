@@ -40,18 +40,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 	<table border="1" width="90%" align="center" cellpadding="1"
 		cellspacing="0" style="text-align: center;">
-		<tr>
+		<tr class="head">
 
-			<th > 商品编号 </th>
+			<th width="5%"> 商品编号 </th>
 			<th >商品名   </th>
-			<th >商品图片</th>
-			<th > 价格</th>
-			<th > 品牌</th>
+			<th width="7">商品图片</th>
+			<th width="6%"> 价格</th>
+			<th width="6%"> 品牌</th>
 			<th >颜色 </th>
-			<th > 型号</th>
-			<th >库存 </th>
-			<th >销量</th>
-			<th colspan="2">操作</th>
+			<th width="10%"> 型号</th>
+			<th width="3%">库存 </th>
+			<th width="3%">销量</th>
+			<th colspan="2" width="5%">操作</th>
 		</tr>               
 		<!-- 迭代数据 -->
 		
@@ -74,7 +74,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</tr>
 				</c:forEach>
 				<tr>
-			<td colspan="11" align="center">
+			<td colspan="11" align="center" class="foot">
 				当前${requestScope.pageBean.currentPage
 				}/${requestScope.pageBean.totalPage }页 &nbsp;&nbsp; <a
 				href="<%=basePath %>/store/GoodsShowServlet?currentPage=1">首页</a>

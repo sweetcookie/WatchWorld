@@ -3,6 +3,8 @@ package cn.edu.zhku.hyw.watchworld.store.Dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,16 +32,18 @@ public class OrderInfosDao {
 		stmt.setString(2, orderStatus);
 		rs = stmt.executeQuery();
 		List<OrderInfo> orderIDs=new ArrayList<OrderInfo>();
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
 		while(rs.next()){
 			OrderInfo orderInfo = new OrderInfo();
 			orderInfo.setOrderID(rs.getString("OrderID"));
 			orderInfo.setOrderStatus(rs.getString("OrderStatus"));
-			orderInfo.setPaymentTime(rs.getTimestamp("PaymentTime"));
-			orderInfo.setSendGoodsTime(rs.getTimestamp("SendGoodsTime"));
+			orderInfo.setPaymentTime(df.format(rs.getTimestamp("PaymentTime")));
+			orderInfo.setSendGoodsTime(df.format(rs.getTimestamp("SendGoodsTime")));
 			orderInfo.setStoreName(rs.getString("StoreName"));
 			orderInfo.setUserName(rs.getString("UserName"));
 			orderInfo.setTotalPrice(rs.getInt("TotalPrice"));
 			orderInfo.setAddress(rs.getString("Address"));
+			orderInfo.setTelephone(rs.getString("Telephone"));
 			orderIDs.add(orderInfo);
 		}
 		return orderIDs;
@@ -54,10 +58,11 @@ public class OrderInfosDao {
 	public boolean changeStatus(String orderID) {
 		try {
 			conn = JdbcUtil.getConn();
-			String sql = "UPDATE order_info SET OrderStatus=? where OrderID=?";
+			String sql = "UPDATE order_info SET OrderStatus=?,SendGoodsTime=? where OrderID=?";
 			stmt = conn.prepareStatement(sql);
 			stmt.setString(1, "已发货");
-			stmt.setString(2,orderID);
+			stmt.setTimestamp(2, new Timestamp(System.currentTimeMillis()));
+			stmt.setString(3,orderID);
 			stmt.executeUpdate();
 			return true;
 		} catch (Exception e) {

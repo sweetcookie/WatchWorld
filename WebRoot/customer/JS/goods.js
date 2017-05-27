@@ -21,7 +21,7 @@ function getData()
 			$("#Model p").text(data.model);
 			$("#Number p").text(data.number);
 			$("#SalesVolumes p").text(data.salesVolumes);
-			$("#storeName a").attr("href",(hostpath+"store/store.jsp?storeID="+data.storeID));
+			$("#storeName a").attr("href",(hostpath+"store/StoreGoodsDisplayServlet?StoreID="+data.storeID));
 			$("#storeName a").text(data.storeName);
 		}
 	});

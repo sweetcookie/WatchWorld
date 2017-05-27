@@ -53,12 +53,12 @@ public class GoodsShowServlet extends HttpServlet {
 			if(flag==true){
 				request.setAttribute("pageBean", pageBean);
 			}
+			//5. 跳转 
 			request.setAttribute("msg", request.getAttribute("msg"));
 			request.getRequestDispatcher("/store/goods_show.jsp").forward(request, response);
 			
-			//5. 跳转 
 		} catch (Exception e) {
-			e.printStackTrace();  // 测试使用
+			e.printStackTrace();  
 		
 		}
 		

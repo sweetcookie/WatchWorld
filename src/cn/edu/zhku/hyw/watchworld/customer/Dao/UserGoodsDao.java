@@ -105,4 +105,31 @@ public class UserGoodsDao
 		JdbcUtil.close(conn, pstmt);
 		return flag;
 	}
+	
+	/**
+	 * 根据商品编号和用户编号删除购物车指定的信息
+	 * @param goodsID
+	 * @return
+	 */
+	public boolean delByGoodsID(int goodsID, String userID)
+	{
+		boolean flag = false; //删除成功与否的标志
+		String sql = "delete from user_goods where GoodsID=? and UserID=?";
+		try
+		{
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, goodsID);
+			pstmt.setString(2, userID);
+			if(pstmt.executeUpdate() == 1)
+			{
+				flag = true;
+			}
+		} catch (SQLException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		JdbcUtil.close(conn, pstmt);
+		return flag;
+	}
 }

@@ -35,13 +35,13 @@
   		</div>
   		<div id="accountBar">
   			<div>
-  				<input type="button" value="结算" id="accountBtn" onclick="">
+  				<input type="button" value="结算" id="accountBtn" onclick="submitData()">
   			</div>
   			<div>
-  				<p>合计：<span id="total">￥111111</span></p>
+  				<p>合计：<span id="total">￥0</span></p>
   			</div>
   			<div>
-  				<p>已选择<span id="selectedAccount">111</span>件商品</p>
+  				<p>已选择<span id="selectedAccount">0</span>件商品</p>
   			</div>
   		</div>
   	</div>

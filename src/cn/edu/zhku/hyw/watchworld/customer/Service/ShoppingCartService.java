@@ -59,4 +59,16 @@ public class ShoppingCartService
 		List<ShoppingCartInfo> dataList = (new ShoppingCartInfoDao()).findByUserID(userID);
 		return dataList;
 	}
+
+	/**
+	 * 根据商品编号和用户编号删除购物车指定的信息
+	 * @param goodsID
+	 * @param userID
+	 * @return
+	 */
+	public boolean delInfoByGoodsID(int goodsID, String userID)
+	{
+		boolean flag = (new UserGoodsDao()).delByGoodsID(goodsID, userID);
+		return flag;
+	}
 }

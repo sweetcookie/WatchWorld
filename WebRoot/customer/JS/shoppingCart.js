@@ -63,10 +63,21 @@ function submitData()
 			}
 		}
 		para=para+"]";
-		location.href=hostpath+"customer/order/createOrder?para="+para;
+		var form=document.createElement("form");
+		form.action=hostpath+"customer/order/createOrder";
+		form.method="post";
+		form.id="submitForm";
+		var input=document.createElement("input");
+		input.type="text";
+		input.name="para";
+		input.value=para;
+		form.appendChild(input);
+		document.body.appendChild(form);
+		$("#submitForm").submit();
 	}
 }
 
+// 计算单项商品的总价
 function calc()
 {
 	var list = document.getElementsByName("goodsItem");

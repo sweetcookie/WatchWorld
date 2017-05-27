@@ -52,14 +52,14 @@ public class GoodsInfoDao
 	 * @param goodsID
 	 * @return
 	 */
-	public GoodsInfo findByGoodsID(String goodsID)
+	public GoodsInfo findByGoodsID(int goodsID)
 	{
 		GoodsInfo info = null;
 		String sql = "select * from goods_info where GoodsID=?";
 		try
 		{
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, goodsID);
+			pstmt.setInt(1, goodsID);
 			rs = pstmt.executeQuery();
 			while(rs.next())
 			{

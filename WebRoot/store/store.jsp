@@ -24,7 +24,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  	<link rel="stylesheet" type="text/css" href="<%= path %>/store/CSS/searchResult.css">
 	
   </head>
-  
+  <c:if test="${empty requestScope.StoreName}">
+  <c:redirect url="${request.getContextPath()}/store/login.jsp"/>
+  </c:if>
   <body>
    <jsp:include page="/customer/header.jsp"></jsp:include>
    <div id="headerContainer">

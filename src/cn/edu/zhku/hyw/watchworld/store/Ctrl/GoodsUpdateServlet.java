@@ -56,10 +56,11 @@ public class GoodsUpdateServlet extends HttpServlet {
 				
 			} else {
 
-			
+				String extname=filename.substring(filename.lastIndexOf('.'));
+				String newfilename=System.currentTimeMillis()+extname;
 			String uploadpath=getServletContext().getRealPath("/store/IMG/GoodsPicture");
 			try {
-				goodsPart.write(uploadpath+File.separator+filename);
+				goodsPart.write(uploadpath+File.separator+newfilename);
 				goodsInfo.setGoodsPicturePath(filename);
 			}catch (Exception e) {
 				e.printStackTrace();

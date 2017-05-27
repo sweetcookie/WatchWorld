@@ -51,7 +51,24 @@ public class StoreInfoDaoImpl implements StoreInfoDao {
 	@Override
 	public void deleteStore(int StoreID) {
 		// TODO Auto-generated method stub
+		try{
+			//获取连接
+			conn = JdbcUtil.getConn();
+			
+			String sql = "DELETE FROM store_info WHERE StoreID=?";
+			
+			//创建PreparedStatement
+			stmt = conn.prepareStatement(sql);
 
+			//设置参数
+			stmt.setInt(1,StoreID);
+			//执行
+			stmt.executeUpdate();
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			JdbcUtil.close(conn, stmt);
+		}
 	}
 
 	@Override

@@ -9,16 +9,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import cn.edu.zhku.hyw.watchworld.admin.JavaBean.PageBean;
+import net.sf.json.JSONObject;
 import cn.edu.zhku.hyw.watchworld.admin.Service.AdminInfoService;
-@WebServlet(name="StoreInfoSearchServlet",urlPatterns="/StoreInfoSearchServlet")
-public class StoreInfoSearchServlet extends HttpServlet {
+@WebServlet(name="ModifyCheckServlet",urlPatterns="/ModifyCheckServlet")
+public class ModifyCheckServlet extends HttpServlet {
 
 	/**
 	 * Constructor of the object.
 	 */
 	private static final long serialVersionUID = 1L;
-	public StoreInfoSearchServlet() {
+	public ModifyCheckServlet() {
 		super();
 	}
 
@@ -61,42 +61,24 @@ public class StoreInfoSearchServlet extends HttpServlet {
 
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-		/*String page=request.getParameter("page");*/
-		String choose=request.getParameter("Choose");
-        String searchContent=request.getParameter("searchContent");
-        if(searchContent==null){
-        	searchContent="1";
-        }
-        if(choose==null){
-        	choose="1";
-        }
-        System.out.println(choose);
-        System.out.println(searchContent);
-        int curPage=1;
-        String sql="1";
-        AdminInfoService storeInfo=new AdminInfoService();
-        PageBean pageBean=new PageBean();
-        if(choose.equals("name")){
-            sql="select * from store_info where StoreName like '%"+searchContent+"%' ";
-        }
-        else if(choose.equals("owner")){
-        	sql="select * from store_info where Owner like '%"+searchContent+"%' ";
-        }
-       /* else if(choose.equals("ID")&&searchContent.length()>0){
-                int ID=Integer.parseInt(searchContent);
-        	    sql="select * from store_info where StoreID="+ID+" ";
-        	    searchContent=String.valueOf(ID);
-        }*/
-        else{
-        	sql="select * from store_info ";
-        }
-        
-        System.out.println(sql);
-        pageBean=storeInfo.getStoreInfo_page(sql,curPage);//报错
-        request.setAttribute("pageBean", pageBean);
-        request.setAttribute("choose", choose);
-        request.setAttribute("search", searchContent);
-        request.getRequestDispatcher("admin/adminhomepage.jsp").forward(request, response);
+		String oldPWD=request.getParameter("pwd1");
+		String newPWD=request.getParameter("pwd2");
+		String AdminID=request.getParameter("ID");
+		AdminInfoService service=new AdminInfoService();
+		JSONObject resultJson=new JSONObject();
+		int flag=service.loginCheck(AdminID,oldPWD);
+		if(flag==1)
+		{
+			resultJson.put("flag", "WrongPWD");
+			 System.out.println(resultJson);
+		}
+		else if(flag==0||flag==-1)
+		{
+			service.modifyPWD(AdminID, newPWD);
+			resultJson.put("flag", "Success");
+			System.out.println(resultJson);
+		}
+		out.print(resultJson);
 		out.flush();
 		out.close();
 	}

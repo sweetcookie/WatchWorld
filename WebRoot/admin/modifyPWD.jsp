@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>root管理员创建账户界面</title>
+    <title>管理员修改密码界面</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -20,12 +20,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
     <script type="text/javascript" src="admin/JS/jquery-3.2.0.min.js"></script>
-    <script type="text/javascript" src="admin/JS/register.js"></script>
-    <link rel="stylesheet" href="admin/CSS/registercss.css" type="text/css">
+    <script type="text/javascript" src="admin/JS/modifyPWD.js"></script>
+    <link rel="stylesheet" href="admin/CSS/modifyPWDcss.css" type="text/css">
   </head>
   
   <body>
-  	<div id="adminID">
+      	<div id="adminID">
    <%
             String AdminID = (String) session.getAttribute("AdminID");
 			String AdminSession = (String) session.getAttribute("AdminSession");
@@ -36,31 +36,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			}
    %>
    </div>
-  	<div id="header">
+    <div id="header">
         <a href="#" id="logo"></a>
 	</div>
-
-    <div id="regform">
-        <form method="post" name="regform">
+    
+    <div id="modify">
+        <form method="post" id="modifyform" >
         <div class="item">
-             <label class="formlabel">账 号</label>
-             <input type="text"  class="content" id="RegName" onkeyup="IDCheck(this)">
-             <span class="tips" id="Meg1"></span>
+             <input type="hidden" class="content" id="AdminID" value="<%=AdminID%>">
         </div>
         <div class="item">
-             <label class="formlabel">密 码</label>
-             <input type="password"  class="content" id="RegPWD1" onkeyup="PWD1Check(this)">
-              <span class="tips" id="Meg2"></span>
+             <label class="formlabel">原 密 码</label>
+             <input type="password" class="content" id="PWD1">
         </div>
-        <div class="item" id="long">
-             <label class="formlabel">确 认 密 码</label>
-             <input type="password"  class="content" id="RegPWD2" onkeyup="PWD2Check(RegPWD1,this)">
-              <span class="tips" id="Meg3"></span>
+        <div class="item">
+             <label class="formlabel">新 密 码</label>
+             <input type="password"  id="PWD2" class="content" onkeyup="PWD2Check()" onfocus="clearMeg()">
+              <span id="Meg2"></span>
         </div>
-
+        <div id="tips">
+              <span id="Meg"></span>
+        </div>
         <div class="btn">
-             <input type="button" value="确认" id="btn-reg" onclick="regCheck()" >
+             <input type="button" value="确认" id="btn-modify" onclick="modifyCheck()" >
         </div>
+
         </form>
     </div>
   </body>

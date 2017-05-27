@@ -18,9 +18,9 @@ public class AdminInfoService {
       {
     	  Admin.deleteAdmin(AdminID);
       }
-      public void modifyPWD(AdminInfo adminInfo)
+      public void modifyPWD(String AdminID,String newPWD)
       {
-    	  Admin.modifyPWD(adminInfo);
+    	  Admin.modifyPWD(AdminID,newPWD);
       }
       public List<AdminInfo> findAll() 
       {
@@ -46,5 +46,15 @@ public class AdminInfoService {
 
     	  PageBean pb=Admin.getPageBean(sql,curPage);
     	  return pb;
+      }
+      public List getList(String sql){
+    	  List list=Admin.getList(sql);
+    	  return list;
+      }
+      public boolean addActivity(int storeID,String path,String activity){
+    	  return Admin.addActivity(storeID,path,activity);
+      }
+      public boolean deleteActivity(String ActivityName){
+    	  return Admin.deleteActivity(ActivityName);
       }
 }

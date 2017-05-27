@@ -1,0 +1,63 @@
+@CHARSET "UTF-8";
+body{
+	margin:0;
+}
+#logo{
+	width: 150px;
+	height:70px;
+    float: left;
+    margin-top: 4px;
+    background: url(/WatchWorld/admin/IMG/logo.png.png) no-repeat;
+    background-size: contain;
+}
+#adminID{
+	width:500px;
+	height:22px;
+	font-family:仿宋;
+	margin-left:1325px;
+	font-size:18px;
+}
+.a,.a2
+{
+	text-decoration:none;
+	color:#CCCCCC;
+}
+.item{
+	float:left;
+	display:block;
+	width:120px;
+	height:40px;
+	border: none 1px #ddd;
+	background-color:#fffaea;
+	margin-bottom:20px;
+	font-family:仿宋;
+	margin-left:5px;
+	padding-top:13px;
+	font-size:20px;
+}
+.Admintr{
+	width:400px;
+	height:50px;
+	margin:auto;
+}
+#title{
+	margin-top:100px;
+    font-family:仿宋;
+}
+#destory-btn{
+	border:none;
+	width:100px;
+	height:50px;
+	background:rgba(255,204,51,0);
+	/* color:white; */
+	font-family:仿宋;
+	font-size: 20px;
+	padding-bottom:25px;
+	color:red;
+}
+#destory-btn:hover{
+	color:#459FCB;
+}
+.a2:hover{
+	color:#459FCB;
+}

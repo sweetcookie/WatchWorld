@@ -1,5 +1,4 @@
 @CHARSET "UTF-8";
-
 #logo{
 	width: 191px;
 	height: 92px;
@@ -14,20 +13,32 @@
 	margin:auto;
 	padding:0;
 }
-#loginform{
+#adminID{
+	width:500px;
+	height:22px;
+	font-family:仿宋;
+	margin-left:1325px;
+	font-size:18px;
+}
+.a,.a2
+{
+	text-decoration:none;
+	color:#CCCCCC;
+}
+#modify{
     height:250px;
-	width:350px;
+	width:370px;
 	margin: 30px auto;
 	padding:0;
 	font-size:20px;
     font-family:仿宋;
-    /* color:white; */
     margin-top:150px;
 }
 .item{
 	border: none 1px #ddd;
 	background:rgba(255,204,51,0);
-	margin-bottom:30px;
+	margin-bottom:10px;
+	margin-top:30px
 }
 .content{
 	border: 0 solid;
@@ -37,11 +48,9 @@
     height: 19px;
     outline: 0;
     height:26px;
-    /* color:white; */
     background:rgba(255,204,51,0.1);
-    /* background-color:white; */
 }
-#btn-login{
+#btn-modify{
 	border:none;
 	width:100px;
 	height:50px;
@@ -50,12 +59,9 @@
 	font-family:仿宋;
 	font-size: 20px;
 }
-#loginbtn{
-	margin-left: 270px;
+.btn{
+	margin-left: 300px;
 }
-.tips{
-	color:red;
-}
-#btn-login:hover{
-    color:#459FCB;
+#btn-modify,.a2:hover{
+	 color:#459FCB;
 }

@@ -70,21 +70,21 @@ public class AdminInfoDao {
 					JdbcUtil.close(conn, stmt);
 			}
 	}	
-	public void modifyPWD(AdminInfo adminInfo)               //函数：修改密码
+	public void modifyPWD(String AdminID,String newPWD)               //函数：修改密码
 	{
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		try {
 			// 获取连接
 			conn = JdbcUtil.getConn();
-			String sql = "UPDATE user SET Pwd=? where AdminID=?";
+			String sql = "UPDATE admin_info SET Pwd=? where AdminID=?";
 
 			// 创建PreparedStatement
 			stmt = conn.prepareStatement(sql);
 
 			// 设置参数
-			stmt.setString(1,adminInfo.getAdminPWD());
-			stmt.setString(2,adminInfo.getAdminID());
+			stmt.setString(1,newPWD);
+			stmt.setString(2,AdminID);
 			// 执行
 			stmt.executeUpdate();
 		} catch (Exception e) {
@@ -234,7 +234,7 @@ public class AdminInfoDao {
 		PreparedStatement pstmt = null;
     	try{
     		conn = JdbcUtil.getConn();
-    		pstmt = conn.prepareStatement(sql);
+    		pstmt = conn.prepareStatement(sql); 
     	}catch(Exception e){
 			e.printStackTrace();		
     	}
@@ -317,6 +317,60 @@ public class AdminInfoDao {
     	pb.setTotalRows(getTotalRows(sql));
     	pb.setData(data);
     	return pb;
+    }
+    public boolean addActivity(int storeID,String path,String activity){
+    	Connection conn = null;
+		PreparedStatement stmt = null;
+		System.out.println("true");
+        try {
+			
+			// 获取连接
+			conn = JdbcUtil.getConn();
+			
+			String sql = "INSERT INTO activity(ActivityPicturePath,StoreID,ActivityName) VALUES(?,?,?)";
+			// 创建PreparedStatement
+			stmt = conn.prepareStatement(sql);
+			//设置参数
+			stmt.setString(1,path);
+			stmt.setInt(2,storeID);
+			stmt.setString(3,activity);
+	
+			
+			stmt.executeUpdate();
+			return true;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+		} finally {
+			JdbcUtil.close(conn, stmt);
+		}
+    return false;
+    }
+    public boolean deleteActivity(String ActivityName){
+    	Connection conn = null;
+		PreparedStatement stmt = null;
+        try {
+			
+			// 获取连接
+			conn = JdbcUtil.getConn();
+			
+			String sql = "DELETE FROM activity WHERE ActivityName=?";
+			// 创建PreparedStatement
+			stmt = conn.prepareStatement(sql);
+			//设置参数
+			stmt.setString(1,ActivityName);
+			
+			stmt.executeUpdate();
+			return true;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+		} finally {
+			JdbcUtil.close(conn, stmt);
+		}
+    return false;
     }
 }
    

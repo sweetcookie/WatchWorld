@@ -1,0 +1,70 @@
+@CHARSET "UTF-8";
+#adminID{
+	width:200px;
+	height:22px;
+	font-family:仿宋;
+	margin-left:1300px;
+	font-size:18px;
+}
+.a,.a2
+{
+	text-decoration:none;
+	color:#CCCCCC;
+}
+.a2:hover{
+	 color:#459FCB;
+}
+#addbtn:hover{
+	color:#459FCB;
+}
+.addactivity{
+	width:300px;
+	height:600px;
+	margin:auto;
+	font-family:仿宋;
+	font-size:18px;
+	margin-top:200px;
+}
+.form-item{
+   width:400px;
+   heght:40px;
+   margin:auto;
+   margin-top:20px;	
+}
+
+
+#StoreID,#ActivityName{
+	border: 0 solid;
+    width: 250px;
+    font-size: 14px;
+    height: 19px;
+    outline: 0;
+    height:26px;
+    /* color:white; */
+    background:rgba(255,204,51,0.1);
+    /* background-color:white; */
+}
+#addbtn{
+	border:none;
+	width:80px;
+	height:30px;
+	font-size:20px;
+	color:#d42a1d;
+	cursor:hand;
+	font-family:仿宋;
+	background-color:white;
+	font-size:18px;
+	margin-left:200px;
+}
+#ActivityPicturePath{
+	border:none;
+	font-family:仿宋;
+}
+.ah2{
+	margin-bottom:20px;
+	color:#459FCB;
+}
+#StoreID,#ActivityName{
+	margin-left:5px;
+	
+}

@@ -1,6 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%-- <%@page import="cn.edu.zhku.hyw.watchworld.admin.Dao.AdminInfoDao"%>
-<%@page import="cn.edu.zhku.hyw.watchworld.admin.JavaBean.AdminInfo" %> --%>
+
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -11,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'login.jsp' starting page</title>
+    <title>管理员登录界面</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -23,11 +22,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	-->
 	<script type="text/javascript" src="admin/JS/jquery-3.2.0.min.js"></script> 
     <script type="text/javascript" src="admin/JS/login.js"></script>
-        <link rel="stylesheet" href="admin/CSS/adminlogincss.css" type="text/css">
+    <link rel="stylesheet" href="admin/CSS/adminlogincss.css" type="text/css">
     
   </head>
   
-  <body>
+  <body onload="javascript:document.getElementByld('search').focus();">
   	<div id="header">
         <a href="#" id="logo"></a>
 	</div>

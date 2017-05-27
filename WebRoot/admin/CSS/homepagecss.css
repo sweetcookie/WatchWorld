@@ -11,7 +11,7 @@ body
 #float
 {
 	height:21px;
-/* 	background-color:#C78433; */
+    color:black;
 }
 /* img 
 {
@@ -24,37 +24,123 @@ html
 {
 	border:5px solid #FFFFFF;
 }
+.title{
+	font-family:仿宋;
+}
 div.div1
 {
-	height:350px;
-	width:33%;
+    height:420px;
+	width:750px;
 	margin: auto;
 	font-size:15px;
-	background-color:white;
+	color:black;
 }
 div.div1 td
 {
 	font-size:12px;
-	color:black;
+	color:#CCCCCC;
+}
+.Search{
+	font-size:20px;
 }
 #sbtn
 {
-	font-size:12px;
+	font-size:15px;
 	color:white;
 	background-color:#FF9900;
 	border:none;
 	cursor:hand;
-	width:55px;
-	height:22px;
+	width:70px;
+	height:26px;
 	
 }
-#searchtext
-{
-	border-style:groove;
-	padding:2px;
+#choose{
+	font-size:20px;
+	font-family:仿宋;
+	margin-top:5px;
 }
-a
+#search{
+	/* border: 0 solid; */
+    width: 180px;
+    margin-bottom:10px;
+    font-size: 14px;
+    height:28px;
+    outline:0;
+    /* color:white; */
+/*     background:rgba(255,204,51,0.1); */
+    /* background-color:white; */
+}
+.a
 {
 	text-decoration:none;
 	color:#CCCCCC;
+}
+.item{
+	float:left;
+	display:block;
+	width:80px;
+	height:30px;
+	border: none 1px #ddd;
+	background-color:#white;
+	margin-bottom:5px;
+	font-family:仿宋;
+	margin-left:5px;
+	padding-top:13px;
+	font-size:20px;
+	text-align:center;
+}
+.item2{
+	float:left;
+	display:block;
+	width:140px;
+	height:30px;
+	border: none 1px #ddd;
+	background-color:#white;
+	margin-bottom:5px;
+	font-family:仿宋;
+	margin-left:5px;
+	padding-top:13px;
+	font-size:20px;
+	text-align:center;
+}
+.StoreTable{
+	width:800px;
+	height:50px;
+	margin-right:300px;
+}
+#destory{
+	border:none;
+	width:100px;
+	height:50px;
+	background:rgba(255,204,51,0);
+	/* color:white; */
+	font-family:仿宋;
+	font-size: 20px;
+	padding-bottom:50px;
+	color:red;
+}
+.item3{
+	font-family:仿宋;
+}
+.page{
+	margin-left:292px;
+	font-family:仿宋;
+	font-size:18px;
+}
+.page2{
+	margin-left:13px;
+	font-family:仿宋;
+	font-size:18px;
+}
+.a:hover{
+    color:#459FCB;
+}
+.page3:hover{
+    color:#459FCB;
+}
+#destory:hover{
+    color:#459FCB;
+}
+.aa{
+	color:#24c5cd;
 }

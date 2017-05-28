@@ -14,11 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 @WebFilter(urlPatterns={"/store/ChangeStatusServlet",
-						"/store/AddStoreServlet",
-						"/store/CheckLoginNameServlet",
-						"/store/CheckOwnerServlet",
-						"/store/CheckStoreNameServlet",
-						"/store/CheckTelephoneServlet",
 						"/store/DeleteGoodsServlet",
 						"/store/FdGsInStoreByKeyWServlet",
 						"/store/FindGoodsServlet",
@@ -28,9 +23,7 @@ import javax.servlet.http.HttpSession;
 						"/store/GoodsUpdateServlet",
 						"/store/LogOutServlet",
 						"/store/OrderShowServlet",
-						"/store/StoreGoodsDisplayServlet",
 						"/store/StoreUpdateServlet",
-						"/store/store_index.jsp",
 						"/store/goods_add.jsp",
 						"/store/goods_show.jsp",
 						"/store/goods_update.jsp",
@@ -61,7 +54,10 @@ public class PowerFilter implements Filter {
 		
 		HttpServletRequest request =(HttpServletRequest)arg0;
 		HttpServletResponse response =(HttpServletResponse)arg1;
-		
+		 if (request.getHeader("x-requested-with") != null && request.getHeader("x-requested-with").equals("XMLHttpRequest")) { 
+	            // ajax请求
+			 arg2.doFilter(arg0, arg1);
+			 }
 		HttpSession session= request.getSession();
 		Object loginName = session.getAttribute("LoginName");
 		 Object storeID = session.getAttribute("StoreID");

@@ -62,7 +62,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<tr>
 						<td>${goods.goodsID}</td>
 						<td>${goods.goodsName}</td>
-						<td><img alt="" src="./store/IMG/GoodsPicture/${goods.goodsPicturePath}" height="70px" width="70px"></td>
+						<td><img alt="" src="<%=basePath%>/store/IMG/GoodsPicture/${goods.goodsPicturePath}" height="70px" width="70px"></td>
 						<td>${goods.price}</td>
 						<td>${goods.brand}</td>
 						<td><input type="color" value="${goods.color}"></td>
@@ -91,7 +91,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<tr>
 						<td>${requestScope.goodsInfo.goodsID}</td>
 						<td>${requestScope.goodsInfo.goodsName}</td>
-						<td><img alt="" src="./store/IMG/GoodsPicture/${requestScope.goodsInfo.goodsPicturePath}" height="70px" width="70px"></td>
+						<td><img alt="" src="<%=basePath%>/store/IMG/GoodsPicture/${requestScope.goodsInfo.goodsPicturePath}" height="70px" width="70px"></td>
 						<td>${requestScope.goodsInfo.price}</td>
 						<td>${requestScope.goodsInfo.brand}</td>
 						<td><input type="color" value="${requestScope.goodsInfo.color}"></td>

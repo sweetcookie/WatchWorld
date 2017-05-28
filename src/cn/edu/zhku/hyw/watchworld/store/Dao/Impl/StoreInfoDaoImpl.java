@@ -16,7 +16,7 @@ public class StoreInfoDaoImpl implements StoreInfoDao {
 	private ResultSet rs = null;
 
 	@Override
-	public void  addStore(StoreInfo storeInfo) {
+	public boolean  addStore(StoreInfo storeInfo) {
 		// TODO Auto-generated method stub
 		
 		try {
@@ -35,7 +35,7 @@ public class StoreInfoDaoImpl implements StoreInfoDao {
 			stmt.setString(6, storeInfo.getTelephone());
 			
 			stmt.executeUpdate();
-			
+			return true;
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -43,7 +43,7 @@ public class StoreInfoDaoImpl implements StoreInfoDao {
 		} finally {
 			JdbcUtil.close(conn, stmt);
 		}
-		
+		return false;
 		
 	
 	}

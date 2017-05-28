@@ -90,7 +90,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 			</c:when>
 			<c:otherwise>
-					对不起，没有数据
+					<p align="center">对不起，没有数据</p>
 			</c:otherwise>
 		</c:choose>
   </body>

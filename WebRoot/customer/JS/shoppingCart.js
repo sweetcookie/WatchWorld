@@ -25,7 +25,7 @@ function loadData()
 							"</div>" +
 						"</td>" +
 						"<td class='price' name='priceTd'>"+n.price+"</td>" +
-						"<td class='amount' name='amountTd'><input type='number' min='1' class='amountVal' value='"+n.amount+"' onchange='calc()'></td>" +
+						"<td class='amount' name='amountTd'><input type='number' min='1' max='"+n.salesVolumes+"' class='amountVal' value='"+n.amount+"' onchange='calc()'><p>库存："+n.salesVolumes+"</p></td>" +
 						"<td class='money' name='moneyTd' >"+(n.price*n.amount)+"</td>" +
 						"<td class='operate'><p onclick='delData("+n.goodsID+")'>删除</p></td>" +
 						"<td class='selection'><input type='checkbox' name='selectIt' onchange='calcTotal()' value='"+n.goodsID+"'></td>" +
@@ -36,44 +36,71 @@ function loadData()
 	});
 }
 
+//验证购买数量是否大于库存
+function checkAmount()
+{
+	var flag;
+	var amountTdList=document.getElementsByName("amountTd");
+	for(var j=0; j<amountTdList.length; j++)
+	{
+		if(parseInt($(amountTdList[j].childNodes[0]).val()) <= parseInt((amountTdList[j].childNodes[0]).max))
+		{
+			flag=true;
+		}
+		else
+		{
+			flag=false;
+			break;
+		}
+	}
+	return flag;
+}
+
 //提交数据以生成订单
 function submitData()
 {
-	var dataArray = new Array();
-	var list = document.getElementsByName("selectIt");
-	for(var i=0; i<list.length; i++) //查找所有被选中的商品
+	if(checkAmount() == false)
 	{
-		if(list[i].checked)
-		{
-			var goodsID = list[i].getAttribute("value");
-			var amount = $("#"+goodsID+" .amount input").val();
-			var data = {"goodsID":goodsID,"amount":amount};
-			dataArray.push(data);
-		}
+		alert("购买数量不能大于库存。");
 	}
-	if(dataArray.length > 0)
+	else
 	{
-		var para = "[";
-		for(var j=0; j<dataArray.length; j++)
+		var dataArray = new Array();
+		var list = document.getElementsByName("selectIt");
+		for(var i=0; i<list.length; i++) //查找所有被选中的商品
 		{
-			para=para+JSON.stringify(dataArray[j]);
-			if(j!=(dataArray.length-1))
+			if(list[i].checked)
 			{
-				para=para+",";
+				var goodsID = list[i].getAttribute("value");
+				var amount = $("#"+goodsID+" .amount input").val();
+				var data = {"goodsID":goodsID,"amount":amount};
+				dataArray.push(data);
 			}
 		}
-		para=para+"]";
-		var form=document.createElement("form");
-		form.action=hostpath+"customer/order/createOrder";
-		form.method="post";
-		form.id="submitForm";
-		var input=document.createElement("input");
-		input.type="text";
-		input.name="para";
-		input.value=para;
-		form.appendChild(input);
-		document.body.appendChild(form);
-		$("#submitForm").submit();
+		if(dataArray.length > 0)
+		{
+			var para = "[";
+			for(var j=0; j<dataArray.length; j++)
+			{
+				para=para+JSON.stringify(dataArray[j]);
+				if(j!=(dataArray.length-1))
+				{
+					para=para+",";
+				}
+			}
+			para=para+"]";
+			var form=document.createElement("form");
+			form.action=hostpath+"customer/order/createOrder";
+			form.method="post";
+			form.id="submitForm";
+			var input=document.createElement("input");
+			input.type="text";
+			input.name="para";
+			input.value=para;
+			form.appendChild(input);
+			document.body.appendChild(form);
+			$("#submitForm").submit();
+		}
 	}
 }
 

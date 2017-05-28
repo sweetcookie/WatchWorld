@@ -57,7 +57,7 @@ public class SearchResultService
 	{
 		int amount = this.getAmountOfDataByGoodsName(goodsName);
 		int pageNum = amount / len;
-		if((amount / len) > 0 ) //分页有余数，则多加一页
+		if((amount % len) > 0 ) //分页有余数，则多加一页
 		{
 			pageNum++;
 		}

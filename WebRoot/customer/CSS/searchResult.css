@@ -121,6 +121,12 @@ body
 	margin: 5px auto 5px auto;
 }
 
+.goodsNameContainer
+{
+	width：100%;
+	height: 50px;
+}
+
 .goods .goodName
 {
 	font-size: 14px;

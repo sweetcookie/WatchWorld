@@ -28,9 +28,8 @@ String path = request.getContextPath();
   			<a class="item" href="<%= path %>/customer/accountSecurity.jsp" target="contentFrame">账户安全</a><br>
   			<a class="item" href="<%= path %>/customer/address.jsp" target="contentFrame">收货地址</a><br>
   			<p class="itemTitle">订单中心</p>
-  			<a class="item">我的订单</a><br>
-  			<p class="itemTitle">售后服务</p>
-  			<a class="item">退货</a><br>
+  			<a class="item" href="<%= path %>/customer/personalOrder.jsp" target="contentFrame">我的订单</a><br>
+
   		</div>
   		<div id="contentContainer">
   			<iframe src="" name="contentFrame" width="1000px" height="100%" frameborder="0"></iframe>

@@ -1,0 +1,149 @@
+@CHARSET "UTF-8";
+body
+{
+	padding: 0px;
+	margin: 0px;
+	background-color: #FAFAFA;
+}
+
+#title
+{
+	font-size: 26px;
+	line-height: 40px;
+	margin: 10px auto 10px 10px;
+}
+
+#mainContainer
+{
+	width: 100%;
+	height: auto;
+	min-height: 400px;
+	margin: 0px;
+	padding: 0px;
+}
+
+#contentContainer
+{
+	width: 800px;
+	height: auto;
+	min-height: 400px;
+	padding: 0px;
+	margin: 10px auto;
+}
+
+#ctrlBar
+{
+	width: 100%;
+	padding: 0px;
+	height: 26px;
+}
+
+#ctrlBar p, #selection
+{
+	float: left;
+	font-size: 16px;
+	margin: 0px;
+	height: 26px;
+	line-height: 26px;
+}
+
+.orderItem
+{
+	width: 100%;
+	height: auto;
+	min-height: 300px;
+	padding: 0px;
+	margin: 10px auto;
+}
+
+.orderPart
+{
+	height: 100px;
+	background-color: #197DD5;
+	padding: 0px;
+	margin: 0px;
+}
+
+.halfContainer
+{
+	float: left;
+	width: 40%;
+}
+
+.halfContainer p
+{
+	margin: 0px;
+	font-size: 14px;
+	color: #FFFFFF;
+}
+
+.btnContainer
+{
+	width: 20%;
+	height: 100px;
+	float: left;
+}
+
+.btnContainer input
+{
+	margin: 10px auto;
+	float: right;
+}
+
+.goodsPart
+{
+	width: 100%;
+	height: auto;
+	min-height: 140px;
+	padding: 0px;
+	margin: 0px;
+	background-color: #C3E7E1;
+	border: 1px solid #FFFFFF;
+}
+
+.goodsName, .goodsAttr, .amount, .price
+{
+	height: 140px;
+	padding: 0px;
+	margin: 0px;
+	float: left;
+}
+
+.goodsName
+{
+	width: 300px;
+}
+
+.goodsName p, .amount p, .price p
+{
+	line-height: 140px;
+	margin: 0px;
+}
+
+.goodsName img
+{
+	float:left;
+	width: 75px;
+	height: 90px;
+	margin: 25px 0px 25px 10px;
+}
+
+.goodsName p
+{
+	float:left;
+}
+
+.goodsAttr
+{
+	width: 200px;
+}
+
+.amount
+{
+	width: 140px;
+}
+
+.price
+{
+	width: 140px;
+}

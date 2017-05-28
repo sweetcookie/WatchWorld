@@ -23,9 +23,10 @@ String path = request.getContextPath();
   	</div>
   	<div id="mainContainer">
   		<div id="addressContainer">
-  			<div class="addressPanel">
-  				<p id="minTitle">确认收货地址</p>
-  				<input type="text" value="${ userData.address }">
+  			<div id="addressPanel">
+  				<p class="minTitle">确认收货地址</p>
+  				<input type="text" value="<c:out value='${ userData.address }'/>" id="addressInput">
+  				<input type="button" value="确定" id="addressBtn" onclick="affirmAddress()">
   			</div>
   		</div>
   		<div id="goodsContainer">
@@ -41,17 +42,17 @@ String path = request.getContextPath();
 	  				</tr>
 	  				<c:forEach var="i" items="${ dataMap }">
 	  					<c:forEach var="j" items="${ i.value }">
-	  						<tr>
-	  							<td>
-	  								<img src="<%= path %>/<c:out value='${ j.goodsPicturePath }' />">
-	  								<p class="goodsName"><c:out value="${ j.goodsName }" /></p>
+	  						<tr class="contentTr">
+	  							<td style="width:400px">
+	  								<img class="goodsPic" src="<%= path %>/<c:out value='${ j.goodsPicturePath }' />">
+	  								<p class="goodsName"><a href="<%= path %>/customer/goods.jsp?goodsID=<c:out value='${ j.goodsID }' />"><c:out value="${ j.goodsName }" /></a></p>
 	  							</td>
-	  							<td>
+	  							<td style="width:200px">
 	  								<p class="goodsAttr">品牌：<c:out value="${ j.brand  }" /></p>
 	  								<p class="goodsAttr">颜色：<c:out value="${ j.color  }" /></p>
 	  								<p class="goodsAttr">型号：<c:out value="${ j.model  }" /></p>
 	  							</td>
-	  							<td>
+	  							<td style="width: 100px">
 	  								<p class="goodsPrice"><c:out value="${ j.price  }" /></p>
 	  							</td>
 	  							<td>
@@ -68,11 +69,18 @@ String path = request.getContextPath();
   		</div>
   		<div id="submitContain">
   			<div id="submitPanel">
-  				<p id="totalMoney">实付款：<span></span></p>
-  				<p id="addressBar">寄送至：<span></span></p>
+  				<p id="totalMoney">实付款：<span>￥<c:out value="${ totalMoney }" /></span></p>
+  				<p id="addressBar">寄送至：<span id="targetAddress"><c:out value="${ userData.address }" /></span></p>
+  				<p id="user">收货人：<c:out value="${ userData.userName }" /></p>
+  				<p id="telephone">联系方式：<c:out value="${ userData.telephone }" /></p>
+  				<input type="button" value="提交订单" id="submitBtn" onclick="submitOrder()">
   			</div>
   		</div>
   	</div>
+  	<form id="paraForm" hidden="true" method="post" action="<%= path %>/customer/order/saveOrder">
+  		<input value="<c:out value='${ para }' />" type="text" name="para">
+  		<input value="<c:out value='${ userData.address }'/>" type="text" name="addressPara" id="addressPara">
+  	</form>
  	<div id="footer">
 		Copyright © 2017
   	</div>

@@ -32,7 +32,7 @@ function loadData(pageIdx)
 						"<a	href='"+hostpath+"customer/goods.jsp?goodsID="+n.goodsID+"' target='_blank'>" +
 							"<img src='"+hostpath+n.goodsPicturePath+"'>" +
 						"</a>" +
-						"<p class='goodName'>"+n.goodsName+"</p>" +
+						"<div class='goodsNameContainer'><p class='goodName'>"+n.goodsName+"</p></div>" +
 						"<p class='goodPrice'>￥"+n.price+"</p>" +
 					"</div>");
 			});

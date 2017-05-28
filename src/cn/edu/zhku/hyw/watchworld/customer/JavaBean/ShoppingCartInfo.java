@@ -11,7 +11,16 @@ public class ShoppingCartInfo
 	private String goodsPicturePath;
 	private float price;
 	private int amount; //购物车中商品的数量
+	private int SalesVolumes; //销量
 	
+	public int getSalesVolumes()
+	{
+		return SalesVolumes;
+	}
+	public void setSalesVolumes(int salesVolumes)
+	{
+		SalesVolumes = salesVolumes;
+	}
 	public int getGoodsID()
 	{
 		return goodsID;

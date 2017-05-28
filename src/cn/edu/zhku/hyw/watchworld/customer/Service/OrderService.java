@@ -1,5 +1,8 @@
 package cn.edu.zhku.hyw.watchworld.customer.Service;
 
+import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -10,10 +13,17 @@ import java.util.Set;
 import net.sf.json.JSONArray;
 
 import cn.edu.zhku.hyw.watchworld.customer.Dao.GoodsInfoDao;
+import cn.edu.zhku.hyw.watchworld.customer.Dao.OrderGoodsDao;
+import cn.edu.zhku.hyw.watchworld.customer.Dao.OrderInfoDao;
+import cn.edu.zhku.hyw.watchworld.customer.Dao.StoreInfoDao;
+import cn.edu.zhku.hyw.watchworld.customer.Dao.UserDataDao;
+import cn.edu.zhku.hyw.watchworld.customer.Dao.UserInfoDao;
 import cn.edu.zhku.hyw.watchworld.customer.JavaBean.GoodsCounter;
 import cn.edu.zhku.hyw.watchworld.customer.JavaBean.GoodsInfo;
 import cn.edu.zhku.hyw.watchworld.customer.JavaBean.OrderGoods;
+import cn.edu.zhku.hyw.watchworld.customer.JavaBean.OrderInfo;
 import cn.edu.zhku.hyw.watchworld.customer.JavaBean.UserGoods;
+import cn.edu.zhku.hyw.watchworld.customer.JavaBean.UserInfo;
 
 public class OrderService
 {
@@ -45,7 +55,7 @@ public class OrderService
 	}
 	
 	/**
-	 * 通过商品ID和购买数量获取OrderGoods对象
+	 * 通过商品ID和购买数量获取OrderGoods对象(未设置OrderID)
 	 * @param paraList
 	 * @return
 	 */
@@ -110,8 +120,117 @@ public class OrderService
 		int totalMoney = 0;
 		for(OrderGoods od : paraList)
 		{
-			totalMoney = totalMoney + od.getPrice();
+			totalMoney = totalMoney + (od.getPrice() * od.getBuyAmount());
 		}
 		return totalMoney;
+	}
+	
+	/**
+	 * 检查下单时输入密码是否正确
+	 * @param userID
+	 * @param pwd
+	 * @return
+	 */
+	public boolean checkPwd(String userID, String pwd)
+	{
+		boolean flag = false;
+		UserInfo info = (new UserInfoDao()).findByUserID(userID);
+		if(pwd.equals(info.getPwd()))
+		{
+			flag = true;
+		}
+		return flag;
+	}
+	
+	/**
+	 * 保存订单
+	 * @param para
+	 * @param userID
+	 * @param address
+	 * @return
+	 */
+	public boolean saveOrder(String para, String userID, String address)
+	{
+		boolean flag = true;
+		List<GoodsCounter> gcList = this.translateToGoodsCounter(para);
+		List<OrderGoods> ogList = this.createOrderGoods(gcList);
+		Map<String, List<OrderGoods>> ogMap = this.createStoreGoodsMap(ogList);
+		for(String storeID : ogMap.keySet())
+		{
+			String orderID = this.createOrderID();
+			List<OrderGoods> saveOgList = this.updateOrderGoods(ogMap.get(storeID), orderID); //生成完整的OrderGoods对象的队列
+
+			String paymentTime = this.createTimeStampStr(); //下单时间
+			String storeName = (new StoreInfoDao()).findStoreNameByStoreID(Integer.parseInt(storeID)); //店铺名
+			String userName = (new UserDataDao()).findByUserID(userID).getUserName(); //买方姓名
+			int totalPrice = this.calcTotalMoney(saveOgList);
+			String telephone = (new UserDataDao()).findByUserID(userID).getTelephone();
+			OrderInfo orderInfo = new OrderInfo();
+			orderInfo.setOrderID(orderID);
+			orderInfo.setOrderStatus("未发货");
+			orderInfo.setPaymentTime(paymentTime);
+			orderInfo.setStoreName(storeName);
+			orderInfo.setUserName(userName);
+			orderInfo.setTotalPrice(totalPrice);
+			orderInfo.setAddress(address);
+			orderInfo.setTelephone(telephone);
+			orderInfo.setUserID(userID);
+			
+			if((new OrderInfoDao()).doCreate(orderInfo) == false) //将orderInfo存入数据库
+			{
+				flag = false;
+			}
+			
+			for(OrderGoods od : saveOgList)  //依次将OrderGoods对象存入数据库
+			{
+				if((new OrderGoodsDao().doCreate(od)) == false)
+				{
+					flag = false;
+				}
+			}
+		}
+		return flag;
+	}
+	
+	/**
+	 * 更新OrderGoods对象队列，为其填充订单编号OrderID
+	 * @param paraList
+	 * @return
+	 */
+	public List<OrderGoods> updateOrderGoods(List<OrderGoods> odList, String orderID)
+	{
+		for(OrderGoods od : odList)
+		{
+			od.setOrderID(orderID);
+		}
+		return odList;
+	}
+	
+	/**
+	 * 生成订单ID，订单ID由时间戳加1000到9999之间的随机数拼接生成
+	 * @param userID
+	 * @param storeID
+	 * @return
+	 */
+	public String createOrderID()
+	{
+		Timestamp ts = new Timestamp(System.currentTimeMillis());
+		DateFormat sdf = new SimpleDateFormat("HHmmss"); 
+		String str = sdf.format(ts);
+		int rd = (int)(Math.random() * 8999) + 1000;
+		String orderID = str + String.valueOf(rd);
+		return orderID;
+	}
+	
+	/**
+	 * 获取当前时间
+	 * @return
+	 */
+	public String createTimeStampStr()
+	{
+		Timestamp ts = new Timestamp(System.currentTimeMillis());
+		DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss"); 
+		String str = sdf.format(ts);
+		return str;
 	}
 }

@@ -378,7 +378,86 @@ public class AdminInfoDao {
     	System.out.println(path);
         	file.delete();
         	return true;
+    }
+    public boolean deleteGoods(int GoodsID){
+    	Connection conn = null;
+		PreparedStatement stmt = null;
+        try {
+			
+			// 获取连接
+			conn = JdbcUtil.getConn();
+			
+			String sql = "DELETE FROM goods_display WHERE GoodsID=?";
+			// 创建PreparedStatement
+			stmt = conn.prepareStatement(sql);
+			//设置参数
+			stmt.setInt(1,GoodsID);
+			
+			stmt.executeUpdate();
+			return true;
 
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+		} finally {
+			JdbcUtil.close(conn, stmt);
+		}
+    return false;
+    }
+    public String findGoodsByID(int GoodsID){
+    	Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet rs=null;
+		String Brand;
+		try {
+			// 获取连接
+			conn = JdbcUtil.getConn();
+			String sql = "SELECT * FROM goods_info where GoodsID=?";
+
+			// 创建PreparedStatement
+			stmt = conn.prepareStatement(sql);
+
+			// 设置参数
+			stmt.setInt(1,GoodsID);
+			// 执行
+			rs=stmt.executeQuery();
+			if(rs.next()){
+		        Brand=rs.getString("Brand");
+		        return Brand;
+			}
+			else return Brand="1";
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		} finally {
+			JdbcUtil.close(conn, stmt,rs);
+		}
+    }
+    public boolean addGoods(int GoodsID,String Brand){
+    	Connection conn = null;
+		PreparedStatement stmt = null;
+		System.out.println("DaoaddGoods");
+        try {
+			
+			// 获取连接
+			conn = JdbcUtil.getConn();
+			
+			String sql = "INSERT INTO goods_display(GoodsID,Brand) VALUES(?,?)";
+			// 创建PreparedStatement
+			stmt = conn.prepareStatement(sql);
+			//设置参数
+			stmt.setInt(1,GoodsID);
+			stmt.setString(2,Brand);	
+			stmt.executeUpdate();
+			return true;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+		} finally {
+			JdbcUtil.close(conn, stmt);
+		}
+    return false;
     }
 }
    

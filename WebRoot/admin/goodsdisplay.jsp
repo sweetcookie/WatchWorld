@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>root管理员界面</title>
+    <title>My JSP 'goodsdisplay.jsp' starting page</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -20,15 +20,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-	    <link rel="stylesheet" href="admin/CSS/admindeletecss.css" type="text/css">
-
+    <script type="text/javascript" src="admin/JS/jquery-3.2.0.min.js"></script>
+    <script type="text/javascript" src="admin/JS/goodsdisplay.js"></script>
+    <link rel="stylesheet" href="admin/CSS/goodsdisplaycss.css" type="text/css">
   </head>
   
   <body>
-  <div id="header">
-        <a href="#" id="logo"></a>
-  </div>
-  <div id="adminID">
+       <div id="adminID">
    <%
             String AdminID = (String) session.getAttribute("AdminID");
 			String AdminSession = (String) session.getAttribute("AdminSession");
@@ -37,26 +35,36 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			
 			<%
 			}
+			
    %>
    <a  class="a2" href="StoreInfoShowServlet">返回主页</a>
    </div>
-  
-   <div id="title">
-		 <h2 align="center">管理员一览表</h2>
-   </div>
-   <div class="Admintr" align="center">
-    <label class="item">管理员ID</label>
-    <label class="item">密 码</label>
+   
+    <div class="Goodsform" align="center">
+    <h2 align="center">活动一览表</h2>
+    <div>
+		   <label>商品ID</label>
+		   <input type="text" id="GoodsID" class="GoodsID">
+		   <input type="button" value="添加" id="add-btn" onclick="addGoods()">
+	</div>
+    <div class="At">
+    <label class="item">商品ID</label>
+     <label class="item">品 牌</label>
     <label class="item">管 理</label>
+     </div>
+     
+     <c:forEach var="goods" items = "${Goods }" varStatus="vs">
+    <div class="At" align="center">
+		<label class="item" align="center"><c:out value="${goods.GoodsID }"/></label>
+		<label class="item" align="center"><c:out value ="${goods.Brand }"/></label>
+		<label class="item" align="center"><input type="button" value="删除" id="destory-btn" onclick="deleteGoods('${goods.GoodsID}')"></label>
     </div>
-  
-		<c:forEach var="admin" items = "${Admin }" varStatus="vs">
-  <div class="Admintr" align="center">
-		<label class="item" align="center"><c:out value ="${admin.AdminID }"/></label>
-		<label class="item" align="center"><c:out value ="${admin.Pwd }"/></label>
-		<label class="item"   align="center"><input type="button" value="删除" id="destory-btn" ></label>
-  </div>
 		</c:forEach>
-  
+
+     
+     </div>
+     
+     
+     
   </body>
 </html>

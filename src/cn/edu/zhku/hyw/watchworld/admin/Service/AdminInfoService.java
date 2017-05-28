@@ -60,4 +60,13 @@ public class AdminInfoService {
       public boolean deleteFiles(String path){
     	  return Admin.deleteFiles(path);
       }
+      public boolean deleteGoods(int GoodsID){
+    	  return Admin.deleteGoods(GoodsID);
+      }
+      public String findGoodsByID(int GoodsID){
+    	  return Admin.findGoodsByID(GoodsID);
+      }
+      public boolean addGoodsID(int GoodsID,String Brand){
+    	  return Admin.addGoods(GoodsID, Brand);
+      }
 }

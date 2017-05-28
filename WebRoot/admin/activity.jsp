@@ -40,10 +40,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			String AdminSession = (String) session.getAttribute("AdminSession");
             if(AdminID!=null){%>
 			<a  class="a" >管理员：<%=AdminID %></a><a class="a1">&nbsp;| </a>
-			<a  class="a2" href="StoreInfoShowServlet">返回主页</a>
+			
 			<%
 			}
    %>
+   <a  class="a2" href="StoreInfoShowServlet">返回主页</a>
    </div>
 		
    <div class="Activityform" align="center">

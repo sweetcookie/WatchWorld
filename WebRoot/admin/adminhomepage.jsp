@@ -65,7 +65,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<%
 		}
 		 %>
-		 <a class ="a" href="ActivityAddServlet"?operate=select>管理首页活动</a><a class="aa">&nbsp;|</a>
+		 <a class ="a" href="ActivityAddServlet?operate=select">管理首页活动</a><a class="aa">&nbsp;|</a>
+		 <a class ="a" href="GoodsShowServlet">管理首页商品展示</a><a class="aa">&nbsp;|</a>
 		 <a  class="a" href="admin/login.jsp">退出登录</a><a class="aa">&nbsp;|</a>
 		 <a  class="a" href="admin/modifyPWD.jsp">修改密码&nbsp;</a> 
 		</div>

@@ -2,6 +2,10 @@ package cn.edu.zhku.hyw.watchworld.admin.Ctrl;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -64,6 +68,21 @@ public class ActivityDeleteServlet extends HttpServlet {
 		String ActivityName=request.getParameter("ActivityName");
 		JSONObject resultJson=new JSONObject();
 		AdminInfoService service=new AdminInfoService();
+		 String sql="select * from activity where ActivityName='"+ActivityName+"'";
+	        List Activity=new ArrayList();
+	        Map<String,String> m=new HashMap<String,String>();
+	        Activity=service.getList(sql);
+	        m=(Map)Activity.get(0);
+	        String path=m.get("ActivityPicturePath");
+	        String absPath=getServletContext().getRealPath("/"+path);
+	        System.out.println(absPath);
+	        if(service.deleteFiles(absPath)){
+	        	System.out.println("true");
+	        }
+	        else{
+	        	System.out.println("false");
+	        }
+	        
 	    if(service.deleteActivity(ActivityName)){
 	    	resultJson.put("flag", "true");
 	    }

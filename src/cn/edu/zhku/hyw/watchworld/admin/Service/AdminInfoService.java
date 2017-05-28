@@ -57,4 +57,7 @@ public class AdminInfoService {
       public boolean deleteActivity(String ActivityName){
     	  return Admin.deleteActivity(ActivityName);
       }
+      public boolean deleteFiles(String path){
+    	  return Admin.deleteFiles(path);
+      }
 }

@@ -3,6 +3,7 @@ package cn.edu.zhku.hyw.watchworld.admin.Dao;
 // 此class用于对WatchWorld数据库的admin_info表进行管理
 import java.util.ArrayList;
 import java.util.List;
+import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -371,6 +372,13 @@ public class AdminInfoDao {
 			JdbcUtil.close(conn, stmt);
 		}
     return false;
+    }
+    public boolean deleteFiles(String path){
+    	File file=new File(path);
+    	System.out.println(path);
+        	file.delete();
+        	return true;
+
     }
 }
    

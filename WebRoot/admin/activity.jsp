@@ -52,12 +52,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <label class="item">活动名称</label>
     <label class="item">店铺ID</label>
     <label class="item">管 理</label>
+    <label class="item">活动图片</label>
     </div>
   
 		<c:forEach var="activity" items = "${Activity }" varStatus="vs">
     <div class="At" align="center">
 		<label class="item" align="center"><c:out value="${activity.ActivityName }"/></label>
 		<label class="item" align="center"><c:out value ="${activity.StoreID }"/></label>
+		<a href="<%=basePath %>/${activity.ActivityPicturePath }"><img alt="活动图片" src="<%=basePath %>/${activity.ActivityPicturePath }" height="42px "width="100px"></a>
 		<label class="item" align="center"><input type="button" value="删除" id="destory-btn" onclick="deleteActivity('${activity.ActivityName}')"></label>
     </div>
 		</c:forEach>

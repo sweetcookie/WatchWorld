@@ -1,0 +1,146 @@
+@CHARSET "UTF-8";
+body
+{   
+	/* background: url(/WatchWorld/admin/IMG/bg05.jpg) left top  no-repeat,url(/WatchWorld/admin/IMG/bg05.jpg) right top no-repeat,url(/WatchWorld/admin/IMG/bg05.jpg) left bottom no-repeat,url(/WatchWorld/admin/IMG/bg05.jpg) right bottom no-repeat;
+	background-size:30% 50%; */
+	/* background: url(/WatchWorld/admin/IMG/bg05.jpg) left fixed  no-repeat,url(/WatchWorld/admin/IMG/bg05.jpg) right fixed no-repeat;
+	background-size:30% 100%;
+	background-color:black; */
+	margin:0;
+}
+#float
+{
+	height:21px;
+    color:black;
+}
+/* img 
+{
+position:absolute;
+left:30%;
+top:0%;
+clip:rect(0px 800px 400px 0px);
+} */
+html
+{
+	border:5px solid #FFFFFF;
+}
+.title{
+	font-family:仿宋;
+}
+div.div1
+{
+    height:420px;
+	width:750px;
+	margin: auto;
+	font-size:15px;
+	color:black;
+}
+div.div1 td
+{
+	font-size:12px;
+	color:#CCCCCC;
+}
+.Search{
+	font-size:20px;
+}
+#sbtn
+{
+	font-size:15px;
+	color:white;
+	background-color:#FF9900;
+	border:none;
+	cursor:hand;
+	width:70px;
+	height:26px;
+	
+}
+#choose{
+	font-size:20px;
+	font-family:仿宋;
+	margin-top:5px;
+}
+#search{
+	/* border: 0 solid; */
+    width: 180px;
+    margin-bottom:10px;
+    font-size: 14px;
+    height:28px;
+    outline:0;
+    /* color:white; */
+/*     background:rgba(255,204,51,0.1); */
+    /* background-color:white; */
+}
+.a
+{
+	text-decoration:none;
+	color:#CCCCCC;
+}
+.item{
+	float:left;
+	display:block;
+	width:80px;
+	height:30px;
+	border: none 1px #ddd;
+	background-color:#white;
+	margin-bottom:5px;
+	font-family:仿宋;
+	margin-left:5px;
+	padding-top:13px;
+	font-size:20px;
+	text-align:center;
+}
+.item2{
+	float:left;
+	display:block;
+	width:140px;
+	height:30px;
+	border: none 1px #ddd;
+	background-color:#white;
+	margin-bottom:5px;
+	font-family:仿宋;
+	margin-left:5px;
+	padding-top:13px;
+	font-size:20px;
+	text-align:center;
+}
+.StoreTable{
+	width:800px;
+	height:50px;
+	margin-right:300px;
+}
+#destory{
+	border:none;
+	width:100px;
+	height:50px;
+	background:rgba(255,204,51,0);
+	/* color:white; */
+	font-family:仿宋;
+	font-size: 20px;
+	padding-bottom:50px;
+	color:red;
+}
+.item3{
+	font-family:仿宋;
+}
+.page{
+	margin-left:292px;
+	font-family:仿宋;
+	font-size:18px;
+}
+.page2{
+	margin-left:13px;
+	font-family:仿宋;
+	font-size:18px;
+}
+.a:hover{
+    color:#459FCB;
+}
+.page3:hover{
+    color:#459FCB;
+}
+#destory:hover{
+    color:#459FCB;
+}
+.aa{
+	color:#24c5cd;
+}

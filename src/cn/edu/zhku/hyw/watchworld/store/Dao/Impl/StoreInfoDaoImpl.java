@@ -17,7 +17,6 @@ public class StoreInfoDaoImpl implements StoreInfoDao {
 
 	@Override
 	public boolean  addStore(StoreInfo storeInfo) {
-		// TODO Auto-generated method stub
 		
 		try {
 			
@@ -128,7 +127,6 @@ public class StoreInfoDaoImpl implements StoreInfoDao {
 
 	@Override
 	public int checkLoginName(String loginName) {
-		// TODO Auto-generated method stub
 		try { // 获取连接
 			conn = JdbcUtil.getConn();
 			String sql = "SELECT StoreID FROM store_info where LoginName=? ";

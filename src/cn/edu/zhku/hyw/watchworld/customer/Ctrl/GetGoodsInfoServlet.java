@@ -48,7 +48,7 @@ public class GetGoodsInfoServlet extends HttpServlet
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException
 	{
-		String goodsID = request.getParameter("goodsID");
+		int goodsID = Integer.parseInt(request.getParameter("goodsID"));
 		GoodsService service = GoodsService.getInstance();
 		GoodsInfo info = service.findByGoodsID(goodsID);
 		String storeName = service.findStoreNameByStoreID(info.getStoreID());

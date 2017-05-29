@@ -6,13 +6,20 @@ import java.util.List;
 public class OrderInfo<E> {
 	private    String            orderID      ;
 	 private   String            orderStatus  ;
-	 private   Timestamp         paymentTime  ;
-	 private   Timestamp         sendGoodsTime;
+	 private   String         paymentTime  ;
+	 private   String         sendGoodsTime;
 	 private   String            storeName    ;
 	 private   String            userName     ;
 	 private   int               totalPrice   ;
 	 private   String  				address;
-	 public String getAddress() {
+	 private String  telephone;
+	 public String getTelephone() {
+		return telephone;
+	}
+	public void setTelephone(String telephone) {
+		this.telephone = telephone;
+	}
+	public String getAddress() {
 		return address;
 	}
 	public void setAddress(String address) {
@@ -39,16 +46,16 @@ public class OrderInfo<E> {
 	public void setOrderStatus(String orderStatus) {
 		this.orderStatus = orderStatus;
 	}
-	public Timestamp getPaymentTime() {
+	public String getPaymentTime() {
 		return paymentTime;
 	}
-	public void setPaymentTime(Timestamp paymentTime) {
-		this.paymentTime = paymentTime;
+	public void setPaymentTime(String string) {
+		this.paymentTime = string;
 	}
-	public Timestamp getSendGoodsTime() {
+	public String getSendGoodsTime() {
 		return sendGoodsTime;
 	}
-	public void setSendGoodsTime(Timestamp sendGoodsTime) {
+	public void setSendGoodsTime(String sendGoodsTime) {
 		this.sendGoodsTime = sendGoodsTime;
 	}
 	public String getStoreName() {
@@ -79,8 +86,10 @@ public class OrderInfo<E> {
 				+ ", paymentTime=" + paymentTime + ", sendGoodsTime="
 				+ sendGoodsTime + ", storeName=" + storeName + ", userName="
 				+ userName + ", totalPrice=" + totalPrice + ", address="
-				+ address + ", orderGoods=" + orderGoods + "]";
+				+ address + ", telephone=" + telephone + ", orderGoods="
+				+ orderGoods + "]";
 	}
+	
 	
 	
 	

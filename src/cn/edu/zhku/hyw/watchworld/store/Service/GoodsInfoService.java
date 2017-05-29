@@ -7,7 +7,9 @@ import cn.edu.zhku.hyw.watchworld.store.JavaBean.PageBean;
 
 public class GoodsInfoService {
 	GoodsInfoDao dao=new GoodsInfoDaoImpl();
-	
+	public boolean findAllGoods(int StoreID,String key,PageBean<GoodsInfo> pb) {
+		return dao.findAllGoodsBykey(StoreID,key,pb);
+	}
 	public boolean findAllGoods(int StoreID,PageBean<GoodsInfo> pb) {
 		return dao.findAllGoods(StoreID, pb);
 	}

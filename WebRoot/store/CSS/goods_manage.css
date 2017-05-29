@@ -6,7 +6,12 @@
     height: 30px;
     width:100%;
 }
-
+table{
+	border: 1px solid #dcdcdc;
+}
+.head,.foot{
+	background: #ececec;
+}
 a:link,a:visited{
 	text-decoration: none;
 	color: #646464;

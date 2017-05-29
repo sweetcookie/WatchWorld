@@ -56,5 +56,5 @@ function registerStore(){
 	top.location.href=server_context+"/store/register.jsp";
 }
 function myStore(StoreID){
-	top.location.href=server_context+"/store/myStore.jsp?StoreID="+StoreID;
+	top.location.href=server_context+"/store/StoreGoodsDisplayServlet?storeID="+StoreID;
 }

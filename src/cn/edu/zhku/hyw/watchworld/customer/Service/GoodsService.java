@@ -24,7 +24,7 @@ public class GoodsService
 	 * @param goodsID
 	 * @return
 	 */
-	public GoodsInfo findByGoodsID(String goodsID)
+	public GoodsInfo findByGoodsID(int goodsID)
 	{
 		GoodsInfo info = (new GoodsInfoDao()).findByGoodsID(goodsID);
 		return info;

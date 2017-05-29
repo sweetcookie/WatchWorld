@@ -18,57 +18,54 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="expires" content="0">
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
-<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
+<link rel="stylesheet" type="text/css" href="store/CSS/order.css" />
+
 
 </head>
 
 <body>
-            
-
-		<p><font color="red">${requestScope.msg}</font></p>
-	<c:choose>
+            <p class="tittle">未接受订单&nbsp;<font color="red">${requestScope.msg}</font></p>
+<%--             <div class="msg"><p><font color="red">${requestScope.msg}</font></p></div>
+ --%>	<c:choose>
 		<c:when test="${not empty requestScope.OrderInfo}">
-		<table border="1">
 			<c:forEach var="orderInfo" items="${requestScope.OrderInfo}">
+		<table align="center" >
 			<tr>
-			<td>
-                                     订单编号:${orderInfo.orderID}
-                                     付款时间:${orderInfo.paymentTime}
+			<td class="order_head" colspan="10">
+                  <div>  订单编号:${orderInfo.orderID}      </div>
+                  <div>  付款时间:${orderInfo.paymentTime}  </div>
 			</td>
 			</tr>
-			
    				<c:forEach var="orderGoods" items="${orderInfo.orderGoods}">
-   				<tr>
-   				<td>
-		                                商品图片:${orderGoods. goodsPicturePath}
-		                                商品ID:${orderGoods.goodsID}
-		                               商品名称: ${orderGoods.goodsName}
-		                                价格:${orderGoods.price}
-		                                购买数量:${orderGoods.buyAmount}
-		                                品牌:${orderGoods.brand}
-		                               颜色: ${orderGoods.color}
-		                               型号: ${orderGoods.model}
-   				</td>
+   				<tr >
+   				<td class="pic" width="8%" style="text-align:center" >
+                    <img alt="" src="${orderGoods. goodsPicturePath}">
+                   </td>
+                   <td width="6%">ID:${orderGoods.goodsID}</td> 
+                    <td width="35%">
+                    	${orderGoods.goodsName}   
+                     </td>
+                    <td width="5%">¥${orderGoods.price}</td>
+                    <td width="5%">X${orderGoods.buyAmount}</td>
+                    <td width="20%">
+                    	品牌:${orderGoods.brand}<br>       
+                   		 颜色: <input type="color" value="${orderGoods.color}" disabled="disabled"> <br>        
+                   		型号: ${orderGoods.model}          
+   					</td>
    				</tr>
   				 </c:forEach>
-  				 
-  				 <tr>
-			<td>
-                                    收货人:${orderInfo.userName}
-                                    收货地址:${orderInfo.address}
-                                    总价格: ${orderInfo.totalPrice}
-            <a href="<%=basePath%>store/ChangeStatusServlet?OrderID=${orderInfo.orderID}">发货</a>
+  				 <tr >
+			<td class="foot" colspan="10">
+                <div class="accept"> 收货信息:${orderInfo.userName},${orderInfo.telephone},${orderInfo.address}</div>
+     			 <div class="a"><a href="<%=basePath%>store/ChangeStatusServlet?OrderID=${orderInfo.orderID}">发货</a></div>
+                <div class = "TotalPrice"> 总价格: ${orderInfo.totalPrice}</div>
 			</td>
 			</tr>
-   </c:forEach>
    </table>
+   </c:forEach>
 		</c:when>
 		<c:otherwise>
-				<tr>
-					<td>没有未发货订单</td>
-				</tr>
+				<p class="noOrder">没有未发货订单</p>
 		</c:otherwise>
 	</c:choose>
 </body>

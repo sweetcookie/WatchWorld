@@ -18,6 +18,76 @@ public class GoodsInfoDaoImpl implements GoodsInfoDao {
 	private ResultSet rs = null;
 	
 	@Override
+	public boolean findAllGoodsBykey(int storeID,String key,PageBean<GoodsInfo> pb) {
+		/**
+		 * 查询总记录数;并设置到pb对象中 
+		 */
+		int totalCount = this.getTotalCount(key);
+			pb.setTotalCount(totalCount);
+		
+		System.out.println("totalCount:"+pb.getTotalCount());
+		
+		/*
+		 * 问题： jsp页面，
+		 * 				如果中记录数为零,直接报错!
+		 * 				如果当前页为首页，再点击上一页报错！
+		 *              如果当前页为末页，再点下一页显示有问题！
+		 * 解决：
+		 * 	   1. 如果当前页 <= 0或者总记录数为0;    当前页设置当前页为1;
+		 * 	   2. 如果当前页 >= 最大页数；  当前页设置为最大页数
+		 */
+		// 判断
+		if (pb.getCurrentPage() <=0) {
+			pb.setCurrentPage(1);					    // 把当前页设置为1
+		} else if (pb.getCurrentPage() > pb.getTotalPage()){
+			pb.setCurrentPage(pb.getTotalPage());		// 把当前页设置为最大页数
+		}
+		
+		// 获取当前页： 计算查询的起始行、返回的行数
+		int currentPage = pb.getCurrentPage();
+		int index = (currentPage -1 ) * pb.getPageCount();		// 查询的起始行
+		int count = pb.getPageCount();							// 查询返回的行数
+		System.out.println("index:"+index+"count:"+count);
+		
+		
+		// 分页查询数据;  把查询到的数据设置到pb对象中
+		String sql = "select * from goods_info where StoreID=? and GoodsName like ? limit ?,?";
+		
+		try {
+			conn=JdbcUtil.getConn();
+			stmt=conn.prepareStatement(sql);
+			stmt.setInt(1, storeID);
+			stmt.setString(2, "%"+key+"%");
+			stmt.setInt(3, index);
+			stmt.setInt(4, count);
+			rs = stmt.executeQuery();
+			List<GoodsInfo> list = new ArrayList<GoodsInfo>();
+			while (rs.next()) {
+				GoodsInfo goodsInfo = new GoodsInfo();
+				goodsInfo.setGoodsID(rs.getInt("GoodsID"));
+				goodsInfo.setGoodsName(rs.getString("GoodsName"));
+				goodsInfo.setGoodsPicturePath(rs.getString("GoodsPicturePath"));
+				goodsInfo.setPrice(rs.getInt("Price"));
+				goodsInfo.setBrand(rs.getString("Brand"));
+				goodsInfo.setColor(rs.getString("Color"));
+				goodsInfo.setModel(rs.getString("Model"));
+				goodsInfo.setNumber(rs.getInt("Number"));
+				goodsInfo.setSalesVolumes(rs.getInt("SalesVolumes"));
+				goodsInfo.setStoreID(rs.getInt("StoreID"));
+				list.add(goodsInfo);
+			}
+			pb.setPageData(list);
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally { 
+			JdbcUtil.close(conn, stmt, rs);	 
+		}
+		
+		return false;
+	}
+	
+	@Override
 	public boolean findAllGoods(int StoreID, PageBean<GoodsInfo> pb) {
 		/**
 		 * 查询总记录数;并设置到pb对象中 
@@ -106,7 +176,27 @@ public class GoodsInfoDaoImpl implements GoodsInfoDao {
 		
 		
 	}
-
+	
+	@Override
+	public int getTotalCount(String key) {
+		// TODO Auto-generated method stub
+		try {
+			conn=JdbcUtil.getConn();
+			String sql = "select count(*) from goods_info where GoodsName like ?";
+			stmt = conn.prepareStatement(sql);
+			stmt.setString(1,key);
+			rs = stmt.executeQuery();
+			rs.next();
+			return rs.getInt(1);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}finally { 
+			JdbcUtil.close(conn, stmt, rs);	 
+		}
+		
+		
+	}
 
 	@Override
 	public boolean addGoods(GoodsInfo goodsInfo) {
@@ -235,11 +325,6 @@ public class GoodsInfoDaoImpl implements GoodsInfoDao {
 		return null;
 	}
 
-	@Override
-	public List<GoodsInfo> findGoodsByName(String GoodsName) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public List<GoodsInfo> findGoodsByBrand(String GoodsName) {
@@ -297,4 +382,6 @@ public class GoodsInfoDaoImpl implements GoodsInfoDao {
 		}
 		return false;
 	}
+
+	
 }

@@ -76,7 +76,8 @@ function submitForm()
 		{
 			if(data.status=="true" && data.saved=="true") //表单数据合法且已经保存到数据库中
 			{
-				window.location.href=hostpath+"customer/register/success";
+				alert("注册成功！");
+				window.location.href=hostpath+"customer/login.jsp";
 			}
 			else if(data.status=="true" && data.saved=="false")
 			{

@@ -59,12 +59,10 @@ public class CreateOrderServlet extends HttpServlet
 		PersonalDataService pdService = PersonalDataService.getInstance();
 		UserData userData = pdService.findUserDataByUserID(customerId);
 		int totalMoney = service.calcTotalMoney(ogList);
+		request.setAttribute("para", para); //将原始参数传递到下一个页面
 		request.setAttribute("dataMap", dataMap);
 		request.setAttribute("userData", userData);
 		request.setAttribute("totalMoney", totalMoney);
 		request.getRequestDispatcher("/customer/order.jsp").forward(request, response);
-		
-System.out.println(userData.getAddress());
-System.out.println((dataMap.get("8891")).get(0).getBrand());
 	}
 }

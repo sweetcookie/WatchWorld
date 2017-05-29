@@ -58,10 +58,10 @@ String path = request.getContextPath();
 	   		</div>
 	   		<div class="dataItem" id="amountItem">
 	   			<div class="label">数量：</div>
-	   			<input type="number"id="amount" min="1" value="1">
+	   			<input type="number" id="amount" min="1" value="1">
 	   		</div>
 	   		<div id="btnContainer">
-	   			<input type="button" value="立即购买" id="buyBtn">
+	   			<input type="button" value="立即购买" id="buyBtn" onclick="buyNow()">
 	   			<input type="button" value="加入购物车" id="addBtn" onclick="insertIntoShoppingCart()">
 	   		</div>
   		</div>

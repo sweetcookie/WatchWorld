@@ -61,8 +61,13 @@ public class UploadPortraitServlet extends HttpServlet
 			File smartFile = smart.getFiles().getFile(0);
 			if(smartFile.getFileExt().equals("jpg"))
 			{
-				smartFile.saveAs(request.getServletContext().getRealPath("/") + 
-						"customer" + "\\IMG\\portrait\\" + customerId + ".jpg");
+				String savePath = request.getServletContext().getRealPath("/customer/IMG/portrait/"); 
+				java.io.File file = new java.io.File(savePath);
+				if(!file.exists())
+				{
+					file.mkdirs();
+				}
+				smartFile.saveAs(savePath + "/" + customerId + ".jpg");
 				PersonalDataService service = PersonalDataService.getInstance();
 				service.updatePortrait("customer/IMG/portrait/" + customerId + ".jpg",
 										customerId);

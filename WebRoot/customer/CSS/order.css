@@ -23,3 +23,209 @@ body
 	float: left;
 	font-size: 28px;	
 }
+
+#mainContainer
+{
+	width: 100%;
+	padding： 0px;
+	margin: 0px;
+	height: auto;
+	min-height: 600px;
+}
+
+#addressContainer
+{
+	width: 100%;
+	padding: 0px;
+	margin: 0px;
+	height: 150px;
+}
+
+#addressPanel
+{
+	width: 1000px;
+	height: 150px;
+	padding: 0px;
+	margin: 0px auto;
+}
+
+.minTitle
+{
+	font-size: 20px;
+}
+
+#addressBtn
+{
+	width: 100px;
+	height: 30px;
+	float: left;
+	color: #FFFFFF;
+	background-color: #3FB2D1;
+	font-size: 18px;
+	border: 0px;
+}
+
+#addressInput
+{
+	float: left;
+	width: 500px;
+	height: 30px;
+	font-size: 20px;
+}
+
+#goodsContainer
+{
+	width: 100%;
+	padding: 0px;
+	margin: 0px;
+	height: auto;
+	min-height: 300px;
+}
+
+#tableContainer
+{
+	width: 1000px;
+	height: auto;
+	min-height: 300px;
+	margin: 0px auto;
+}
+
+table, tr
+{
+	width: 1000px;
+}
+
+.contentTr
+{
+	background-color: #F0F3F0;
+	border: 1px solid #CCCCCC;
+	height: 130px;
+}
+
+.goodsPic
+{
+	float: left;
+	margin: 0px 0px 0px 10px;
+	width: 75px;
+	height: 85px;
+}
+
+.goodsName
+{
+	float: left;
+	margin: 0px 0px 0px 10px;
+	width: 200px;
+	font-size: 14px;
+}
+
+.goodsAttr
+{
+	font-size: 14px;
+	text-align: left;
+	margin-left: 20px;
+}
+
+.goodsPrice
+{
+	color: #FF4457;
+	font-size: 18px;
+	text-align: center;
+}
+
+.goodsAmount
+{
+	font-size: 16px;
+	text-align: center;
+}
+
+.goodsTotal
+{
+	color: #FF4457;
+	font-size: 16px;
+	text-align: center;
+}
+
+#submitContain
+{
+	width: 100%;
+	padding: 0px;
+	margin: 0px;
+	height: 400px;
+}
+
+#submitPanel
+{
+	width: 1000px;
+	height: 400px;
+	margin: 0px auto;
+}
+
+#totalMoney
+{
+	text-align: right;
+	margin-top: 10px;
+}
+
+#totalMoney span
+{
+	font-size: 26px;
+	color: #FF0046;
+}
+
+#addressBar, #user, #telephone
+{
+	text-align: right;
+	margin-top: 10px;
+}
+
+#submitBtn
+{
+	float: right;
+	width: 200px;
+	height: 50px;
+	font-size: 20px;
+	color: #FFFFFF;
+	background-color: #FF0036;
+	border: 0px;
+}
+
+#pwdContainer
+{
+	height: 30px;
+	padding: 0px;
+	margin: 0px;
+	float: right;
+}
+
+#pwdConatainer p
+{
+	font-size: 20px;
+	line-height: 30px;
+}
+
+#pwd
+{
+	height: 30px;
+}
+
+#pwdSubmit
+{
+	width: 60px;
+	height: 30px;
+	color: #FFFFFF;
+	background-color: #FF0036;
+	border: 0px;
+	font-size: 14px;
+}
+
+#footer
+{
+	width: auto;
+	height: 30px;
+	background-color: #F2F2F2;
+	margin: 0px;
+	text-align: center;
+	color: #646464;
+	font-size: 14px;
+	line-height: 30px;
+}
